@@ -1,0 +1,36 @@
+{
+  "name": "yhtml5-cli",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "author": {
+    "name": "yhtml5"
+  },
+  "description": "A simple CLI for front-end projects.",
+  "bugs": {
+    "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bin": {
+    "yhtml5": "bin/yhtml5"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    "react",
+    "cli",
+    "spa"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "preferGlobal": true,
+  "scripts": {
+  }
+}
