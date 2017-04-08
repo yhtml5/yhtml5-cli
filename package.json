@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "lib/index.js",
   "author": {
@@ -32,5 +32,7 @@
   },
   "preferGlobal": true,
   "scripts": {
+    "git": "git checkout dev && git add -A && git commit -m \"auto commit\" && git merge master && git pull && git push && git checkout master && git merge dev && git pull && git push",
+    "postgit": "clear && git status"
   }
 }
