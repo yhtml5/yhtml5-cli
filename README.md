@@ -2,11 +2,9 @@
 
 A simple CLI for scaffolding Vue.js projects.
 
-
 ### question
 
-
-* link fail
+* npm link fail
 ```
 File exists: /Users/path
 npm ERR! Move it away, and try again.
@@ -14,8 +12,6 @@ npm ERR! Move it away, and try again.
 rm -rf /Users/path
 npm link
 ```
-
-
 
 ### Installation
 

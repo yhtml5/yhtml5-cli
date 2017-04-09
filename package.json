@@ -16,12 +16,18 @@
   },
   "homepage": "",
   "bin": {
-    "yhtml5": "bin/yhtml5"
+    "yhtml5": "bin/yhtml5",
+    "yhtml5-init": "bin/yhtml5-init"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "download-git-repo": "^0.2.1",
+    "inquirer": "^3.0.6",
+    "ora": "^1.2.0",
+    "user-home": "^2.0.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "keywords": [
     "react",
     "cli",
@@ -33,6 +39,7 @@
   "preferGlobal": true,
   "scripts": {
     "git": "git checkout dev && git add -A && git commit -m \"auto commit\" && git merge master && git pull && git push && git checkout master && git merge dev && git pull && git push",
-    "postgit": "clear && git status"
+    "postgit": "clear && git status",
+    "link": "rm -rf /Users/yhtml5/.nvm/versions/node/v6.9.3/bin/yhtml5 && npm link"
   }
 }
