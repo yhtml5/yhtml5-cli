@@ -33,9 +33,7 @@ const rawName = process.argv[2]
 const inPlace = !rawName || rawName === '.'
 const name = inPlace ? path.relative('../', process.cwd()) : rawName
 const to = path.resolve(rawName || '.')
-const clone = commander.clone || false
-
-const tmp = path.join(home, '.yhtml5', template.replace(/\//g, '-'))
+const address = path.join(home, '.yhtml5')
 
 if (commander.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
@@ -87,14 +85,14 @@ function ask () {
 //===== Check, download and generate the project. =====
 
 function run (template) {
-  downloadAndGenerate(template)
+  downloadAndGenerate(address)
 }
 
-function downloadAndGenerate (template) {
+function downloadAndGenerate (destination) {
   console.log('downloadAndGenerate!')
   const spinner = ora('downloading template')
   spinner.start()
-  download(template, tmp, {clone: clone}, function (err) {
+  download('yhtml5/YHTML5-Seed', destination, function (err) {
     spinner.stop()
     if (err) console.error(chalk.red('Failed to download repo ' + template + ': ' + err.message.trim()))
     generate(name, tmp, to, function (err) {
