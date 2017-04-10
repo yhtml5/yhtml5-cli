@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-cli",
-  "version": "0.0.3",
+  "version": "0.2.1",
   "license": "MIT",
   "main": "lib/index.js",
   "author": {
@@ -42,7 +42,6 @@
   "preferGlobal": true,
   "scripts": {
     "git": "git checkout dev && git add -A && git commit -m \"auto commit\" && git merge master && git pull && git push && git checkout master && git merge dev && git pull && git push",
-    "postgit": "clear && git status",
-    "link": "rm -rf /Users/yhtml5/.nvm/versions/node/v6.9.3/bin/yhtml5 && npm link"
+    "postgit": "clear && git status"
   }
 }
