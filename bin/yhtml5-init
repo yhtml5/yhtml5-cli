@@ -6,11 +6,12 @@ const chalk = require('chalk')
 const home = require('user-home')
 const inquirer = require('inquirer')
 const commander = require('commander')
+const generate = require('../lib/generate')
 const download = require('download-git-repo')
 
 //===== Usage. =====
 commander
-  .usage('<template-name> [project-name]')
+  .usage('[project-name]')
   .option('-n', 'null')
 
 //===== Help. =====
@@ -30,10 +31,12 @@ help()
 
 //===== Settings. =====
 const rawName = process.argv[2]
-const inPlace = !rawName || rawName === '.'
-const name = inPlace ? path.relative('../', process.cwd()) : rawName
-const to = path.resolve(rawName || '.')
-const address = path.join(home, '.yhtml5')
+const cachePath = path.join(home, '.yhtml5')
+const projectPatch = path.resolve(rawName || '.')
+const isExists = fs.existsSync(projectPatch)
+const currentDirectory = path.relative('../', process.cwd())
+
+console.log(cachePath, projectPatch, currentDirectory, isExists)
 
 if (commander.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
@@ -45,24 +48,20 @@ process.on('exit', function () {
   console.log()
 })
 
-if (fs.existsSync(to)) {
-  inquirer
-    .prompt([
-      {
-        name: 'ok',
-        type: 'confirm',
-        message: inPlace
-          ? 'Generate project in current directory?'
-          : 'Target directory exists. Continue?',
-      }])
-    .then(function (answers) {
-      if (answers.ok) {
-        ask()
-      }
-    })
-} else {
-  ask()
-}
+inquirer
+  .prompt([
+    {
+      name: 'ok',
+      type: 'confirm',
+      message: isExists
+        ? 'Target directory exists. Continue?'
+        : 'Generate project in current directory?'
+    }])
+  .then(function (answers) {
+    if (answers.ok) {
+      ask()
+    }
+  })
 
 function ask () {
   inquirer
@@ -85,25 +84,29 @@ function ask () {
 //===== Check, download and generate the project. =====
 
 function run (template) {
-  downloadAndGenerate(address)
+  checkVersion()
+  // downloadAndGenerate(cachePath)
+  generate(projectPatch, cachePath, function (err) {
+    if (err) console.error(chalk.red(err))
+    console.log(chalk.green('Generated success, the project is in the ', projectPatch))
+  })
 }
 
 function downloadAndGenerate (destination) {
-  console.log('downloadAndGenerate!')
-  const spinner = ora('downloading template')
+  const spinner = ora('downloading template...')
   spinner.start()
   download('yhtml5/YHTML5-Seed', destination, function (err) {
     spinner.stop()
     if (err) console.error(chalk.red('Failed to download repo ' + template + ': ' + err.message.trim()))
-    generate(name, tmp, to, function (err) {
+    generate(projectPatch, cachePath, function (err) {
       if (err) console.error(chalk.red(err))
-      console.log(chalk.green('Generated "%s".', name))
+      console.log(chalk.green('Generated success, the project is in the ', projectPatch))
     })
   })
 }
 
-function generate () {
-  console.log('generate!')
+function checkVersion () {
+  console.log('checkVersion!')
 }
 
 function done () {

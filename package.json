@@ -25,6 +25,7 @@
     "download-git-repo": "^0.2.1",
     "inquirer": "^3.0.6",
     "ora": "^1.2.0",
+    "shelljs": "^0.7.7",
     "user-home": "^2.0.0"
   },
   "devDependencies": {},
