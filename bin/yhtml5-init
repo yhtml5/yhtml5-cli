@@ -71,12 +71,14 @@ function ask () {
         type: 'list',
         message: 'which template do you need ?',
         choices: [
-          'react (This version only supports react)',
+          'react-dashboard (This version only supports react-dashboard)',
+          'react-mobile (No support yet)',
           'vue (No support yet)',
-          'angular (No support yet)']
+          'angular (No support yet)'
+        ]
       }])
     .then(function (answers) {
-      run('react')
+      run('react-dashboard')
     })
 }
 
