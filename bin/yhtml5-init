@@ -96,7 +96,7 @@ function downloadAndGenerate (destination) {
   download('yhtml5/YHTML5-Seed', destination, function (err) {
     spinner.stop()
     if (err) console.error(chalk.red('Failed to download repo ' + template + ': ' + err.message.trim()))
-    generate(projectPatch, cachePath + '/apps/react/*', function (err) {
+    generate(projectPatch, cachePath + '/apps/react-dashboard/*', function (err) {
       if (err) console.error(chalk.red(err))
       console.log(chalk.green('Generated success, the project is in the ', projectPatch))
       done(projectPatch)
