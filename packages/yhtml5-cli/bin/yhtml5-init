@@ -24,7 +24,7 @@ commander.on('--help', function () {
   console.log(chalk.cyan('    $ yhtml5 init project-name\n'))
 })
 
-function help () {
+function help() {
   commander.parse(process.argv)
   if (commander.args.length < 1) return commander.help()
 }
@@ -55,7 +55,7 @@ inquirer
       type: 'confirm',
       message: isExists
         ? 'Target directory exists. Continue?'
-        : 'Generate project in current directory?'
+        : `Generate project in ${projectPatch} directory ?`
     }])
   .then(function (answers) {
     if (answers.ok) {
@@ -63,7 +63,7 @@ inquirer
     }
   })
 
-function ask () {
+function ask() {
   inquirer
     .prompt([
       {
@@ -84,13 +84,13 @@ function ask () {
 
 //===== Check, download and generate the project. =====
 
-function run (template) {
+function run(template) {
   checkVersion(cachePath)
   // done(projectPatch)
   downloadAndGenerate(cachePath)
 }
 
-function downloadAndGenerate (destination) {
+function downloadAndGenerate(destination) {
   const spinner = ora('downloading template...')
   spinner.start()
   download('yhtml5/YHTML5-Seed', destination, function (err) {
