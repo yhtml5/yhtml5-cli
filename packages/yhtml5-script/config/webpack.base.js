@@ -6,6 +6,10 @@ const { htmlLoader, markdownLoader, pcssLoader, jsLoader, imageLoader, fontLoade
 const { version, title } = require('./config')()
 
 module.exports = function () {
+  console.log(path.resolve(__dirname))
+
+  return
+  
   console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')
 
   return {
