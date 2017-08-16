@@ -6,16 +6,12 @@ const { htmlLoader, markdownLoader, pcssLoader, jsLoader, imageLoader, fontLoade
 const { version, title } = require('./config')()
 
 module.exports = function () {
-  console.log(path.resolve(__dirname))
-
-  return
-  
   console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')
 
   return {
     // context: path.resolve(__dirname, "./app"),
     entry: {
-      author: './build/template/author.js',
+      author: '../template/author.js',
       index: (process.env.NODE_ENV === 'development')
         ? ['react-hot-loader/patch', 'webpack-hot-middleware/client', './app/index.jsx']
         : ['./app/index.jsx'],

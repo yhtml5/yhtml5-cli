@@ -11,6 +11,7 @@ function config() {
     origin: 'http://' + hostname + ':' + port,
     analyzerPort: 9992,
     distributePort: 9993,
+    webpackContext: '',
     domain: '',
     pages: [{
       key: 'app',
