@@ -57,13 +57,16 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config before eject: we're in ./node_modules/react-scripts/config/
 module.exports = {
-  dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('.'),
+  appConfig: resolveApp(`config.js`),
+  appPackageJson: resolveApp('package.json'),
+  appIndexJs: resolveApp(`./${require('config.js').entry}`),
+  appHtmlTmplate: resolveApp(`./${require('config.js').templateHtml}`),
+
+  dotenv: resolveApp('.env'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
-  appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
@@ -82,28 +85,6 @@ const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-// console.log('paths', {
-//   appPath: resolveApp('demo'),
-//   appBuild: resolveOwn('demo'),
-//   appIndexJs: resolveOwn(`demo/${customConfig.entry}`),
-//   appConfig: resolveOwn(`demo/config.js`),
-//   appPackageJson: resolveOwn('package.json'),
-//   appHtmlTmplate: resolveOwn('demo/template/template.js'),
-//   // appHtml: resolveOwn('template/public/index.html'),
-//   dotenv: resolveOwn('template/.env'),
-//   appPublic: resolveOwn('template/public'),
-//   appSrc: resolveOwn('template/src'),
-//   yarnLockFile: resolveOwn('template/yarn.lock'),
-//   testsSetup: resolveOwn('template/src/setupTests.js'),
-//   appNodeModules: resolveOwn('node_modules'),
-//   publicUrl: getPublicUrl(resolveOwn('package.json')),
-//   servedPath: getServedPath(resolveOwn('package.json')),
-//   // These properties only exist before ejecting:
-//   ownPath: resolveOwn('.'),
-//   ownNodeModules: resolveOwn('node_modules'),
-// })
-// return
-
 // config before publish: we're in ./packages/yhtml5-scripts/config/
 if (
   !reactScriptsLinked &&
@@ -116,6 +97,7 @@ if (
     appConfig: resolveOwn(`demo/config.js`),
     appPackageJson: resolveOwn('package.json'),
     appHtmlTmplate: resolveOwn(`demo/${customConfig.templateHtml}`),
+
     appHtml: resolveOwn('template/public/index.html'),
     dotenv: resolveOwn('template/.env'),
     appPublic: resolveOwn('template/public'),
