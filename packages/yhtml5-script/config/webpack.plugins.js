@@ -7,6 +7,8 @@ const { version, title, analyzerPort } = require('./config')()
 
 const webpackExtractPcss = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.pcss.css`)
 const webpackExtractAntd = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.antd.css`)
+const webpackExtractInInternal = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.internal.css`)
+const webpackExtractExternal = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.css`)
 
 const webpackDefinePlugin = new webpack.DefinePlugin({
   'process.env': {
@@ -98,6 +100,8 @@ module.exports = {
   webpackDefinePlugin,
   webpackExtractPcss,
   webpackExtractAntd,
+  webpackExtractInInternal,
+  webpackExtractExternal,
   webpackHtmlPlugin,
   webpackUglifyJsPlugin,
 }
