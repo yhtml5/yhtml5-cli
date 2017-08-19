@@ -153,6 +153,43 @@ const pcssLoader = {
   })
 }
 
+const cssInternalLoader = {
+  test: /\.css$/,
+  exclude: /\.internal.css$/,
+  use: ExtractTextPluginExternal.extract({
+    fallback: "style-loader",
+    use: [{
+      loader: 'css-loader',
+      options: {
+        modules: false,
+        minimize: process.env.NODE_ENV === 'production',
+        sourceMap: false,
+        plugins: function () {
+          require('autoprefixer')({/* ...options */ })
+        }
+      }
+    }]
+  })
+}
+
+const cssExternalLoader = {
+  test: /\.internal.css$/,
+  use: ExtractTextPluginInternal.extract({
+    fallback: "style-loader",
+    use: [{
+      loader: 'css-loader',
+      options: {
+        modules: false,
+        minimize: process.env.NODE_ENV === 'production',
+        sourceMap: false,
+        plugins: function () {
+          require('autoprefixer')({/* ...options */ })
+        }
+      }
+    }]
+  })
+}
+
 const cssLoader = {
   test: /\.css$/,
   //include: /wangeditor/,
