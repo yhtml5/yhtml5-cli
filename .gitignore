@@ -1,4 +1,6 @@
-.idea/
+.idea
 vue-cli
-/npm-debug.log
+npm-debug.log
 node_modules
+my-app
+create-react-app

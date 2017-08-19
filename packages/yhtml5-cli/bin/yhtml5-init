@@ -1,0 +1,105 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const ora = require('ora')
+const path = require('path')
+const chalk = require('chalk')
+const home = require('user-home')
+const inquirer = require('inquirer')
+const commander = require('commander')
+const download = require('download-git-repo')
+const done = require('../lib/done')
+const generate = require('../lib/generate')
+const checkVersion = require('../lib/check-version')
+
+//===== Usage. =====
+commander
+  .usage('[project-name]')
+  .option('-n', 'null')
+
+//===== Help. =====
+
+commander.on('--help', function () {
+  console.log('  Examples:\n')
+  console.log('    # create a new project with a yhtml5 template')
+  console.log(chalk.cyan('    $ yhtml5 init project-name\n'))
+})
+
+function help() {
+  commander.parse(process.argv)
+  if (commander.args.length < 1) return commander.help()
+}
+
+help()
+
+//===== Settings. =====
+const rawName = process.argv[2]
+const cachePath = path.join(home, '.yhtml5')
+const projectPatch = path.resolve(rawName || '.')
+const isExists = fs.existsSync(projectPatch)
+const currentDirectory = path.relative('../', process.cwd())
+
+if (commander.offline) {
+  console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
+  template = tmp
+}
+
+//===== Padding. =====
+process.on('exit', function () {
+  console.log()
+})
+
+inquirer
+  .prompt([
+    {
+      name: 'ok',
+      type: 'confirm',
+      message: isExists
+        ? 'Target directory exists. Continue?'
+        : `Generate project in ${projectPatch} directory ?`
+    }])
+  .then(function (answers) {
+    if (answers.ok) {
+      ask()
+    }
+  })
+
+function ask() {
+  inquirer
+    .prompt([
+      {
+        name: 'type',
+        type: 'list',
+        message: 'which template do you need ?',
+        choices: [
+          'react-dashboard (This version only supports react-dashboard)',
+          'react-mobile (No support yet)',
+          'vue (No support yet)',
+          'angular (No support yet)'
+        ]
+      }])
+    .then(function (answers) {
+      run('react-dashboard')
+    })
+}
+
+//===== Check, download and generate the project. =====
+
+function run(template) {
+  checkVersion(cachePath)
+  // done(projectPatch)
+  downloadAndGenerate(cachePath)
+}
+
+function downloadAndGenerate(destination) {
+  const spinner = ora('downloading template...')
+  spinner.start()
+  download('yhtml5/YHTML5-Seed', destination, function (err) {
+    spinner.stop()
+    if (err) console.error(chalk.red('Failed to download repo ' + template + ': ' + err.message.trim()))
+    generate(projectPatch, cachePath + '/apps/react-dashboard/*', function (err) {
+      if (err) console.error(chalk.red(err))
+      console.log(chalk.green('Generated success, the project is in the ', projectPatch))
+      done(projectPatch)
+    })
+  })
+}
