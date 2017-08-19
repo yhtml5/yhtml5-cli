@@ -3,4 +3,5 @@ vue-cli
 npm-debug.log
 node_modules
 my-app
+dist
 create-react-app
