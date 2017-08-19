@@ -56,13 +56,16 @@ module.exports = {
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config before eject: we're in ./node_modules/react-scripts/config/
+
+const customConfigNpm = require(resolveApp(`config.js`))
+
 module.exports = {
   appPath: resolveApp('.'),
   appBuild: resolveApp('.'),
   appConfig: resolveApp(`config.js`),
   appPackageJson: resolveApp('package.json'),
-  appIndexJs: resolveApp(`./${require('config.js').entry}`),
-  appHtmlTmplate: resolveApp(`./${require('config.js').templateHtml}`),
+  appIndexJs: resolveApp(`./${customConfigNpm.entry}`),
+  appHtmlTmplate: resolveApp(`./${customConfigNpm.templateHtml}`),
 
   dotenv: resolveApp('.env'),
   appPublic: resolveApp('public'),
