@@ -1,10 +1,6 @@
 {
   "name": "yhtml5-cli",
-<<<<<<< HEAD
-  "version": "0.2.5",
-=======
   "version": "0.2.7",
->>>>>>> 9797998f3ae3714a1d582fa888d605ef99f8adb4
   "license": "MIT",
   "main": "",
   "author": {
