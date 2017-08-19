@@ -3,5 +3,10 @@ vue-cli
 npm-debug.log
 node_modules
 my-app
+<<<<<<< HEAD
 create-react-app
 /**/package-lock.json
+=======
+dist
+create-react-app
+>>>>>>> 7bd76cfa9b7e1bfeef33b0b73d7f3ee64bc55f33
