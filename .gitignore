@@ -5,3 +5,4 @@ node_modules
 my-app
 dist
 create-react-app
+package-lock.json
