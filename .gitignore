@@ -6,3 +6,4 @@ my-app
 dist
 create-react-app
 package-lock.json
+/**/package-lock.json
