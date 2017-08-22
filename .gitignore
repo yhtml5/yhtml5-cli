@@ -5,5 +5,10 @@ node_modules
 my-app
 dist
 create-react-app
+<<<<<<< HEAD
 package-lock.json
 /**/package-lock.json
+=======
+/**/package-lock.json
+dist
+>>>>>>> 08cbaba998f8234b60cf914a689134bf5e8a5159
