@@ -1,0 +1,39 @@
+{
+  "name": "yhtml5-test",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "author": {
+    "name": "yhtml5"
+  },
+  "description": "A test framework for front-end projects.",
+  "bugs": {
+    "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bin": {
+    "yhtml5-test": "./bin/yhtml5-test.js"
+  },
+  "dependencies": {
+    
+  },
+  "devDependencies": {},
+  "keywords": [
+    "react",
+    "cli",
+    "spa"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "pregit": "git status",
+    "git": "git commit -am",
+    "postgit": "git merge master && git pull && git push && git status",
+    "release": "npm run git && npm publish"
+  }
+}
