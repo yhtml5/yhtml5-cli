@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-test",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects.",
@@ -16,9 +16,12 @@
     "babel-jest": "^21.0.2",
     "babel-preset-react-app": "^3.0.2",
     "cross-spawn": "^5.1.0",
+    "enzyme": "^2.9.1",
     "jest": "^21.1.0",
+    "jest-enzyme": "^3.8.2",
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
+    "react-test-renderer": "^15.6.1",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {},
