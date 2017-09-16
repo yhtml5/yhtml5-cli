@@ -76,6 +76,8 @@ const isPublish = !reactScriptsLinked &&
   reactScriptsPath,
   reactScriptsLinked,
   isPublish,
+  isPublishPath: path.join('packages', 'yhtml5-scripts', 'utils'),
+  isPublishPathIndexOf: __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'utils')) !== -1,
   __dirname,
   appSrc: resolveOwn('demo/src'),
   testsSetup: resolveOwn('demo/src/setupTests.js'),

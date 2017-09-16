@@ -1,22 +1,18 @@
 {
   "name": "yhtml5-test",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "lib/index.js",
+  "description": "A test framework for front-end projects.",
   "author": {
     "name": "yhtml5"
   },
-  "description": "A test framework for front-end projects.",
-  "bugs": {
-    "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "homepage": "",
-  "bin": {
-    "yhtml5-test": "./bin/yhtml5-test.js"
+  "scripts": {
+    "test": "clear && yhtml5-test --env=jsdom",
+    "test:c": "npm test -- --coverage",
+    "git": "clear && git commit -am",
+    "postgit": "git merge origin/master && git pull && git push && git status",
+    "prepublish": "npm version patch"
   },
   "dependencies": {
     "babel-jest": "^21.0.2",
@@ -28,6 +24,14 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
+  },
+  "repository": "https://github.com/yhtml5/YHTML5-CLI",
+  "homepage": "",
+  "bin": {
+    "yhtml5-test": "./bin/yhtml5-test.js"
+  },
   "keywords": [
     "react",
     "cli",
@@ -35,12 +39,5 @@
   ],
   "engines": {
     "node": ">=4.0.0"
-  },
-  "scripts": {
-    "test": "clear && yhtml5-test --env=jsdom",
-    "test:c": "npm test -- --coverage",
-    "git": "clear && git commit -am",
-    "postgit": "git merge origin/master && git pull && git push && git status",
-    "release": "npm run git && npm publish"
   }
 }
