@@ -39,8 +39,8 @@
   "scripts": {
     "test": "clear && yhtml5-test --env=jsdom",
     "test:c": "npm test -- --coverage",
-    "git": "git commit -am",
-    "postgit": "git merge master && git pull && git push && git status",
+    "git": "clear && git commit -am",
+    "postgit": "git merge origin/master && git pull && git push && git status",
     "release": "npm run git && npm publish"
   }
 }
