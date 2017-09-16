@@ -1,27 +1,22 @@
-// @remove-file-on-eject
-/**
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
 'use strict';
 
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
+const { testMatch } = require('../.config.js')
 
 // relativePath => path.resolve(__dirname, '..', relativePath),
 // path.resolve(paths.appSrc, '..'),
 // false
 
+
+const customTestMatch = 1
+
 module.exports = (resolve, rootDir, isEjecting) => {
   // Use this instead of `paths.testsSetup` to avoid putting
   // an absolute filename into configuration after ejecting.
   const setupTestsFile = fs.existsSync(paths.testsSetup)
-    ? '<rootDir>/src/setupTests.js'
+    ? `${rootDir}/src/setupTests.js`
     : undefined;
 
   // TODO: I don't know if it's safe or not to just use / as path separator
@@ -31,14 +26,14 @@ module.exports = (resolve, rootDir, isEjecting) => {
     setupFiles: [resolve('utils/polyfills.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
-      '<rootDir>/src/**/__tests__/**/*.js?(x)',
-      '<rootDir>/src/**/?(*.)(spec|test).js?(x)',
-    ],
+      `${rootDir}/src/**/__tests__/**/*.js?(x)`,
+      `${rootDir}/src/**/?(*.)(spec|test).js?(x)`,
+    ].concat(testMatch),
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
       '^.+\\.(js|jsx)$': isEjecting
-        ? '<rootDir>/node_modules/babel-jest'
+        ? `${rootDir}/node_modules/babel-jest`
         : resolve('utils/babelTransform.js'),
       '^.+\\.css$': resolve('utils/cssTransform.js'),
       '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
@@ -91,8 +86,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
     }
   }
 
-  !paths.isPublish && console.log('\ncreateJestConfig.js\n', {
+  paths.isBeforePublish && console.log('\ncreateJestConfig.js\n', {
     rootDir,
+    testMatch,
     setupTestsFile,
     overrides,
     config

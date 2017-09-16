@@ -23,12 +23,12 @@ const result = spawn.sync(
   { stdio: 'inherit' }
 );
 
-!paths.isPublish && console.log('\nyhtml5-test.js', {
+paths.isBeforePublish && console.log('\nyhtml5-test.js', {
   args: args,
   scriptIndex: scriptIndex,
   script: script,
   nodeArgs: nodeArgs,
-  result:result.signal
+  result: result.signal
 })
 
 if (result.signal) {

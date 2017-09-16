@@ -67,29 +67,29 @@ const reactScriptsLinked =
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
 // config before publish: we're in ./packages/yhtml5-test/utils/
-const isPublish = !reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'utils')) !== -1
+const isBeforePublish = !reactScriptsLinked &&
+  __dirname.indexOf(path.join('packages', 'yhtml5-test', 'utils')) !== -1
 
-!isPublish && console.log('\npaths.js\n', {
+isBeforePublish && console.log('\npaths.js\n', {
   appDirectory,
   // ownPackageJson,
   reactScriptsPath,
   reactScriptsLinked,
-  isPublish,
-  isPublishPath: path.join('packages', 'yhtml5-scripts', 'utils'),
-  isPublishPathIndexOf: __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'utils')) !== -1,
+  isBeforePublish,
+  isBeforePublishPath: path.join('packages', 'yhtml5-test', 'utils'),
+  isBeforePublishIndexOf: __dirname.indexOf(path.join('packages', 'yhtml5-test', 'utils')) !== -1,
   __dirname,
   appSrc: resolveOwn('demo/src'),
   testsSetup: resolveOwn('demo/src/setupTests.js'),
   appPath: resolveApp('.'),
 })
 
-if (!isPublish) {
+if (isBeforePublish) {
   module.exports = {
     appSrc: resolveOwn('demo/src'),
     appPackageJson: resolveOwn('package.json'),
     testsSetup: resolveOwn('demo/src/setupTests.js'),
-    isPublish,
+    isBeforePublish,
 
     // appPath: resolveApp('.'),
     // dotenv: resolveOwn('template/.env'),

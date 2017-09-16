@@ -35,7 +35,7 @@ const jestConfig = createJestConfig(
   false
 )
 
-!paths.isPublish && console.log('\ntest.js\n', {
+paths.isBeforePublish && console.log('\ntest.js\n', {
   'process.argv': process.argv,
   paths,
   argv,
