@@ -41,24 +41,25 @@ function getServedPath(appPackageJson) {
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config after publish: we're in ./node_modules/react-scripts/config/
-// module.exports = {
-// dotenv: resolveApp('.env'),
-// appPath: resolveApp('.'),
-// appBuild: resolveApp('build'),
-// appPublic: resolveApp('public'),
-// appHtml: resolveApp('public/index.html'),
-// appIndexJs: resolveApp('src/index.js'),
-// appPackageJson: resolveApp('package.json'),
-// appSrc: resolveApp('src'),
-// yarnLockFile: resolveApp('yarn.lock'),
-// testsSetup: resolveApp('src/setupTests.js'),
-// appNodeModules: resolveApp('node_modules'),
-// publicUrl: getPublicUrl(resolveApp('package.json')),
-// servedPath: getServedPath(resolveApp('package.json')),
-// These properties only exist before ejecting:
-// ownPath: resolveOwn('.'),
-// ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
-// };
+module.exports = {
+  appSrc: resolveApp('src'),
+  appPackageJson: resolveApp('package.json'),
+  testsSetup: resolveApp('src/setupTests.js'),
+
+  // dotenv: resolveApp('.env'),
+  // appPath: resolveApp('.'),
+  // appBuild: resolveApp('build'),
+  // appPublic: resolveApp('public'),
+  // appHtml: resolveApp('public/index.html'),
+  // appIndexJs: resolveApp('src/index.js'),
+  // yarnLockFile: resolveApp('yarn.lock'),
+  // appNodeModules: resolveApp('node_modules'),
+  // publicUrl: getPublicUrl(resolveApp('package.json')),
+  // servedPath: getServedPath(resolveApp('package.json')),
+  // // These properties only exist before ejecting:
+  // ownPath: resolveOwn('.'),
+  // ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
+};
 
 const ownPackageJson = require('../package.json');
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
