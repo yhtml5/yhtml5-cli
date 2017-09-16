@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-test",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects.",
@@ -10,7 +10,7 @@
     "test:c": "npm test -- --coverage",
     "git": "clear && git commit -am",
     "postgit": "git merge origin/master && git pull && git push && git status",
-    "prepublish": "npm version patch"
+    "prepublishOnly": "npm version patch"
   },
   "dependencies": {
     "babel-jest": "^21.0.2",

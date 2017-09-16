@@ -42,12 +42,12 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config after publish: we're in ./node_modules/react-scripts/config/
 module.exports = {
+  appPath: resolveApp('.'),
   appSrc: resolveApp('src'),
   appPackageJson: resolveApp('package.json'),
   testsSetup: resolveApp('src/setupTests.js'),
 
   // dotenv: resolveApp('.env'),
-  // appPath: resolveApp('.'),
   // appBuild: resolveApp('build'),
   // appPublic: resolveApp('public'),
   // appHtml: resolveApp('public/index.html'),
@@ -87,12 +87,12 @@ isBeforePublish && console.log('\npaths.js\n', {
 
 if (isBeforePublish) {
   module.exports = {
+    appPath: resolveApp('.'),
     appSrc: resolveOwn('demo/src'),
     appPackageJson: resolveOwn('package.json'),
     testsSetup: resolveOwn('demo/src/setupTests.js'),
     isBeforePublish,
 
-    // appPath: resolveApp('.'),
     // dotenv: resolveOwn('template/.env'),
     // appBuild: resolveOwn('../../build'),
     // appPublic: resolveOwn('template/public'),

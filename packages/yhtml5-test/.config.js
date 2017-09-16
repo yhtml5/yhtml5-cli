@@ -1,8 +1,8 @@
 /**
  * the config of yhtml5
  */
-
-const { isBeforePublish } = require('./utils/paths')
+const path = require('path');
+const { isBeforePublish, appPath } = require('./utils/paths')
 
 // config after publish: we're in ./node_modules/yhtml5-test/
 const Config = !isBeforePublish
@@ -12,6 +12,8 @@ const Config = !isBeforePublish
 const { test = {} } = Config
 const { testMatch = [] } = test
 
+const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
+
 module.exports = {
-  testMatch
+  testMatch: _testMatch
 }
