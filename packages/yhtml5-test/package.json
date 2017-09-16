@@ -4,9 +4,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects.",
-  "author": {
-    "name": "yhtml5"
-  },
+  "author": "yhtml5",
   "scripts": {
     "test": "clear && yhtml5-test --env=jsdom",
     "test:c": "npm test -- --coverage",
