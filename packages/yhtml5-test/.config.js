@@ -1,12 +1,20 @@
 /**
- * the config of yhtml5
+ * The config of yhtml5
+ * TODO
+ * 
  */
+
+const fs = require('fs');
 const path = require('path');
 const { isBeforePublish, appPath } = require('./utils/paths')
 
+const hasConfigJs = fs.existsSync(path.resolve(appPath, './.config.js'))
+
 // config after publish: we're in ./node_modules/yhtml5-test/
 const Config = !isBeforePublish
-  ? require('../../.config.js')
+  ? hasConfigJs
+    ? require('../../.config.js')
+    : {}
   : {}
 
 const { test = {} } = Config
