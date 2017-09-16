@@ -11,7 +11,11 @@
 
 const fs = require('fs');
 const chalk = require('chalk');
-const paths = require('../../config/paths');
+const paths = require('./paths');
+
+// relativePath => path.resolve(__dirname, '..', relativePath),
+// path.resolve(paths.appSrc, '..'),
+// false
 
 module.exports = (resolve, rootDir, isEjecting) => {
   // Use this instead of `paths.testsSetup` to avoid putting
@@ -24,7 +28,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
     collectCoverageFrom: ['src/**/*.{js,jsx}'],
-    setupFiles: [resolve('config/polyfills.js')],
+    setupFiles: [resolve('utils/polyfills.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.js?(x)',
@@ -35,9 +39,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
     transform: {
       '^.+\\.(js|jsx)$': isEjecting
         ? '<rootDir>/node_modules/babel-jest'
-        : resolve('config/jest/babelTransform.js'),
-      '^.+\\.css$': resolve('config/jest/cssTransform.js'),
-      '^(?!.*\\.(js|jsx|css|json)$)': resolve('config/jest/fileTransform.js'),
+        : resolve('utils/babelTransform.js'),
+      '^.+\\.css$': resolve('utils/cssTransform.js'),
+      '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
     },
     transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
     moduleNameMapper: {
@@ -67,24 +71,31 @@ module.exports = (resolve, rootDir, isEjecting) => {
       console.error(
         chalk.red(
           'Out of the box, Create React App only supports overriding ' +
-            'these Jest options:\n\n' +
-            supportedKeys.map(key => chalk.bold('  \u2022 ' + key)).join('\n') +
-            '.\n\n' +
-            'These options in your package.json Jest configuration ' +
-            'are not currently supported by Create React App:\n\n' +
-            unsupportedKeys
-              .map(key => chalk.bold('  \u2022 ' + key))
-              .join('\n') +
-            '\n\nIf you wish to override other Jest options, you need to ' +
-            'eject from the default setup. You can do so by running ' +
-            chalk.bold('npm run eject') +
-            ' but remember that this is a one-way operation. ' +
-            'You may also file an issue with Create React App to discuss ' +
-            'supporting more options out of the box.\n'
+          'these Jest options:\n\n' +
+          supportedKeys.map(key => chalk.bold('  \u2022 ' + key)).join('\n') +
+          '.\n\n' +
+          'These options in your package.json Jest configuration ' +
+          'are not currently supported by Create React App:\n\n' +
+          unsupportedKeys
+            .map(key => chalk.bold('  \u2022 ' + key))
+            .join('\n') +
+          '\n\nIf you wish to override other Jest options, you need to ' +
+          'eject from the default setup. You can do so by running ' +
+          chalk.bold('npm run eject') +
+          ' but remember that this is a one-way operation. ' +
+          'You may also file an issue with Create React App to discuss ' +
+          'supporting more options out of the box.\n'
         )
       );
       process.exit(1);
     }
   }
+
+  !paths.isPublish && console.log('\ncreateJestConfig.js\n', {
+    rootDir,
+    setupTestsFile,
+    overrides,
+    config
+  })
   return config;
 };

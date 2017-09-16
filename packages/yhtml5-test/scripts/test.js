@@ -7,7 +7,7 @@ process.env.NODE_ENV = 'test';
 
 const jest = require('jest');
 const path = require('path');
-const paths = require('../config/paths');
+const paths = require('../utils/paths');
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
@@ -23,22 +23,32 @@ const argv = process.argv.slice(2);
 
 // Watch unless on CI or in coverage mode
 // if (!process.env.CI && argv.indexOf('--coverage') < 0) {
-  // argv.push('--watch');
+// argv.push('--watch');
 // }
 
 // This is not necessary after eject because we embed config into package.json.
-const createJestConfig = require('./utils/createJestConfig');
+const createJestConfig = require('../utils/createJestConfig');
+
+const jestConfig = createJestConfig(
+  relativePath => path.resolve(__dirname, '..', relativePath),
+  path.resolve(paths.appSrc, '..'),
+  false
+)
+
+!paths.isPublish && console.log('\ntest.js\n', {
+  'process.argv': process.argv,
+  paths,
+  argv,
+  jestConfig,
+})
 
 argv.push(
   '--config',
   JSON.stringify(
-    createJestConfig(
-      relativePath => path.resolve(__dirname, '..', relativePath),
-      path.resolve(paths.appSrc, '..'),
-      false
-    )
+    jestConfig
   )
 );
+
 jest.run(argv);
 
 

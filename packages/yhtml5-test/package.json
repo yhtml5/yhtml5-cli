@@ -19,7 +19,13 @@
     "yhtml5-test": "./bin/yhtml5-test.js"
   },
   "dependencies": {
-    
+    "babel-jest": "^21.0.2",
+    "babel-preset-react-app": "^3.0.2",
+    "cross-spawn": "^5.1.0",
+    "jest": "^21.1.0",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.1",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {},
   "keywords": [
@@ -31,7 +37,8 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "pregit": "git status",
+    "test": "clear && yhtml5-test --env=jsdom",
+    "test:c": "npm test -- --coverage",
     "git": "git commit -am",
     "postgit": "git merge master && git pull && git push && git status",
     "release": "npm run git && npm publish"
