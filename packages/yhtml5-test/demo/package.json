@@ -18,5 +18,8 @@
     "test:c": "npm test -- --coverage",
     "test:a": "source-map-explorer build/static/js/main.*",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "yhtml5-test": "0.0.10"
   }
 }
