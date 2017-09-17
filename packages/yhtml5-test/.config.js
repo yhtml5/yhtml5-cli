@@ -18,10 +18,11 @@ const Config = !isBeforePublish
   : {}
 
 const { test = {} } = Config
-const { testMatch = [] } = test
+const { testMatch = [], transformIgnorePatterns = [] } = test
 
 const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 
 module.exports = {
-  testMatch: _testMatch
+  testMatch: _testMatch,
+  transformIgnorePatterns
 }

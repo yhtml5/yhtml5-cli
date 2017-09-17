@@ -3,7 +3,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
-const { testMatch } = require('../.config.js')
+const { testMatch, transformIgnorePatterns } = require('../.config.js')
 
 // relativePath => path.resolve(__dirname, '..', relativePath),
 // path.resolve(paths.appSrc, '..'),
@@ -38,7 +38,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '^.+\\.css$': resolve('utils/cssTransform.js'),
       '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
     },
-    transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+    transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$']
+      .concat(transformIgnorePatterns),
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
     },
