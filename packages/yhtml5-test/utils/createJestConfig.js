@@ -38,8 +38,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '^.+\\.css$': resolve('utils/cssTransform.js'),
       '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
     },
-    transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$']
-      .concat(transformIgnorePatterns),
+    transformIgnorePatterns: transformIgnorePatterns.length
+      ? transformIgnorePatterns
+      : ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
     },

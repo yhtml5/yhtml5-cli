@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { rendersWithoutCrashing } from 'yhtml5-test/case';
 import App from './App';
 import { shallow } from 'enzyme';
 import 'jest-enzyme';
+
+rendersWithoutCrashing('Components.App', App)
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

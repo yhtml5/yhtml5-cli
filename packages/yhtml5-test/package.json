@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-test",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects.",
@@ -8,6 +8,7 @@
   "scripts": {
     "test": "clear && yhtml5-test --env=jsdom",
     "test:c": "npm test -- --coverage",
+    "test:i": "npm i yhtml5-test@latest -D",
     "git": "clear && git commit -am",
     "postgit": "git merge origin/master && git pull && git push && git status",
     "prepublishOnly": "npm version patch"

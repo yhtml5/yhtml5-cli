@@ -18,7 +18,10 @@ const Config = !isBeforePublish
   : {}
 
 const { test = {} } = Config
-const { testMatch = [], transformIgnorePatterns = [] } = test
+const {
+  testMatch = [],
+  transformIgnorePatterns = []
+} = test
 
 const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 
