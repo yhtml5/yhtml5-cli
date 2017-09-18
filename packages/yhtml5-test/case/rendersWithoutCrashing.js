@@ -12,6 +12,9 @@ const rendersWithoutCrashing = (name = '', Component) => {
   })
 }
 
+const smokeIsolated = {}
+const smokeDeep = {}
+
 export {
   rendersWithoutCrashing,
 }

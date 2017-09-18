@@ -4,11 +4,32 @@
 
 
 
-### default testMatch [array<string>] 
+### default config
 
 ```
-'<rootDir>/src/**/__tests__/**/*.js?(x)',
-'<rootDir>/src/**/?(*.)(spec|test).js?(x)',
+const config = {
+    collectCoverageFrom: ['src/**/*.{js,jsx}'],
+    setupFiles: [resolve('utils/polyfills.js')],
+    setupTestFrameworkScriptFile: setupTestsFile,
+    testMatch: [
+      `${rootDir}/src/**/__tests__/**/*.js?(x)`,
+      `${rootDir}/src/**/?(*.)(spec|test).js?(x)`,
+    ],
+    testEnvironment: 'node',
+    testURL: 'http://localhost',
+    transform: {
+      '^.+\\.(js|jsx)$': isEjecting
+        ? `${rootDir}/node_modules/babel-jest`
+        : resolve('utils/babelTransform.js'),
+      '^.+\\.css$': resolve('utils/cssTransform.js'),
+      '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
+    },
+    transformIgnorePatterns:['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+    moduleNameMapper: {
+      '^react-native$': 'react-native-web',
+    },
+    moduleFileExtensions: ['web.js', 'js', 'json', 'web.jsx', 'jsx', 'node'],
+  };
 ```
 
 ### setupTests

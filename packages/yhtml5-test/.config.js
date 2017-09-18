@@ -20,12 +20,14 @@ const Config = !isBeforePublish
 const { test = {} } = Config
 const {
   testMatch = [],
-  transformIgnorePatterns = []
+  transformIgnorePatterns = [],
+  collectCoverageFrom = []
 } = test
 
 const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 
 module.exports = {
   testMatch: _testMatch,
-  transformIgnorePatterns
+  transformIgnorePatterns,
+  collectCoverageFrom
 }

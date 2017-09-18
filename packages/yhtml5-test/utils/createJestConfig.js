@@ -3,7 +3,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
-const { testMatch, transformIgnorePatterns } = require('../.config.js')
+const { testMatch, transformIgnorePatterns, collectCoverageFrom } = require('../.config.js')
 
 // relativePath => path.resolve(__dirname, '..', relativePath),
 // path.resolve(paths.appSrc, '..'),
@@ -22,7 +22,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
   // TODO: I don't know if it's safe or not to just use / as path separator
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
-    collectCoverageFrom: ['src/**/*.{js,jsx}'],
+    collectCoverageFrom: collectCoverageFrom.length
+      ? collectCoverageFrom
+      : ['src/**/*.{js,jsx}'],
     setupFiles: [resolve('utils/polyfills.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
