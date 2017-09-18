@@ -19,6 +19,7 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 // require('../config/env');
 
+// yhtml5-test --env=jsdom
 const argv = process.argv.slice(2);
 
 // Watch unless on CI or in coverage mode

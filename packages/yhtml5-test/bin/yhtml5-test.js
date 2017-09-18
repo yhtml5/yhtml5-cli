@@ -27,7 +27,9 @@ paths.isBeforePublish && console.log('\nyhtml5-test.js', {
   args: args,
   scriptIndex: scriptIndex,
   script: script,
-  nodeArgs: nodeArgs,
+  nodeArgs: nodeArgs
+    .concat(require.resolve('../scripts/test'))
+    .concat(args.slice(scriptIndex + 1)),
   result: result.signal
 })
 
