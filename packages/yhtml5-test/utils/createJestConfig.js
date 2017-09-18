@@ -3,12 +3,8 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
-const { testMatch, transformIgnorePatterns, collectCoverageFrom } = require('../.config.js')
-
-// relativePath => path.resolve(__dirname, '..', relativePath),
-// path.resolve(paths.appSrc, '..'),
-// false
-
+const { testMatch, transformIgnorePatterns, collectCoverageFrom } = require('../.config.js');
+const packageJson = require('../package.json');
 
 const customTestMatch = 1
 
@@ -34,9 +30,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
-      '^.+\\.(js|jsx)$': isEjecting
-        ? `${rootDir}/node_modules/babel-jest`
-        : resolve('utils/babelTransform.js'),
+      '^.+\\.(js|jsx)$': resolve('utils/babelTransform.js'),
       '^.+\\.css$': resolve('utils/cssTransform.js'),
       '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
     },
@@ -69,15 +63,17 @@ module.exports = (resolve, rootDir, isEjecting) => {
     if (unsupportedKeys.length) {
       console.error(
         chalk.red(
-          'Out of the box, Create React App only supports overriding ' +
+          'Out of the box, ' +
+          packageJson.name +
+          ' only supports overriding ' +
           'these Jest options:\n\n' +
           supportedKeys.map(key => chalk.bold('  \u2022 ' + key)).join('\n') +
           '.\n\n' +
           'These options in your package.json Jest configuration ' +
-          'are not currently supported by Create React App:\n\n' +
-          unsupportedKeys
-            .map(key => chalk.bold('  \u2022 ' + key))
-            .join('\n') +
+          'are not currently supported by ' +
+          packageJson.name +
+          ':\n\n' +
+          unsupportedKeys.map(key => chalk.bold('  \u2022 ' + key)).join('\n') +
           '\n\nIf you wish to override other Jest options, you need to ' +
           'eject from the default setup. You can do so by running ' +
           chalk.bold('npm run eject') +
@@ -95,7 +91,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
     testMatch,
     setupTestsFile,
     overrides,
-    config
+    config,
   })
   return config;
 };

@@ -1,8 +1,16 @@
-## yhtml5-test
+## yhtml5-test 
+
+A test framework for front-end projects
 
 ### [document][documrnt-create-react-app-test] 
 
+### Filename Conventions
 
+*  Files with `.js` suffix in `__tests__` folders.
+*  Files with `.test.js` suffix.
+*  Files with `.spec.js` suffix.
+
+We recommend to put the test files (or __tests__ folders) next to the code they are testing so that relative imports appear shorter. For example, if App.test.js and App.js are in the same folder, the test just needs to import App from './App' instead of a long relative path. Colocation also helps find tests more quickly in larger projects.
 
 ### default config
 

@@ -1,9 +1,9 @@
 {
   "name": "yhtml5-test",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "lib/index.js",
-  "description": "A test framework for front-end projects.",
+  "description": "A test framework for front-end projects",
   "author": "yhtml5",
   "scripts": {
     "test": "clear && yhtml5-test --env=jsdom",

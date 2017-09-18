@@ -3,6 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
+const ownPackageJson = require('../package.json');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
@@ -40,7 +41,7 @@ function getServedPath(appPackageJson) {
 
 const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
-// config after publish: we're in ./node_modules/react-scripts/config/
+// config after publish: we're in ./node_modules/yhtml5-test/utils/
 module.exports = {
   appPath: resolveApp('.'),
   appSrc: resolveApp('src'),
@@ -61,7 +62,6 @@ module.exports = {
   // ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
 };
 
-const ownPackageJson = require('../package.json');
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
