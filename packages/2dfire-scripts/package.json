@@ -1,6 +1,6 @@
 {
-  "name": "2dfire-test",
-  "version": "0.0.1",
+  "name": "@2dfire/2dfire-scripts",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "case/index.js",
   "description": "A test framework for front-end projects",
@@ -14,7 +14,8 @@
     "prepublishOnly": "npm version patch"
   },
   "dependencies": {
-    "yhtml5-test": "^0.x"
+    "yhtml5-test": "^0.x",
+    "cross-spawn": "^5.1.0"
   },
   "devDependencies": {},
   "bin": {

@@ -3,7 +3,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
-const { testMatch, transformIgnorePatterns, collectCoverageFrom } = require('../.config.js');
+const { testMatch, transformIgnorePatterns, collectCoverageFrom,moduleNameMapper } = require('../.config.js');
 const packageJson = require('../package.json');
 
 const customTestMatch = 1
@@ -37,9 +37,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
     transformIgnorePatterns: transformIgnorePatterns.length
       ? transformIgnorePatterns
       : ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
-    moduleNameMapper: {
+    moduleNameMapper: Object.assign({
       '^react-native$': 'react-native-web',
-    },
+    }, moduleNameMapper),
     moduleFileExtensions: ['web.js', 'js', 'json', 'web.jsx', 'jsx', 'node'],
   };
   if (rootDir) {
