@@ -9,7 +9,7 @@
     "test": "2dfire-scripts test --env=jsdom",
     "test:c": "2dfire-scripts test -- --coverage",
     "test:i": "npm i yhtml5-test@latest -D",
-    "update": "cp -rf ../yhtml5-test/README.md . && npm run git 'update document'",
+    "update": "cp -rf ../yhtml5-test/README.md . && npm run git 'update: document'",
     "git": "git commit -am",
     "postgit": "git merge origin/master && git pull && git push && git status",
     "prepublishOnly": "npm run update && npm version patch"
