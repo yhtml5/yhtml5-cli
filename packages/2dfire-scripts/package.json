@@ -9,13 +9,14 @@
     "test": "2dfire-scripts test --env=jsdom",
     "test:c": "2dfire-scripts test -- --coverage",
     "test:i": "npm i yhtml5-test@latest -D",
+    "update": "cp -rf ../yhtml5-test/README.md ../yhtml5-test/problem.md . && npm run git 'update document'",
     "git": "git commit -am",
     "postgit": "git merge origin/master && git pull && git push && git status",
     "prepublishOnly": "npm version patch"
   },
   "dependencies": {
-    "yhtml5-test": "^0.x",
-    "cross-spawn": "^5.1.0"
+    "cross-spawn": "^5.1.0",
+    "yhtml5-test": "^0.1.3"
   },
   "devDependencies": {},
   "bin": {
