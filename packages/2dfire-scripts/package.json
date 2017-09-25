@@ -1,6 +1,6 @@
 {
   "name": "@2dfire/2dfire-scripts",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "main": "case/index.js",
   "description": "A test framework for front-end projects",
@@ -12,7 +12,7 @@
     "update": "cp -rf ../yhtml5-test/README.md ../yhtml5-test/problem.md . && npm run git 'update document'",
     "git": "git commit -am",
     "postgit": "git merge origin/master && git pull && git push && git status",
-    "prepublishOnly": "npm version patch"
+    "prepublishOnly": "npm run update && npm version patch"
   },
   "dependencies": {
     "cross-spawn": "^5.1.0",
