@@ -1,16 +1,16 @@
 {
   "name": "@2dfire/2dfire-scripts",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "main": "case/index.js",
   "description": "A test framework for front-end projects",
   "author": "yhtml5",
-  "npmAddress":"http://npm.2dfire.net",
+  "npmAddress": "http://npm.2dfire.net",
   "scripts": {
     "test": "2dfire-scripts test --env=jsdom",
     "test:c": "2dfire-scripts test -- --coverage",
     "test:i": "npm i yhtml5-test@latest -D",
-    "document": "cp -rf ../yhtml5-test/README.md . && npm run git 'update: 2dfire-scripts document'",
+    "document": "cp -rf ../yhtml5-test/README.md . && npm run git 'update: test document'",
     "git": "git commit -am",
     "postgit": "git merge origin/master && git pull && git push && git status",
     "prepublishOnly": "npm run document && npm version patch"

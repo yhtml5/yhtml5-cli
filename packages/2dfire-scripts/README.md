@@ -2,19 +2,19 @@
 
 A test framework for front-end projects
 
-### target
+### Target
 
 * running the code with no error
 * find the code which never used
 * find hidden bugs
 
-### reference
+### Reference
 
 * [jest][jest]
 * [Code Coverage Analysis][code-coverage-analysis]
 * [代码覆盖率分析][code-coverage-analysis-cn]
 
-### how to used
+### Get Started
 
 #### Install 2dfire-scripts using npm:
 
@@ -80,6 +80,8 @@ global.localStorage = localStorageMock
 
 #### add `__tests__`  directory into module directory which you want to test, like `src/welcome/__test__`
 
+### Write Test Cases
+
 #### testing Components in isolation 
 
 If you’d like to test components in isolation from the child components they render, we recommend using shallow() rendering API from Enzyme. To install it, run:
@@ -96,7 +98,7 @@ it('renders without crashing', () => {
 });
 ```
 
-#### write test case
+#### renders without crashing
 
 there are some common test case in @2dfire/2dfire-scripts
 
