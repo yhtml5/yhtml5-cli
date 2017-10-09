@@ -1,5 +1,5 @@
 {
-  "name": "react-app",
+  "name": "yhtml5-test-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,15 +11,15 @@
     "react-test-renderer": "^15.6.1",
     "source-map-explorer": "^1.4.0"
   },
+  "devDependencies": {
+    "yhtml5-test": "0.x"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "yhtml5-test --env=jsdom",
     "test:c": "npm test -- --coverage",
-    "test:a": "source-map-explorer build/static/js/main.*",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "yhtml5-test": "0.0.12"
+    "test:u": "npm i yhtml5-test@latest -D",
+    "test:a": "source-map-explorer build/static/js/main.*"
   }
 }
