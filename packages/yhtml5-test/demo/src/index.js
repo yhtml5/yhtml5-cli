@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './Components/App';
+import TodoPage from './Container/Todo/index';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<TodoPage />, document.getElementById('root'));
