@@ -8,10 +8,6 @@ A test framework for front-end projects
 * find the code which never used
 * find hidden bugs
 
-why unit testing 
-
-<img src="./doc/why-unit-testing.png">
-
 ### Reference
 
 * [jest][jest]
