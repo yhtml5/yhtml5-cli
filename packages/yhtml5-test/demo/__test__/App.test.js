@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { rendersWithoutCrashing } from 'yhtml5-test/case'
-import { shallow } from 'enzyme'
 import 'jest-enzyme'
+import { shallow } from 'enzyme'
+import { iterate } from 'leakage'
+import { rendersWithoutCrashing } from 'yhtml5-test/case'
 import App from '../src/Container/App/index'
 
 // smoke test 
@@ -10,7 +11,6 @@ test('Components.App renders without crashing', () => {
   const div = document.createElement('div')
   ReactDOM.render(<App />, div)
 })
-
 rendersWithoutCrashing('Components.App', App)
 
 // unit test
@@ -32,5 +32,14 @@ test('Components.App has welcome', () => {
   expect(wrapper).toContainReact(welcome)
 })
 
-// 
+// leakage test
+test('Components.App does not leak when render', () => {
+  iterate(() => {
+    <App />
+  })
+})
+
+
+
+
 

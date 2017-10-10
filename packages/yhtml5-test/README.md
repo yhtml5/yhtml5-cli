@@ -82,6 +82,8 @@ global.localStorage = localStorageMock
 
 ### Write Test Cases
 
+[test cases](https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/demo/__test__/App.test.js)
+
 #### testing Components in isolation 
 
 If you’d like to test components in isolation from the child components they render, we recommend using shallow() rendering API from Enzyme. To install it, run:
@@ -98,7 +100,7 @@ it('renders without crashing', () => {
 });
 ```
 
-#### renders without crashing
+#### testing renders without crashing
 
 there are some common test case in @2dfire/2dfire-scripts
 
@@ -112,6 +114,31 @@ rendersWithoutCrashing('Components.HelloWorld', Component)
 ```
 
 for more information, you can read [jest matchers][jest-matchers]
+
+#### testing memory leak 
+
+[leakage](https://github.com/andywer/leakage/blob/master/README.md)
+
+It is too slow to use when necessary, because
+
+iterate() will run the function several times, create a heap snapshot and repeat that process until there is a set of heap diffs. If a memory leak has been detected an error with some debugging information will be thrown.
+
+#### testing logic 
+
+```
+const appProps = {
+  title: 'Welcome to React'
+}
+
+test('Components.App has welcome', () => {
+  const wrapper = shallow(<App {...appProps} />)
+  const welcome = <h2>Welcome to React</h2>
+  // expect(wrapper.contains(welcome)).to.equal(true)
+  expect(wrapper.contains(welcome)).toEqual(true)
+  // jest-enzyme
+  expect(wrapper).toContainReact(welcome)
+})
+```
 
 ### naming
 
