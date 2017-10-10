@@ -9,7 +9,7 @@
     "test": "clear && yhtml5-test --env=jsdom",
     "test:c": "npm test -- --coverage",
     "test:u": "npm i yhtml5-test@latest -D",
-    "git": "clear && git commit -am",
+    "git": "clear && git commit -m",
     "postgit": "git merge origin/master && git pull && git push && git status",
     "prepublishOnly": "npm version patch"
   },
