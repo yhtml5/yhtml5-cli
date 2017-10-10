@@ -173,10 +173,6 @@ By default jest doesn't transform ES6 js code from node_modules
 
 **solution:** .config.js add transformIgnorePatterns: ["node_modules/(?!(yhtml5-test|my-project|react-native-button)/)"]
 
-#### React is not defined
-
-**solution:** Try importing React in the Components file.
-
 #### react-addons-test-utils is an implicit dependency in order to support react@0.13-14.
 
 

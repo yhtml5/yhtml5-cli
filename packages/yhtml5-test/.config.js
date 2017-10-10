@@ -21,7 +21,8 @@ const { test = {} } = Config
 const {
   testMatch = [],
   transformIgnorePatterns = [],
-  collectCoverageFrom = []
+  collectCoverageFrom = [],
+  moduleNameMapper = {}
 } = test
 
 const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
@@ -29,5 +30,6 @@ const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 module.exports = {
   testMatch: _testMatch,
   transformIgnorePatterns,
-  collectCoverageFrom
+  collectCoverageFrom,
+  moduleNameMapper
 }
