@@ -1,6 +1,6 @@
 {
   "name": "@2dfire/2dfire-scripts",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "main": "case/index.js",
   "description": "A test framework for front-end projects",
