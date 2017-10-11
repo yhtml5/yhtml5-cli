@@ -12,6 +12,14 @@ why unit testing
 
 <img src="./doc/why-unit-testing.png">
 
+### Command Line 
+
+scripts|description
+:---|:---
+npm test | run test 
+npm run test:c | generating coverage reportes
+npm run test:u | update test framework
+
 ### Reference
 
 * [jest][jest]
@@ -73,6 +81,8 @@ const config = {
 
 #### add setupTests.js into testMatch directory, like `src/setupTests.js`
 
+If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a src/setupTests.js to your project. It will be automatically executed before running your tests.
+
 ```#setupTests.js
 const localStorageMock = {
   getItem: jest.fn(),
@@ -86,38 +96,10 @@ global.localStorage = localStorageMock
 
 ### Write Test Cases
 
-[test cases](https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/demo/__test__/App.test.js)
-
 #### testing Components in isolation 
+If you’d like to test components in isolation from the child components they render, we recommend using shallow() rendering API from Enzyme. 
 
-If you’d like to test components in isolation from the child components they render, we recommend using shallow() rendering API from Enzyme. To install it, run:
-
-npm install --save enzyme react-test-renderer
-
-```
-import React from 'react';
-import { shallow } from 'enzyme';
-import App from './App';
-
-it('renders without crashing', () => {
-  shallow(<App />);
-});
-```
-
-#### testing renders without crashing
-
-there are some common test case in @2dfire/2dfire-scripts
-
-**test component, renders without crashing**
-```
-import Component from './Components';
-import testCase from '@2dfire/2dfire-scripts/case'
-const { rendersWithoutCrashing } = testCase
-
-rendersWithoutCrashing('Components.HelloWorld', Component)
-```
-
-for more information, you can read [jest matchers][jest-matchers]
+#### smock test; renders without crashing
 
 #### testing memory leak 
 
@@ -127,25 +109,89 @@ It is too slow to use when necessary, because
 
 iterate() will run the function several times, create a heap snapshot and repeat that process until there is a set of heap diffs. If a memory leak has been detected an error with some debugging information will be thrown.
 
-#### testing logic 
+#### Focusing and Excluding Tests
+
+You can replace it() with xit() to temporarily exclude a test from being executed.
+Similarly, fit() lets you focus on a specific test without running any other tests.
+
+for more information, you can read :
+
+[test cases](https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/demo/__test__/Demo.test.js)
+[jest matchers][jest-matchers]
+
+**Test Demo**
 
 ```
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from '../src/Container/App/index'
+import { isArrayNotEmpty, circular } from '../src/utils'
+
+// smoke test; testing renders without crashing
+import { rendersWithoutCrashing } from 'yhtml5-test/case'
+
+it('Components.App renders without crashing', () => {
+  const div = document.createElement('div')
+  ReactDOM.render(<App />, div)
+})
+rendersWithoutCrashing('Components.App', App)
+
+// unit test
+import { shallow } from 'enzyme'
+
+it('Components.App unit tests', () => {
+  shallow(<App />)
+})
+
+it('util.validator.isArrayNotEmpty', () => {
+  const values1 = [null, NaN, 1, '1', {}, [], () => { }]
+  const values2 = [[1], [{}, []]]
+
+  values1.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(false))
+  values2.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(true))
+})
+
+// logic test; mock props to running components
+import 'jest-enzyme'
+
 const appProps = {
   title: 'Welcome to React'
 }
 
-test('Components.App has welcome', () => {
+it('Components.App has welcome', () => {
   const wrapper = shallow(<App {...appProps} />)
   const welcome = <h2>Welcome to React</h2>
   // expect(wrapper.contains(welcome)).to.equal(true)
   expect(wrapper.contains(welcome)).toEqual(true)
+
   // jest-enzyme
   expect(wrapper).toContainReact(welcome)
 })
+
+// leakage test
+import { iterate } from 'leakage'
+
+it('Components.App does not leak when render', () => {
+  iterate(() => {
+    <App />
+  })
+})
+
+it('Components.App does not leak when render', () => {
+  iterate(() => {
+    circular()
+  })
+})
+
+// Focusing and Excluding Tests
+xit('Components.App xit tests', () => {
+  shallow(<App />)
+})
+
+// fit('Components.App fit tests', () => {
+//   shallow(<App />)
+// })
 ```
-
-#### testing utils
-
 
 ### naming
 
