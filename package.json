@@ -26,7 +26,8 @@
   "scripts": {
     "git": "clear && git status && git add . && git commit -m",
     "postgit": "git pull && git push && git push origin dev:master",
-    "release": "npm run git && npm publish",
-    "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages"
+    "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages",
+    "postsync":"npm run git 'sync: yhtml5-test and 2dfire-scripts'",
+    "prepublishOnly": "npm version patch"
   }
 }
