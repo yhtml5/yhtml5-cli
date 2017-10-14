@@ -10,13 +10,14 @@ A test framework for front-end projects
 
 why unit testing 
 
-<img src="./doc/why-unit-testing.png">
+<img src="https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/doc/why-unit-testing.png?raw=true">
 
 ### Command Line 
 
 scripts|description
 :---|:---
 npm test | run test 
+npm test src/app | only testing src/app derictory 
 npm run test:c | generating coverage reportes
 npm run test:u | update test framework
 

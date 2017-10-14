@@ -24,8 +24,9 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "git": "git checkout dev && git add -A && git commit -m \"auto commit\" && git merge master && git pull && git push && git checkout master && git merge dev && git pull && git push && git checkout dev",
-    "postgit": "clear && git status",
-    "release": "npm run git && npm publish"
+    "git": "clear && git status && git add . && git commit -m",
+    "postgit": "git pull && git push && git push origin dev:master",
+    "release": "npm run git && npm publish",
+    "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages"
   }
 }
