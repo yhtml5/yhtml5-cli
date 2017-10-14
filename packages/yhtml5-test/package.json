@@ -10,7 +10,8 @@
     "test:c": "npm test -- --coverage",
     "test:u": "npm i yhtml5-test@latest -D",
     "git": "clear && git commit -m",
-    "postgit": "git merge origin/master && git pull && git push && git status"
+    "postgit": "git merge origin/master && git pull && git push && git status",
+    "prepublishOnly": "echo npm login https://registry.npmjs.org && npm login"
   },
   "dependencies": {
     "babel-jest": "^21.0.2",
@@ -24,11 +25,6 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {},
-  "bugs": {
-    "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
-  },
-  "repository": "https://github.com/yhtml5/YHTML5-CLI",
-  "homepage": "",
   "bin": {
     "yhtml5-test": "./bin/yhtml5-test.js"
   },

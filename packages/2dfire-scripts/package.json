@@ -10,10 +10,9 @@
     "test": "2dfire-scripts test --env=jsdom",
     "test:c": "2dfire-scripts test -- --coverage",
     "test:i": "npm i yhtml5-test@latest -D",
-    "document": "cp -rf ../yhtml5-test/README.md ../yhtml5-test/doc . && git add . && npm run git 'update: 2dfire-script document'",
     "git": "git commit -m",
     "postgit": "git merge origin/master && git pull && git push && git status",
-    "prepublishOnly": " npm version patch && npm run document"
+    "prepublishOnly": "echo npm login http://npm.2dfire.net && npm login --registry http://10.1.6.28 && npm version patch"
   },
   "dependencies": {
     "cross-spawn": "^5.1.0",
