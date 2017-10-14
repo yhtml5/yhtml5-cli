@@ -29,8 +29,8 @@
     "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages",
     "postsync": "npm run git 'sync: yhtml5-test and 2dfire-scripts'",
     "publish:yhtml5-test": "npm login && npm version patch && pwd && npm publish",
-    "prepublish:yhtml5-test": "echo copy... && npm run sync && cd packages/yhtml5-test && pwd",
-    "postpublish:yhtml5-test": "",
+    "prepublish:yhtml5-test": "echo copy... && npm run sync && cd ~/projects/gits/yhtml5-cli/packages/yhtml5-test",
+    "postpublish:yhtml5-test": "cd ~/projects/gits/yhtml5-cli/",
     "prepublishOnly": "echo will publish"
   }
 }
