@@ -28,8 +28,8 @@
     "postgit": "git pull && git push && git push origin dev:master",
     "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages",
     "postsync": "npm run git 'sync: yhtml5-test and 2dfire-scripts'",
-    "publish:yhtml5-test": "npm login && npm version patch && npm publish",
-    "prepublish:yhtml5-test": "npm run sync && cd packages/yhtml5-test",
+    "publish:yhtml5-test": "npm login && npm version patch && pwd && npm publish",
+    "prepublish:yhtml5-test": "npm run sync && echo copy... && cd packages/yhtml5-test && pwd",
     "postpublish:yhtml5-test": "",
     "prepublishOnly": "echo will publish"
   }
