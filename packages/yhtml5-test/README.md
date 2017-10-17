@@ -2,6 +2,16 @@
 
 A test framework for front-end projects
 
+
+## Table of contents
+
+* [Target](#target)
+* [Command Line](#command-line )
+* [Get Started](#get-started)
+* [Write Test Cases](#write-test-cases)
+* [Coverage Reporte](#coverage-reporte)
+* [Problems ](#problems )
+
 ### Target
 
 * running the code with no error
@@ -80,11 +90,31 @@ const config = {
   };
 ```
 
-#### add setupTests.js into testMatch directory, like `src/setupTests.js`
+#### naming
+
+path.module.function + description
+
+**demo**
+
+* welcome.base.template smoke
+
+#### add `__tests__`  directory into module directory which you want to test, like `src/welcome/__test__`
+
+#### Filename Conventions
+
+*  Files with `.js` suffix in `__tests__` folders.
+*  Files with `.test.js` suffix.
+*  Files with `.spec.js` suffix.
+
+We recommend to put the test files (or __tests__ folders) next to the code they are testing so that relative imports appear shorter. For example, if App.test.js and App.js are in the same folder, the test just needs to import App from './App' instead of a long relative path. Colocation also helps find tests more quickly in larger projects.
+
+#### Initializing Test Environment
 
 If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a src/setupTests.js to your project. It will be automatically executed before running your tests.
 
-```#setupTests.js
+add setupTests.js into testMatch directory, like `src/setupTests.js`
+
+```
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
@@ -92,8 +122,6 @@ const localStorageMock = {
 };
 global.localStorage = localStorageMock
 ```
-
-#### add `__tests__`  directory into module directory which you want to test, like `src/welcome/__test__`
 
 ### Write Test Cases
 
@@ -194,38 +222,7 @@ xit('Components.App xit tests', () => {
 // })
 ```
 
-### naming
-
-path.module.function + description
-
-**demo**
-
-* welcome.base.template smoke
-
-### Filename Conventions
-
-*  Files with `.js` suffix in `__tests__` folders.
-*  Files with `.test.js` suffix.
-*  Files with `.spec.js` suffix.
-
-We recommend to put the test files (or __tests__ folders) next to the code they are testing so that relative imports appear shorter. For example, if App.test.js and App.js are in the same folder, the test just needs to import App from './App' instead of a long relative path. Colocation also helps find tests more quickly in larger projects.
-
-### Initializing Test Environment
-
-If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a src/setupTests.js to your project. It will be automatically executed before running your tests.
-
-add setupTests in appDir/src/setupTests.js 
-
-```
-const localStorageMock = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  clear: jest.fn()
-};
-global.localStorage = localStorageMock
-```
-
-### coverage reporte
+### Coverage Reporte
 
 [Code Coverage Analysis][coverage]
 
@@ -234,7 +231,7 @@ global.localStorage = localStorageMock
 * line coverage
 * function coverage
 
-### problems 
+### Problems 
 
 #### webpack alias
 
