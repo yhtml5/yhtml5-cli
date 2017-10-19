@@ -1,7 +1,3 @@
-
-
-const isArrayNotEmpty = (value) => Array.isArray(value) && value.length > 0
-
 function circular() {
   const a = {}
   const b = {}
@@ -11,6 +7,5 @@ function circular() {
 }
 
 export {
-  isArrayNotEmpty,
   circular
 }

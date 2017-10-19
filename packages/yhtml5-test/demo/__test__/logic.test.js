@@ -1,0 +1,2 @@
+it('storage.localStorageMock', () => {
+})

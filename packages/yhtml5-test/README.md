@@ -1,9 +1,8 @@
-## yhtml5-test 
+## 2dfire-test 
 
 A test framework for front-end projects
 
-
-## Table of contents
+## Table of contents (目录)
 
 * [Target](#target)
 * [Command Line](#command-line )
@@ -12,17 +11,17 @@ A test framework for front-end projects
 * [Coverage Reporte](#coverage-reporte)
 * [Problems ](#problems )
 
-### Target
+### Target 
 
-* running the code with no error
-* find the code which never used
-* find hidden bugs
+* running the code with no error `运行代码没有错误`
+* find the code which never used `找到并删除无用的历史代码`
+* find hidden bugs `寻找隐藏的bug`
 
 why unit testing 
 
 <img src="https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/doc/why-unit-testing.png?raw=true">
 
-### Command Line 
+### Command Line (命令行)
 
 scripts|description
 :---|:---
@@ -31,7 +30,7 @@ npm test src/app | only testing src/app derictory
 npm run test:c | generating coverage reportes
 npm run test:u | update test framework
 
-### Reference
+### Reference 
 
 * [jest][jest]
 * [Code Coverage Analysis][code-coverage-analysis]
@@ -49,7 +48,7 @@ npm run test:u | update test framework
 > "test:c": "npm test -- --coverage",
 > "test:u": "npm i @2dfire/2dfire-scripts@latest -D",
 
-#### add .config.js to root directory
+#### add .config.js to root directory 
 
 ```#.config.js 
 const config = {
@@ -62,7 +61,9 @@ const config = {
 module.exports = config
 ```
 
-#### default config
+#### default config 
+
+默认配置, 内置在测试框架中
 
 ```
 const config = {
@@ -100,7 +101,7 @@ path.module.function + description
 
 #### add `__tests__`  directory into module directory which you want to test, like `src/welcome/__test__`
 
-#### Filename Conventions
+#### Filename Conventions (文件名约定)
 
 *  Files with `.js` suffix in `__tests__` folders.
 *  Files with `.test.js` suffix.
@@ -108,7 +109,7 @@ path.module.function + description
 
 We recommend to put the test files (or __tests__ folders) next to the code they are testing so that relative imports appear shorter. For example, if App.test.js and App.js are in the same folder, the test just needs to import App from './App' instead of a long relative path. Colocation also helps find tests more quickly in larger projects.
 
-#### Initializing Test Environment
+#### Initializing Test Environment 
 
 If your app uses a browser API that you need to mock in your tests or if you just need a global setup before running your tests, add a src/setupTests.js to your project. It will be automatically executed before running your tests.
 
@@ -123,7 +124,13 @@ const localStorageMock = {
 global.localStorage = localStorageMock
 ```
 
-### Write Test Cases
+### Write Test Cases 
+
+如何书写测试用例
+
+<a href="./demo/__test__/">Test Demo</a>
+
+`rootDir/packages/yhtml5-test/demo/__test__/`
 
 #### testing Components in isolation 
 If you’d like to test components in isolation from the child components they render, we recommend using shallow() rendering API from Enzyme. 
@@ -148,85 +155,13 @@ for more information, you can read :
 [test cases](https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/demo/__test__/Demo.test.js)
 [jest matchers][jest-matchers]
 
-**Test Demo**
-
-```
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from '../src/Container/App/index'
-import { isArrayNotEmpty, circular } from '../src/utils'
-
-// smoke test; testing renders without crashing
-import { rendersWithoutCrashing } from 'yhtml5-test/case'
-
-it('Components.App renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-})
-rendersWithoutCrashing('Components.App', App)
-
-// unit test
-import { shallow } from 'enzyme'
-
-it('Components.App unit tests', () => {
-  shallow(<App />)
-})
-
-it('util.validator.isArrayNotEmpty', () => {
-  const values1 = [null, NaN, 1, '1', {}, [], () => { }]
-  const values2 = [[1], [{}, []]]
-
-  values1.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(false))
-  values2.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(true))
-})
-
-// logic test; mock props to running components
-import 'jest-enzyme'
-
-const appProps = {
-  title: 'Welcome to React'
-}
-
-it('Components.App has welcome', () => {
-  const wrapper = shallow(<App {...appProps} />)
-  const welcome = <h2>Welcome to React</h2>
-  // expect(wrapper.contains(welcome)).to.equal(true)
-  expect(wrapper.contains(welcome)).toEqual(true)
-
-  // jest-enzyme
-  expect(wrapper).toContainReact(welcome)
-})
-
-// leakage test
-import { iterate } from 'leakage'
-
-it('Components.App does not leak when render', () => {
-  iterate(() => {
-    <App />
-  })
-})
-
-it('Components.App does not leak when render', () => {
-  iterate(() => {
-    circular()
-  })
-})
-
-// Focusing and Excluding Tests
-xit('Components.App xit tests', () => {
-  shallow(<App />)
-})
-
-// fit('Components.App fit tests', () => {
-//   shallow(<App />)
-// })
-```
-
 ### Coverage Reporte
 
 [Code Coverage Analysis][coverage]
 
-* statement coverage
+语句覆盖率, 条件覆盖率, 行数覆盖率, 函数覆盖率
+
+* statement coverage 
 * branch coverage
 * line coverage
 * function coverage
@@ -235,7 +170,9 @@ xit('Components.App xit tests', () => {
 
 #### webpack alias
 
-```# .config.js
+.config.js
+
+``` 
 const config = {
   test: {
     moduleNameMapper: {'^base(.*)$': path.resolve(__dirname, 'src/base$1'),}

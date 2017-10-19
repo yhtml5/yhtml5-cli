@@ -47,6 +47,7 @@ module.exports = {
   appSrc: resolveApp('src'),
   appPackageJson: resolveApp('package.json'),
   testsSetup: resolveApp('src/setupTests.js'),
+  isBeforePublish: true
 
   // dotenv: resolveApp('.env'),
   // appBuild: resolveApp('build'),

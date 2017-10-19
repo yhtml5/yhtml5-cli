@@ -11,15 +11,9 @@
     "react-test-renderer": "^15.6.1",
     "source-map-explorer": "^1.4.0"
   },
-  "devDependencies": {
-    "yhtml5-test": "0.x"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "yhtml5-test --env=jsdom",
-    "test:c": "npm test -- --coverage",
-    "test:u": "npm i yhtml5-test@latest -D",
-    "test:a": "source-map-explorer build/static/js/main.*"
+    "build": "react-scripts build"
   }
 }
