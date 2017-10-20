@@ -1,10 +1,13 @@
 {
   "name": "yhtml5-dev-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a set of development utilities for scaffolding front-end projects",
   "repository": "yhtml5/yhtml5-cli/issues",
   "license": "MIT",
   "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "npm version patch && echo npm login https://registry.npmjs.org && npm login"
+  },
   "bugs": {
     "url": "https://github.com/yhtml5/yhtml5-cli/issues"
   },
@@ -12,7 +15,7 @@
     "node": ">=6"
   },
   "files": [
-    "clearConsole.js"
+    "src"
   ],
   "dependencies": {
     "address": "1.0.2",
