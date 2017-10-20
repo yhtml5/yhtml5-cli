@@ -47,7 +47,7 @@ module.exports = {
   appSrc: resolveApp('src'),
   appPackageJson: resolveApp('package.json'),
   testsSetup: resolveApp('src/setupTests.js'),
-  isBeforePublish: true
+  isBeforePublish: false
 
   // dotenv: resolveApp('.env'),
   // appBuild: resolveApp('build'),
@@ -68,9 +68,9 @@ const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-// config before publish: we're in ./packages/yhtml5-test/utils/
+// config before publish: we're in ./packages/2dfire-test/utils/
 const isBeforePublish = !reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'yhtml5-test', 'utils')) !== -1
+  __dirname.indexOf(path.join('packages', '2dfire-test', 'utils')) !== -1
 
 isBeforePublish && console.log('\npaths.js\n', {
   appDirectory,
@@ -78,7 +78,7 @@ isBeforePublish && console.log('\npaths.js\n', {
   reactScriptsPath,
   reactScriptsLinked,
   isBeforePublish,
-  isBeforePublishPath: path.join('packages', 'yhtml5-test', 'utils'),
+  isBeforePublishPath: path.join('packages', '2dfire-test', 'utils'),
   isBeforePublishIndexOf: __dirname.indexOf(path.join('packages', 'yhtml5-test', 'utils')) !== -1,
   __dirname,
   appSrc: resolveOwn('demo/src'),
