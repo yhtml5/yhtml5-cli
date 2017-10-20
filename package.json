@@ -6,7 +6,7 @@
   "author": {
     "name": "yhtml5"
   },
-  "description": "A simple CLI for front-end projects.",
+  "description": "CLI for scaffolding front-end projects based on the create-react-app project.",
   "bugs": {
     "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
   },

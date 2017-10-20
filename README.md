@@ -2,7 +2,7 @@
 
 ![npm version] ![node version] ![Build Status] ![downloads total] ![author]
 
-A simple CLI for scaffolding front-end projects.
+CLI for scaffolding front-end projects based on the create-react-app project.
 
 ### Installation
 
@@ -68,3 +68,4 @@ The inspiration for this project comes from [vue-cli](https://github.com/vuejs/v
 [YHTML5-Seed-apps]:https://github.com/yhtml5/YHTML5-Seed/tree/master/apps
 [YHTML5-Seed-react]:https://github.com/yhtml5/YHTML5-Seed/tree/master/apps/react
 [YHTML5-Seed]:https://github.com/yhtml5/YHTML5-Seed
+[create-react-app]:https://github.com/facebookincubator/create-react-app
