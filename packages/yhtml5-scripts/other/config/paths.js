@@ -4,11 +4,9 @@ const path = require('path');
 const fs = require('fs');
 const url = require('url');
 
-// Make sure any symlinks in the project folder are resolved:
-// https://github.com/facebookincubator/create-react-app/issues/637
+// get directory where npm script running 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
-
 const envPublicUrl = process.env.PUBLIC_URL;
 
 function ensureSlash(path, needsSlash) {
@@ -38,12 +36,9 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
-const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
-
-// config after publish: we're in ./node_modules/yhtml5-scripts/config/
+// config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
-  appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
@@ -55,37 +50,61 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+};
+
+// @remove-on-eject-begin
+const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
+
+// config before eject: we're in ./node_modules/react-scripts/config/
+
+const customConfigNpm = require(resolveApp(`config.js`))
+
+module.exports = {
+  appPath: resolveApp('.'),
+  appBuild: resolveApp('.'),
+  appConfig: resolveApp(`config.js`),
+  appPackageJson: resolveApp('package.json'),
+  appIndexJs: resolveApp(`./${customConfigNpm.entry}`),
+  appHtmlTmplate: resolveApp(`./${customConfigNpm.templateHtml}`),
+
+  dotenv: resolveApp('.env'),
+  appPublic: resolveApp('public'),
+  appHtml: resolveApp('public/index.html'),
+  appSrc: resolveApp('src'),
+  yarnLockFile: resolveApp('yarn.lock'),
+  testsSetup: resolveApp('src/setupTests.js'),
+  appNodeModules: resolveApp('node_modules'),
+  publicUrl: getPublicUrl(resolveApp('package.json')),
+  servedPath: getServedPath(resolveApp('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
 };
 
+const customConfig = require('../demo/config.js')
 const ownPackageJson = require('../package.json');
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-const isPublish = reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'config')) === -1
-
-console.log('\npaths.js\n', {
-  isPublish,
-  appBuild: resolveOwn('demo/spa/dist'),
-})
-
 // config before publish: we're in ./packages/yhtml5-scripts/config/
-if (!isPublish) {
+if (
+  !reactScriptsLinked &&
+  __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'config')) !== -1
+) {
   module.exports = {
-    appPath: resolveApp('demo/spa'),
-    appBuild: resolveOwn('demo/spa/dist'),
-    appHtml: resolveOwn('demo/spa/public/index.html'),
-    appIndexJs: resolveOwn('demo/spa/src/index.js'),
-    appSrc: resolveOwn('demo/spa/src'),
+    appPath: resolveApp('demo'),
+    appBuild: resolveOwn('demo'),
+    appIndexJs: resolveOwn(`demo/${customConfig.entry}`),
+    appConfig: resolveOwn(`demo/config.js`),
+    appPackageJson: resolveOwn('package.json'),
+    appHtmlTmplate: resolveOwn(`demo/${customConfig.templateHtml}`),
 
+    appHtml: resolveOwn('template/public/index.html'),
     dotenv: resolveOwn('template/.env'),
     appPublic: resolveOwn('template/public'),
-    appPackageJson: resolveOwn('package.json'),
+    appSrc: resolveOwn('template/src'),
     yarnLockFile: resolveOwn('template/yarn.lock'),
     testsSetup: resolveOwn('template/src/setupTests.js'),
     appNodeModules: resolveOwn('node_modules'),
@@ -96,3 +115,4 @@ if (!isPublish) {
     ownNodeModules: resolveOwn('node_modules'),
   };
 }
+// @remove-on-eject-end

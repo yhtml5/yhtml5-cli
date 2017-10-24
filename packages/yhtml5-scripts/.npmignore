@@ -1,8 +1,5 @@
 .DS_Store
 node_modules
-*.log
-dist
-/npm-debug.log
-/vue-cli/
-package-lock.json
+other
+demo
 
