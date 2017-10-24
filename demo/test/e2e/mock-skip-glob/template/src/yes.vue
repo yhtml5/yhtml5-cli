@@ -1,3 +1,0 @@
-<template>
-  \{{yes}} {{pick}}
-</template>

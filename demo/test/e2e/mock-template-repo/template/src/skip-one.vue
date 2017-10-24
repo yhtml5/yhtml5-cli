@@ -1,1 +1,0 @@
-<template>one: {{description}}</template>
