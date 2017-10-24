@@ -42,6 +42,8 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/config/
 module.exports = {
+  isPublish: true,
+
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
@@ -77,22 +79,24 @@ console.log('\npaths.js\n', {
 // config before publish: we're in ./packages/yhtml5-scripts/config/
 if (!isPublish) {
   module.exports = {
+    isPublish,
     appPath: resolveApp('demo/spa'),
     appBuild: resolveOwn('demo/spa/dist'),
     appHtml: resolveOwn('demo/spa/public/index.html'),
     appIndexJs: resolveOwn('demo/spa/src/index.js'),
     appSrc: resolveOwn('demo/spa/src'),
+    appPackageJson: resolveOwn('package.json'),
+    appPublic: resolveOwn('demo/spa/public'),
+    appNodeModules: resolveOwn('node_modules'),
+    ownNodeModules: resolveOwn('node_modules'),
+    ownPath: resolveOwn('.'),
+    yarnLockFile: resolveOwn('demo/spa/yarn.lock'),
+    // appHtmlTmplate,
 
     dotenv: resolveOwn('template/.env'),
-    appPublic: resolveOwn('template/public'),
-    appPackageJson: resolveOwn('package.json'),
-    yarnLockFile: resolveOwn('template/yarn.lock'),
-    testsSetup: resolveOwn('template/src/setupTests.js'),
-    appNodeModules: resolveOwn('node_modules'),
+    // testsSetup: resolveOwn('template/src/setupTests.js'),
     publicUrl: getPublicUrl(resolveOwn('package.json')),
     servedPath: getServedPath(resolveOwn('package.json')),
     // These properties only exist before ejecting:
-    ownPath: resolveOwn('.'),
-    ownNodeModules: resolveOwn('node_modules'),
   };
 }
