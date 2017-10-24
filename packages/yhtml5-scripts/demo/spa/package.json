@@ -7,7 +7,10 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "react-scripts": "1.0.13",
     "yhtml5-test": "0.x"
   },
-  "scripts": {}
+  "scripts": {
+    "build": "react-scripts build"
+  }
 }
