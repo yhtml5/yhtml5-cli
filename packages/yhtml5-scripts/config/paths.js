@@ -95,7 +95,7 @@ if (!isPublish) {
     ownNodeModules: resolveOwn('node_modules'),
     ownPath: resolveOwn('.'),
     yarnLockFile: resolveOwn('demo/spa/yarn.lock'),           // yarn directory
-    servedPath: getServedPath(resolveOwn('package.json')),    //
+    servedPath: getServedPath(resolveOwn('package.json')),    // host
     publicUrl: getPublicUrl(resolveOwn('package.json')),      // PUBLIC_URL
 
     dotenv: resolveOwn('template/.env'),

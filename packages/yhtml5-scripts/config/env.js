@@ -2,6 +2,11 @@
 
 const fs = require('fs');
 const path = require('path');
+
+// set build files in html PUBLIC_URL
+const config = require('./config')
+process.env.PUBLIC_URL = config.host || '/'
+
 const paths = require('./paths');
 
 // Make sure that including paths.js after env.js will read .env variables.
