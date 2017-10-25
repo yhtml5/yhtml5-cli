@@ -1,4 +1,13 @@
-# react-scripts
+# yhtml5-scripts
+
+## Todo List
+
+- [ ] hot replace
+- [ ] webpack.NoEmitOnErrorsPlugin
+- [ ] webpackBundleAnalyzerPlugin
+- [ ] dist directory version
+- [ ] new webpack.optimize.CommonsChunkPlugin
+
 
 This package includes scripts and configuration used by [Create React App](https://github.com/facebookincubator/create-react-app).<br>
 Please refer to its documentation:
