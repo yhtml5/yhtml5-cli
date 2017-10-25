@@ -26,7 +26,6 @@ function ensureSlash(path, needsSlash) {
 
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
-// envPublicUrl || config.host || require(appPackageJson).homepage;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -77,29 +76,29 @@ const isPublish = reactScriptsLinked &&
 isPublish || console.log('\npaths.js\n', {
   isPublish,
   appBuild: resolveOwn('demo/spa/dist'),
+  servedPath: getServedPath(resolveOwn('package.json')),
+  'process.env.PUBLIC_URL': process.env.PUBLIC_URL
 })
 
 // config before publish: we're in ./packages/yhtml5-scripts/config/
 if (!isPublish) {
   module.exports = {
     isPublish,
-    appPath: resolveApp('demo/spa'),
-    appBuild: resolveOwn('demo/spa/dist'),
-    appHtml: resolveOwn('demo/spa/public/index.html'),
-    appIndexJs: resolveOwn('demo/spa/src/index.js'),
-    appSrc: resolveOwn('demo/spa/src'),
-    appPackageJson: resolveOwn('package.json'),
-    appPublic: resolveOwn('demo/spa/public'),
-    appNodeModules: resolveOwn('node_modules'),
+    appPath: resolveApp('demo/spa'),                         // the root directory of app
+    appBuild: resolveOwn('demo/spa/dist'),                   // dist directory
+    appHtml: resolveOwn('demo/spa/public/index.html'),       // HtmlWebpackPlugin html template
+    appIndexJs: resolveOwn('demo/spa/src/index.js'),         // the entry files of app
+    appSrc: resolveOwn('demo/spa/src'),                      // src directory
+    appPackageJson: resolveOwn('package.json'),              // package.json directory
+    appPublic: resolveOwn('demo/spa/public'),                // public directory
+    appNodeModules: resolveOwn('node_modules'),              // node_modules directory
     ownNodeModules: resolveOwn('node_modules'),
     ownPath: resolveOwn('.'),
-    yarnLockFile: resolveOwn('demo/spa/yarn.lock'),
-    servedPath: getServedPath(resolveOwn('package.json')),
-    // appHtmlTmplate,
+    yarnLockFile: resolveOwn('demo/spa/yarn.lock'),           // yarn directory
+    servedPath: getServedPath(resolveOwn('package.json')),    //
+    publicUrl: getPublicUrl(resolveOwn('package.json')),      // PUBLIC_URL
 
     dotenv: resolveOwn('template/.env'),
     // testsSetup: resolveOwn('template/src/setupTests.js'),
-    publicUrl: getPublicUrl(resolveOwn('package.json')),
-    // These properties only exist before ejecting:
   };
 }

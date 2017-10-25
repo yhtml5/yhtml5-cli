@@ -13,10 +13,6 @@ module.exports = function () {
     },
     devtool: 'inline-source-map',
     devServer: {
-      clientLogLevel: "info",
-      contentBase: path.join(__dirname, "../dist"),
-      compress: true,
-      host: "0.0.0.0",
       port: port,
       hot: true,
       inline: true,

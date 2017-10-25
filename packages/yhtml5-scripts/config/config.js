@@ -19,12 +19,28 @@ const config = isPublish
 
 const {
   devPort = 9991,          // develop server port
-  devHost = '0.0.0.0',     // develop server host
-  host = '',               // deploy server host, {'.': can open in location, 'yhtml5.com'}
+  devHost = '0.0.0.0',     // develop server host, ['10.0.1.32', '0.0.0.0', null]
+  host = '',               // deploy server host,  ['', '.', 'yhtml5.com', null]
   analyzerPort = 9992,
   distributePort = 9993,
  } = config
 
+// hostname,
+// port,
+// version,
+// title: '后台管理系统',
+// origin: 'http://' + hostname + ':' + port,
+// analyzerPort: 9992,
+// distributePort: 9993,
+// webpackContext: '',
+// domain: '',
+// pages: [{
+//   key: 'app',
+//   name: 'app.html'
+// }, {
+//   key: 'login',
+//   name: 'login.html'
+// }]
 
 // const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 

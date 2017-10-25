@@ -4,10 +4,12 @@ const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
 const path = require('path');
 const config = require('./webpack.config.dev');
+const projectConfig = require('./config');
 const paths = require('./paths');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-const host = process.env.HOST || '0.0.0.0';
+// const host = process.env.HOST || '0.0.0.0';
+const host = projectConfig.devHost
 
 console.log('\nwebpackDevServer.config\n', {
   host
