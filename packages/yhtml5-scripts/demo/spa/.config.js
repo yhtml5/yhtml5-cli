@@ -6,9 +6,9 @@
 const path = require('path')
 
 const config = {
-  host: '0.0.0.0',
+  devHost: '0.0.0.0',
   devPort: 9991,
-
+  host: 'yhtml5.com',
 
 
   entry: 'src/index.js',
