@@ -30,6 +30,7 @@ const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
 const config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer.config');
+const projectConfig = require('../config/config')
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
@@ -40,8 +41,16 @@ if (!checkRequiredFiles([paths.appIndexJs])) {
 }
 
 // Tools like Cloud9 rely on this.
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-const HOST = process.env.HOST || '0.0.0.0';
+// const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
+// const HOST = process.env.HOST || '0.0.0.0';
+
+const { devHost: HOST, devPort: DEFAULT_PORT } = projectConfig
+
+// console.log('\nstart.js\n', {
+//   DEFAULT_PORT,
+//   HOST
+// })
+// return
 
 // We attempt to use the default port but if it is busy, we offer the user to
 // run on a different port. `detect()` Promise resolves to the next free port.
@@ -71,7 +80,7 @@ choosePort(HOST, DEFAULT_PORT)
         return console.log(err);
       }
       if (isInteractive) {
-        clearConsole();
+        paths.isPublish && clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
       openBrowser(urls.localUrlForBrowser);
