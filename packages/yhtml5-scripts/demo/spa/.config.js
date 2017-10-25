@@ -3,13 +3,10 @@
  * Description: The configuration file for the yhtml5-scripts should not be packaged into the app
  *
  */
-const path = require('path')
-
 const config = {
   devHost: '0.0.0.0',
   devPort: 9991,
   host: './',
-
 
   entry: 'src/index.js',
   analyzerPort: 9992,

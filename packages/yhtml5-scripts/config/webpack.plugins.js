@@ -4,32 +4,33 @@ const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
-const { version, title, analyzerPort } = require('./config')()
-const webpackExtractPcss = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.pcss.css`)
-const webpackExtractAntd = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.antd.css`)
-const webpackExtractInInternal = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.internal.css`)
-const webpackExtractExternal = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.css`)
+const config = require('./config')
+// const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
 
-const pages = require(paths.appConfig).pages
+const webpackExtractPcssPlugin = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.pcss.css`)
+const webpackExtractAntdCssPlugin = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.antd.css`)
+const webpackExtractInInternalCssPlugin = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.internal.css`)
+const webpackExtractExternalCssPlugin = new ExtractTextPlugin(`static/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.css`)
+
+const pages = []
 // console.log('pages', pages)
 // return
 
 
-const webpackDefinePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    'NODE_ENV': JSON.stringify(process.env.NODE_ENV === 'production' ? 'production' : 'development'),
-    'version': JSON.stringify(version),
-    'title': JSON.stringify(title)
-  },
-  'DEBUG': process.env.NODE_ENV !== 'production'
-})
+// const webpackDefinePlugin = new webpack.DefinePlugin({
+//   'process.env': {
+//     'NODE_ENV': JSON.stringify(process.env.NODE_ENV === 'production' ? 'production' : 'development'),
+//     'version': JSON.stringify(version),
+//     'title': JSON.stringify(title)
+//   },
+//   'DEBUG': process.env.NODE_ENV !== 'production'
+// })
 
 // https://github.com/th0r/webpack-bundle-analyzer
 const webpackAnalyzerPlugin = new BundleAnalyzerPlugin({
   analyzerMode: 'static', // [server,static,disabled]
   analyzerHost: '127.0.0.1',
-  analyzerPort: analyzerPort,
+  analyzerPort: config.analyzerPort,
   defaultSizes: 'parsed',// [stat,parsed,gzip]
   openAnalyzer: true,
   reportFilename: 'report/report.html',
@@ -149,7 +150,7 @@ const webpackHtmlPlugin = new HtmlWebpackPlugin({
   filename: 'index.html',
   template: path.resolve(__dirname, './template/template.js'),
   chunksSortMode: 'dependency',
-  title: title,
+  // title: title,
   hash: false,
   cache: true,
   favicon: './app/static/favicon.ico',
@@ -174,11 +175,11 @@ const webpackContextReplacementPlugin = new webpack.ContextReplacementPlugin(
 module.exports = {
   webpackAnalyzerPlugin,
   webpackCommonsChunkPlugin,
-  webpackDefinePlugin,
-  webpackExtractPcss,
-  webpackExtractAntd,
-  webpackExtractInInternal,
-  webpackExtractExternal,
+  // webpackDefinePlugin,
+  webpackExtractPcssPlugin,
+  webpackExtractAntdCssPlugin,
+  webpackExtractInInternalCssPlugin,
+  webpackExtractExternalCssPlugin,
   webpackHtmlPlugin,
   webpackHtmlPlugins,
   webpackUglifyJsPlugin,

@@ -3,8 +3,8 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
-// const config = require('./config')
-
+const config = require('./config')
+const { demoDirectory } = config
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
@@ -44,8 +44,6 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/config/
 module.exports = {
-  isPublish: true,
-
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
   appBuild: resolveApp('build'),
@@ -75,7 +73,7 @@ const isPublish = reactScriptsLinked &&
 
 isPublish || console.log('\npaths.js\n', {
   isPublish,
-  appBuild: resolveOwn('demo/spa/dist'),
+  appBuild: resolveOwn(`${demoDirectory}/dist`),
   servedPath: getServedPath(resolveOwn('package.json')),
   'process.env.PUBLIC_URL': process.env.PUBLIC_URL
 })
@@ -84,19 +82,19 @@ isPublish || console.log('\npaths.js\n', {
 if (!isPublish) {
   module.exports = {
     isPublish,
-    appPath: resolveApp('demo/spa'),                         // the root directory of app
-    appBuild: resolveOwn('demo/spa/dist'),                   // dist directory
-    appHtml: resolveOwn('demo/spa/public/index.html'),       // HtmlWebpackPlugin html template
-    appIndexJs: resolveOwn('demo/spa/src/index.js'),         // the entry files of app
-    appSrc: resolveOwn('demo/spa/src'),                      // src directory
-    appPackageJson: resolveOwn('package.json'),              // package.json directory
-    appPublic: resolveOwn('demo/spa/public'),                // public directory
-    appNodeModules: resolveOwn('node_modules'),              // node_modules directory
-    ownNodeModules: resolveOwn('node_modules'),
+    appPath: resolveApp(demoDirectory),                              // the root directory of app
+    appBuild: resolveOwn(`${demoDirectory}/dist`),                   // dist directory
+    appHtml: resolveOwn(`${demoDirectory}/public/index.html`),       // HtmlWebpackPlugin html template
+    appIndexJs: resolveOwn(`${demoDirectory}/src/index.js`),         // the entry files of app
+    appSrc: resolveOwn(`${demoDirectory}/src`),                      // src directory
+    appPublic: resolveOwn(`${demoDirectory}/public`),                // public directory
+    yarnLockFile: resolveOwn(`${demoDirectory}/yarn.lock`),          // yarn directory
+    appPackageJson: resolveOwn('package.json'),                      // package.json directory
+    appNodeModules: resolveOwn('node_modules'),                      // node_modules directory
     ownPath: resolveOwn('.'),
-    yarnLockFile: resolveOwn('demo/spa/yarn.lock'),           // yarn directory
-    servedPath: getServedPath(resolveOwn('package.json')),    // host
-    publicUrl: getPublicUrl(resolveOwn('package.json')),      // PUBLIC_URL
+    ownNodeModules: resolveOwn('node_modules'),
+    servedPath: getServedPath(resolveOwn('package.json')),           // host
+    publicUrl: getPublicUrl(resolveOwn('package.json')),             // PUBLIC_URL
 
     dotenv: resolveOwn('template/.env'),
     // testsSetup: resolveOwn('template/src/setupTests.js'),
