@@ -3,6 +3,8 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
+// const config = require('./config')
+
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637
@@ -24,6 +26,7 @@ function ensureSlash(path, needsSlash) {
 
 const getPublicUrl = appPackageJson =>
   envPublicUrl || require(appPackageJson).homepage;
+// envPublicUrl || config.host || require(appPackageJson).homepage;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -71,7 +74,7 @@ const reactScriptsLinked =
 const isPublish = reactScriptsLinked &&
   __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'config')) === -1
 
-console.log('\npaths.js\n', {
+isPublish || console.log('\npaths.js\n', {
   isPublish,
   appBuild: resolveOwn('demo/spa/dist'),
 })
@@ -91,12 +94,12 @@ if (!isPublish) {
     ownNodeModules: resolveOwn('node_modules'),
     ownPath: resolveOwn('.'),
     yarnLockFile: resolveOwn('demo/spa/yarn.lock'),
+    servedPath: getServedPath(resolveOwn('package.json')),
     // appHtmlTmplate,
 
     dotenv: resolveOwn('template/.env'),
     // testsSetup: resolveOwn('template/src/setupTests.js'),
     publicUrl: getPublicUrl(resolveOwn('package.json')),
-    servedPath: getServedPath(resolveOwn('package.json')),
     // These properties only exist before ejecting:
   };
 }

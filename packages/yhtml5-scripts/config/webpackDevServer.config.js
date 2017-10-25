@@ -10,7 +10,7 @@ const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
 console.log('\nwebpackDevServer.config\n', {
-
+  host
 })
 
 module.exports = function (proxy, allowedHost) {

@@ -13,7 +13,7 @@ const webpackExtractExternal = new ExtractTextPlugin(`static/[name]${(process.en
 
 const pages = require(paths.appConfig).pages
 // console.log('pages', pages)
-// return 
+// return
 
 
 const webpackDefinePlugin = new webpack.DefinePlugin({

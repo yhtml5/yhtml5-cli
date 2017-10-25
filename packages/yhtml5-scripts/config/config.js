@@ -18,8 +18,9 @@ const config = isPublish
   : require('../demo/spa/.config.js')
 
 const {
-  devPort = 9991,
-  host = '0.0.0.0',
+  devPort = 9991,          // develop server port
+  devHost = '0.0.0.0',     // develop server host
+  host = '',               // deploy server host, {'.': can open in location, 'yhtml5.com'}
   analyzerPort = 9992,
   distributePort = 9993,
  } = config
@@ -29,9 +30,13 @@ const {
 
 isPublish || console.log('\n.config.js\n', {
   isPublish,
+  devHost,
+  host,
+  hasConfigJs
 })
 
 module.exports = {
-  host,
+  devHost,
   devPort,
+  host,
 }
