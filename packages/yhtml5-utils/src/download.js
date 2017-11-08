@@ -20,4 +20,12 @@ const downLoad = ({
   a = null
 }
 
+function jsonp(src = '') {
+  var script = document.createElement("script");
+  script.src = src
+  var scripts = document.getElementsByTagName("script")[0];
+  scripts.parentNode.insertBefore(script, scripts);
+}
+
+
 export default downLoad
