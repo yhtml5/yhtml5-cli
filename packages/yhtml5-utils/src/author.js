@@ -10,8 +10,9 @@
  */
 
 function author(options) {
-  const name = options.name || 'YHTML5'
-  const url = options.url || 'https://github.com/yhtml5'
+  const value = options || {}
+  const name = value.name || 'YHTML5'
+  const url = value.url || 'https://github.com/yhtml5'
   console.clear()
   console.log(
     `%c ${name} %c Copyright \xa9 2015-%s`,

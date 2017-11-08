@@ -4,6 +4,7 @@ import downLoad from './src/download';
 import notRepeating from './src/notRepeating';
 import parseUrl from './src/parseUrl';
 import formatNumber from './src/formatNumber';
+import author from './src/author';
 
 const utils = {
   ...isType,
@@ -11,7 +12,8 @@ const utils = {
   ...parseUrl,
   downLoad,
   notRepeating,
-  formatNumber
+  formatNumber,
+  author
 }
 
 console.log(utils)
