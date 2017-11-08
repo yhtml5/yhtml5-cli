@@ -8,7 +8,12 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-const demoDirectory = 'demo/react-dashboard'
+const demoDirectory =
+  'demo/react-dashboard'
+// 'demo/react-dashboard'
+// 'demo/spa'
+
+
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
@@ -32,7 +37,7 @@ const {
   devHost = '0.0.0.0',     // develop server host, ['10.0.1.32', '0.0.0.0', null]
   host = '',               // deploy server host, domain  ['', '.', 'yhtml5.com', null]
   analyzerPort = 9992,     // analyze module report port
-  distributePort = 9993,
+  // distributePort = 9993,
  } = config
 
 // hostname,

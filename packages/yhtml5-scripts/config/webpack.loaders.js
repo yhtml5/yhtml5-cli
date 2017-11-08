@@ -2,9 +2,9 @@ const path = require('path')
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer');
 const { webpackExtractPcssPlugin, webpackExtractInInternalCssPlugin, webpackExtractExternalCssPlugin, webpackExtractAntdCssPlugin } = require('./webpack.plugins')
+const paths = require('./paths');
 
-/******* html loader  ******/
-
+/************ html loader  ***********/
 const htmlLoader = {
   test: /\.(yhtml|html)$/,
   use: [{
@@ -35,95 +35,10 @@ const markdownLoader = {
   ]
 }
 
-/******* js loader  ******/
-const jsLoader = {
-  test: /\.(js|jsx)$/,
-  include: [
-    path.resolve(__dirname, "../app")
-  ],
-  exclude: /(node_modules|bower_components)/,
-  use: {
-    loader: 'babel-loader',
-    options: {
-      presets: [
-        // ["env", {
-        //   "targets": {
-        //     "browsers": ["last 2 versions", "safari >= 7"]
-        //   }
-        // }],
-        ["es2015", {
-          "modules": false
-        }],
-        "stage-2",
-        "react"
-      ],
-      plugins: [
-        'transform-runtime',
-        ["import", {
-          "libraryName": "antd",
-          "style": "css" //`style: true` 会加载 less 文件
-        }]
-      ]
-    }
-  }
-}
+/************ js loader  ***********/
 
 
 /******* css loader  ******/
-
-// const cssLoader = {
-//   test: /\.css$/,
-//   //include: /wangeditor/,
-//   exclude: /antd/,
-//   use: webpackExtractPcssPlugin.extract({
-//     fallback: 'style-loader',
-//     use: [{
-//       loader: 'css-loader',
-//       options: {
-//         minimize: process.env.NODE_ENV === 'production',
-//         sourceMap: false,
-//       }
-//     }]
-//   })
-// }
-
-// "postcss" loader applies autoprefixer to our CSS.
-// "css" loader resolves paths in CSS and adds assets as dependencies.
-// "style" loader turns CSS into JS modules that inject <style> tags.
-// In production, we use a plugin to extract that CSS to a file, but
-// in development "style" loader enables hot editing of CSS.
-const cssLoader = {
-  test: /\.css$/,
-  use: [
-    require.resolve('style-loader'),
-    {
-      loader: require.resolve('css-loader'),
-      options: {
-        importLoaders: 1,
-      },
-    }, {
-      loader: require.resolve('postcss-loader'),
-      options: {
-        // Necessary for external CSS imports to work
-        // https://github.com/facebookincubator/create-react-app/issues/2677
-        ident: 'postcss',
-        plugins: () => [
-          require('postcss-flexbugs-fixes'),
-          autoprefixer({
-            browsers: [
-              '>1%',
-              'last 4 versions',
-              'Firefox ESR',
-              'not ie < 9', // React doesn't support IE8 anyway
-            ],
-            flexbox: 'no-2009',
-          }),
-        ],
-      },
-    },
-  ],
-}
-
 const pcssLoader = {
   test: /\.pcss$/,
   exclude: /node_modules/,
@@ -269,12 +184,10 @@ const fontLoader = {
 module.exports = {
   htmlLoader,
   markdownLoader,
-  jsLoader,
   imageLoader,
   fontLoader,
-  pcssLoader,
-  cssLoader,
   antdCssLoader,
+  pcssLoader,
   cssInternalLoader,
   cssExternalLoader
 }
