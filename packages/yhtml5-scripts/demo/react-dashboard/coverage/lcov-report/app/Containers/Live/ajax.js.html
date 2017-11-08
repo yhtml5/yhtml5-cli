@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Containers/Live/ajax.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">app/Containers/Live</a> ajax.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import ajax f<span class="cstat-no" title="statement not covered" >rom '../../util/ajax'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import {upda<span class="cstat-no" title="statement not covered" >teState} from './t</span>ask'
+import {updat<span class="cstat-no" title="statement not covered" >eState as updateAppStat</span>e} from '<span class="fstat-no" title="function not covered" >../App/task'<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+/**
+ * Todo Mapping Parameters
+ *
+ * @param {object} params
+ * @param {function} dispatch
+ */
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxLiveList(</span>dispatch, params) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/list',
+      {
+        channel_id: params.searchChannel,
+        column_id: params.searchColumn,
+        id: params.searchNumber,
+        name: params.searchTitle,
+        status: params.searchStatus,
+        page: params.tableCurrent,
+        rows: 10,
+      },
+      resolve,
+      resolve,
+<span class="fstat-no" title="function not covered" ></span>      (response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        resolve</span>()
+<span class="cstat-no" title="statement not covered" >        dispatch(updateState({</span>
+          tableData: response.data.list,
+          tableTotals: (response.data.totals) ? Number(response.data.totals) : 0
+        }))
+      }
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxLiveSettings(</span>dispatch, params) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/setting', {}, resolve, resolve,
+<span class="fstat-no" title="function not covered" ></span>      (response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        resolve</span>()
+<span class="cstat-no" title="statement not covered" >        dispatch(updateState({</span>
+          formAreas: response.data.area_types,
+          formTypes: response.data.live_types,
+          formSteps: response.data.stage_types,
+          formHomes: response.data.house_types,
+        }))
+      }
+    )
+  )
+}
+async function <span class="fstat-no" title="function not covered" >ajaxDeleteLive(</span>id) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/remove', {id: id}, resolve, resolve, resolve
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxEditStatus(</span>id, status) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/toggle', {id: id, status: status}, resolve, resolve, resolve
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxAddLive(</span>values) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/create',
+      {
+        area: values.formArea,
+        channel_id: values.formChannel,
+        column_id: values.formColumn,
+        label_ids: values.formLabel,
+        design_images: values.formDesignImage,
+        done: values.formIsDone,
+        house_name: values.formCommunityName,
+        house_type: values.formHome,
+        image: (values.formMainImage) ? values.formMainImage : '',
+        images: values.formImages,
+        images_type: values.formStep,
+        is_reco: values.formIsHomepage,
+        name: values.formTitle,
+        promulgator: values.formAnnouncer,
+        sort_order: values.formSort,
+        type: values.formType,
+        video_intro: values.formVideoIntroduction,
+        video_url: values.formVideoUrl,
+        view_num: values.formVideoView,
+      },
+      reject, reject, resolve
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxEdit(</span>dispatch, values) {
+<span class="cstat-no" title="statement not covered" >  if (process.env.NODE_ENV !== 'production') {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('ajaxEdit', values)</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/edit',
+      {
+        area: values.formArea,
+        channel_id: values.formChannel,
+        column_id: values.formColumn,
+        design_images: values.formDesignImage,
+        done: values.formIsDone,
+        house_name: values.formCommunityName,
+        house_type: values.formHome,
+        image: (values.formMainImage) ? values.formMainImage : '',
+        images: values.formImages,
+        images_type: values.formStep,
+        is_reco: values.formIsHomepage,
+        label_ids: values.formLabel,
+        live_id: values.id,
+        name: values.formTitle,
+        promulgator: values.formAnnouncer,
+        sort_order: values.formSort,
+        type: values.formType,
+        video_intro: values.formVideoIntroduction,
+        video_url: values.formVideoUrl,
+        view_num: values.formVideoView,
+      },
+      reject, reject, resolve
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxEditInfo(</span>dispatch, id) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/live/view',
+      {
+        live_id: id
+      },
+      reject, reject,
+<span class="fstat-no" title="function not covered" ></span>      (response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        resolve</span>()
+<span class="cstat-no" title="statement not covered" >        dispatch(updateState({</span>
+          formChannel: (response.data.channel_id) ? response.data.channel_id : undefined,
+          formColumn: (response.data.column_id &amp;&amp; response.data.column_id !== '0') ? response.data.column_id : undefined,
+          formLabel: (response.data.labels) ? response.data.label<span class="fstat-no" title="function not covered" >s.</span>map((value, inde<span class="cstat-no" title="statement not covered" >x) =&gt; val</span>ue.id) : undefined,
+          formEditStep: (response.data.images_type) ? response.data.images_type : 0,
+          formEditImages: response.data.images,
+          formEditTitle: response.data.name,
+          formEditMainImage: response.data.image ? [response.data.image] : [],
+          formEditCommunityName: response.data.house_name,
+          formEditAnnouncer: response.data.promulgator,
+          formEditDesignImage: response.data.design_images,
+          formEditSort: response.data.sort_order,
+          formEditArea: response.data.area,
+          formEditHome: response.data.house_type,
+          formEditIsHomepage: response.data.is_reco,
+          formEditIsDone: response.data.done,
+          formEditType: response.data.type,
+          formEditVideoIntroduction: response.data.video_intro,
+          formEditVideoUrl: response.data.video_url,
+          formEditVideoView: response.data.view_num,
+        }))
+<span class="cstat-no" title="statement not covered" >        dispatch(updateAppState({</span>
+          // selectLabels: (response.data.labels) ? response.data.labels : undefined,
+        }))
+      }
+    )
+  )
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export {ajaxLiveList, ajaxDe<span class="cstat-no" title="statement not covered" >leteLive, ajaxEditStatus, ajaxAddLive, a<span class="cstat-no" title="statement not covered" >j</span>axEditInfo, ajaxEdit, ajaxLiveSettings}<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 18 2017 17:44:25 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

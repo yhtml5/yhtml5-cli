@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Containers/Live/Components/FormStep.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">app/Containers/Live/Components</a> FormStep.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/22</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import {Radi<span class="cstat-no" title="statement not covered" >o, Form, Button,</span> Input, Icon, Select, Row, Col, Slider, Upload, Checkbox} from 'antd'
+import PicturesWall <span class="cstat-no" title="statement not covered" >from '../../../Components/Upload/PicturesWall.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import style<span class="cstat-no" title="statement not covered" >s from './Form.pcss'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+&nbsp;
+let uuid = <span class="cstat-no" title="statement not covered" >1</span>
+let count = <span class="cstat-no" title="statement not covered" >1</span>
+&nbsp;
+&nbsp;
+const formItemLayout = <span class="cstat-no" title="statement not covered" >{</span>
+  labelCol: {span: 6},
+  wrapperCol: {span: 16},
+  style: {maxWidth: '800px'}
+}
+&nbsp;
+class FormStep extends React.Component {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props)<span class="cstat-no" title="statement not covered" ></span></span>
+    this.handleAddImage = this.handleAddImage.bind(this)
+    this.handleRemoveImage = this.handleRemoveImage.bind(this)
+    this.handleChangeImage = this.handleChangeImage.bind(this)
+    this.state = {}
+    props.form.getFieldDecorator(`${this.props.step}Keys`, {initialValue: []})
+    process.env.NODE_ENV === 'production' || console.error('FormStep', props.images)
+  }
+&nbsp;
+  setImages(props) {
+    if (props.images) {
+      props.images.ext.forEach((value, index) =&gt; {
+        uuid++
+        const keys = props.form.getFieldValue(`${props.step}Keys`)
+        const nextKeys = keys.concat(uuid)
+&nbsp;
+        props.setFieldsValue(nextKeys)
+        props.form.getFieldDecorator(`${props.step}ImageIntroduction${uuid}`, {initialValue: value.intro})
+        props.form.getFieldDecorator(`${props.step}ImageUpload${uuid}`, {initialValue: (value.image) ? [value.image] : []})
+&nbsp;
+        console.warn('keys\n', keys, '\nvalue:', value, value.intro, '\nother:', uuid, nextKeys)
+&nbsp;
+        // let intro = {}
+        // intro[`${step}ImageIntroduction${keys}`] = value.intro
+        // form.setFieldsValue(intro)
+      })
+    }
+    // can use data-binding to set
+    // setFieldsValue(keys.filter(key =&gt; key !== k))
+  }
+&nbsp;
+  componentDidMount() {
+    console.log('FormStepComponentDidMount', this.props)
+    this.setImages(this.props)
+  }
+&nbsp;
+  componentWillUnmount() {
+    console.log('PicturesWallComponentWillUnmount')
+    this.props.setFieldsValue([])
+  }
+&nbsp;
+  componentWillReceiveProps(nextProps) {
+    // console.log('FormStepComponentWillReceiveProps', this.props, nextProps)
+    //
+    // if (count !== 3) {
+    //   count++
+    //   this.setImages(this.props)
+    // }
+&nbsp;
+&nbsp;
+    // this.setImages(nextProps)
+    // if (this.props.images.ext.length !== nextProps.images.ext.length) {
+    //   this.setImages(nextProps)
+    // }
+&nbsp;
+    // if (nextProps.images.ext.length &amp;&amp; nextProps.images.ext.length !== form.getFieldValue(`${this.props.step}Keys`).length) {
+    //
+    //   nextProps.images.ext.forEach((value, index) =&gt; {
+    //     uuid++
+    //     const keys = this.props.form.getFieldValue(`${this.props.step}Keys`)
+    //     const nextKeys = keys.concat(uuid)
+    //
+    //     this.props.form.getFieldDecorator(`${this.props.step}ImageIntroduction${keys}`, {initialValue: value.intro})
+    //
+    //     console.warn('keys', keys, value, uuid, nextKeys)
+    //
+    //     // setFieldsValue(nextKeys)
+    //     // let intro = {}
+    //     // intro[`${step}ImageIntroduction${keys}`] = value.intro
+    //     // form.setFieldsValue(intro)
+    //   })
+    // }
+  }
+&nbsp;
+&nbsp;
+  handleAddImage = ()<span class="fstat-no" title="function not covered" > =</span>&gt; {
+    uu<span class="cstat-no" title="statement not covered" >id++</span>
+    // can use data-binding to get
+    const keys = th<span class="cstat-no" title="statement not covered" >is.props.form.getFieldValue(`${this.props.step}Keys`)</span>
+    const nextKeys = ke<span class="cstat-no" title="statement not covered" >ys.concat(uuid)</span>
+    co<span class="cstat-no" title="statement not covered" >nsole.log(this.props.step, keys, nextKeys)</span>
+    // can use data-binding to set
+    // important! notify form to detect changes
+    th<span class="cstat-no" title="statement not covered" >is.props.setFieldsValue(nextKeys)</span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  handleRemoveImage = (k<span class="fstat-no" title="function not covered" >) </span>=&gt; {
+    // can use data-binding to get
+    const keys = th<span class="cstat-no" title="statement not covered" >is.props.form.getFieldValue(`${this.props.step}Keys`)</span>
+    // We need at least one passenger
+    // if (keys.length === 1) {
+    //   return
+    // }
+    // can use data-binding to set
+    th<span class="cstat-no" title="statement not covered" >is.props.setFieldsValue(keys.filter(ke<span class="fstat-no" title="function not covered" >y </span>=&gt; ke<span class="cstat-no" title="statement not covered" >y !== k))</span></span>
+  }<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+  handleChangeImage = (u<span class="fstat-no" title="function not covered" >rl</span>) =&gt; <span class="cstat-no" title="statement not covered" >url<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>
+&nbsp;
+&nbsp;
+  render() {
+    const keys = this.props.form.getFieldValue(`${this.props.step}Keys`)
+<span class="fstat-no" title="function not covered" >    c</span>onst formItems = ke<span class="cstat-no" title="statement not covered" >ys.map((k, index) =&gt; {<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span></span>
+      return (
+        &lt;div key={index}&gt;
+          &lt;Form.Item label="直播图片" {...formItemLayout} key={k} required={false}&gt;
+            {this.props.form.getFieldDecorator(`${this.props.step}ImageUpload${k}`, {
+              // initialValue: [],
+              getValueFromEvent: this.handleChangeImage,
+            })(
+              &lt;PicturesWall onChange={this.handleChangeImage}/&gt;
+            )}
+          &lt;/Form.Item&gt;
+          &lt;Form.Item label="图片说明" labelCol={ {span: 6}} wrapperCol={{span: 16}}&gt;
+            {this.props.form.getFieldDecorator(`${this.props.step}ImageIntroduction${k}`, {
+              // initialValue: `${this.props.step}ImageIntroduction${k}`,
+            })(
+              &lt;Input type="text" placeholder="请输入文字说明" style={{width: '80%', marginRight: 8}}/&gt;
+            )}
+            &lt;Icon
+              className={styles.delete}
+              type="minus-circle-o"
+              // disabled={keys.length === 1}
+              onClick={() =&gt; this.handleRemoveImage(k)}
+            /&gt;
+          &lt;/Form.Item&gt;
+        &lt;/div&gt;
+      )
+    })
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span></span>
+    return (
+      &lt;div style={this.props.style}&gt;
+        &lt;Form.Item labe<span class="fstat-no" title="function not covered" >l=</span>{thi<span class="cstat-no" title="statement not covered" >s.props.title} {...formIte</span>mLayout} &gt;<span class="cstat-no" title="statement not covered" ></span>
+          {this.props.form.getFieldDecorator(this.props.step, {
+            initialValue: true,
+            rules: [{required: true, message: '请选择类型!'}],
+          })(
+            &lt;Checkbox defaultChecked disabled/&gt;
+          )}
+        &lt;/Form.Item&gt;
+        &lt;Form.Item label="文字说明" {...formItemLayout}&gt;
+          {this.props.form.getFieldDecorator(`${this.props.step}Introduction`, {
+            initialValue: (this.props.images) ? this.props.images.intro : undefined,
+          })(
+            &lt;Input type="textarea" placeholder="请输入文字说明"/&gt;
+          )}
+        &lt;/Form.Item&gt;
+        {formItems}
+        &lt;Form.Item wrapperCol={{span: 16, offset: 6}}&gt;
+          &lt;Button type="dashed" onClick={this.handleAddImage} style={{width: '60%'}}&gt;
+            &lt;Icon type="plus"/&gt; 新增图片
+          &lt;/Button&gt;
+        &lt;/Form.Item&gt;
+        &lt;hr className={styles.hr}/&gt;
+      &lt;/div&gt;
+    )
+  }<span class="cstat-no" title="statement not covered" ></span>
+}
+&nbsp;
+&nbsp;
+export default FormStep
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 18 2017 17:44:25 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
