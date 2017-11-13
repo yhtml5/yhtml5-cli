@@ -9,9 +9,11 @@ const config = {
   analyzerPort: 9992,
   // host: './',
 
+
   entry: 'src/index.js',
+  output: 'dist',
+  outputVersion: '',
   distributePort: 9993,
-  output: '/',
   type: '',
   templateHtml: 'src/pages/template.js',
   test: {

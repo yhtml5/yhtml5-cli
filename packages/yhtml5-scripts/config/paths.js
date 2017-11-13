@@ -44,22 +44,23 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/config/
 module.exports = {
-  dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('dist'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveApp('src/setupTests.js'),
+  // testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   // These properties only exist before ejecting:
   ownPath: resolveOwn('.'),
   ownNodeModules: resolveOwn('node_modules'), // This is empty on npm 3
+
+  dotenv: resolveApp('.env'),
 };
 
 const ownPackageJson = require('../package.json');
@@ -82,19 +83,19 @@ isPublish || console.log('\npaths.js\n', {
 if (!isPublish) {
   module.exports = {
     isPublish,
-    appPath: resolveApp(demoDirectory),                              // the root directory of app
     appBuild: resolveOwn(`${demoDirectory}/dist`),                   // dist directory
     appHtml: resolveOwn(`${demoDirectory}/public/index.html`),       // HtmlWebpackPlugin html template
     appIndexJs: resolveOwn(`${demoDirectory}/src/index.js`),         // the entry files of app
-    appSrc: resolveOwn(`${demoDirectory}/src`),                      // src directory
-    appPublic: resolveOwn(`${demoDirectory}/public`),                // public directory
-    yarnLockFile: resolveOwn(`${demoDirectory}/yarn.lock`),          // yarn directory
-    appPackageJson: resolveOwn('package.json'),                      // package.json directory
     appNodeModules: resolveOwn('node_modules'),                      // node_modules directory
-    ownPath: resolveOwn('.'),
+    appPackageJson: resolveOwn('package.json'),                      // package.json directory
+    appPath: resolveApp(demoDirectory),                              // the root directory of app
+    appPublic: resolveOwn(`${demoDirectory}/public`),                // public directory
+    appSrc: resolveOwn(`${demoDirectory}/src`),                      // src directory
     ownNodeModules: resolveOwn('node_modules'),
+    ownPath: resolveOwn('.'),
     servedPath: getServedPath(resolveOwn('package.json')),           // host
     publicUrl: getPublicUrl(resolveOwn('package.json')),             // PUBLIC_URL
+    yarnLockFile: resolveOwn(`${demoDirectory}/yarn.lock`),          // yarn directory
 
     dotenv: resolveOwn('template/.env'),
     // testsSetup: resolveOwn('template/src/setupTests.js'),
