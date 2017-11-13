@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-scripts",
-  "version": "0.0.10",
+  "version": "0.1.1",
   "author": "yhtml5 <1417376255@qq.com>",
   "main": "/",
   "license": "MIT",
@@ -12,16 +12,13 @@
   "scripts": {
     "start": "yhtml5-scripts start",
     "build": "clear && yhtml5-scripts build",
-    "dev": "clear && node ./build/dev.server.js",
-    "dev:debug": "clear && webpack-dashboard -- node ./build/dev.server.js",
-    "build:debug": "clear && webpack-dashboard -- node ./build/build.debug.js",
     "pm2": "pm2 start pm2.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.jsx ./app/Containers",
-    "precommit": "npm run test"
+    "precommit": "npm run test",
+    "prepublishOnly": "npm version patch && echo npm login https://registry.npmjs.org && npm login"
   },
   "dependencies": {
-    "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -67,7 +64,8 @@
   },
   "devDependencies": {
     "antd": "^2.13.9",
-    "axios": "^0.16.2",
+    "autoprefixer": "^7.1.6",
+    "axios": "^0.17.0",
     "github-markdown-css": "^2.6.0",
     "history": "^4.6.1",
     "lodash": "^4.17.4",
@@ -90,10 +88,6 @@
     "redux-thunk": "^2.2.0",
     "reqwest": "^2.0.5",
     "wangeditor": "^2.1.23"
-  },
-  "peerDependencies": {
-    "webpack": "^2.x",
-    "babel-core": "^6.x"
   },
   "engines": {
     "node": ">= 5.0.0",

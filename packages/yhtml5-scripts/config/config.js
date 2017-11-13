@@ -20,10 +20,27 @@ const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
-const isPublish = reactScriptsLinked &&
+const isPublish = reactScriptsLinked ||
   __dirname.indexOf(path.join('packages', ownPackageJson.name, 'config')) === -1
 
-const hasConfigJs = fs.existsSync(path.resolve(appDirectory, demoDirectory, '.config.js'))
+const hasConfigJs = fs.existsSync(path.resolve(
+  appDirectory,
+  isPublish ? '' : demoDirectory,
+  '.config.js'
+))
+
+
+// isPublish || console.log('\n.config.js\n', {
+//   reactScriptsPath,
+//   reactScriptsLinked,
+//   isPublish,
+//   // 'fs.existsSync(reactScriptsPath)':fs.existsSync(reactScriptsPath),
+//   // 'fs.lstatSync(reactScriptsPath).isSymbolicLink()':fs.lstatSync(reactScriptsPath).isSymbolicLink(),
+//   'ownPackageJson.name': ownPackageJson.name,
+//   // "__dirname.indexOf(path.join('packages', ownPackageJson.name, 'config')) === -1":__dirname.indexOf(path.join('packages', ownPackageJson.name, 'config')) === -1,
+//   hasConfigJs
+// })
+// return
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/
 const config = isPublish
@@ -38,7 +55,7 @@ const {
   host = '',               // deploy server host, domain  ['', '.', 'yhtml5.com', null]
   analyzerPort = 9992,     // analyze module report port
   // distributePort = 9993,
- } = config
+} = config
 
 // hostname,
 // port,

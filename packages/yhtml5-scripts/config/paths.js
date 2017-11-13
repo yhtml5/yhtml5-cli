@@ -68,8 +68,8 @@ const reactScriptsLinked =
   fs.existsSync(reactScriptsPath) &&
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 
-const isPublish = reactScriptsLinked &&
-  __dirname.indexOf(path.join('packages', 'yhtml5-scripts', 'config')) === -1
+const isPublish = reactScriptsLinked ||
+  __dirname.indexOf(path.join('packages', ownPackageJson.name, 'config')) === -1
 
 isPublish || console.log('\npaths.js\n', {
   isPublish,
