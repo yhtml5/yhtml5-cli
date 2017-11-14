@@ -9,8 +9,8 @@ const path = require('path');
 const ownPackageJson = require('../package.json');
 
 const demoDirectory =
-  // 'demo/react-dashboard'
-  'demo/spa'
+  'demo/react-dashboard'
+  // 'demo/spa'
 
 
 const appDirectory = fs.realpathSync(process.cwd());
