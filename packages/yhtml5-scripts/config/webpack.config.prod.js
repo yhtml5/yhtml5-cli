@@ -162,6 +162,7 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          /** yhtml5 **/
           pcssLoader,
           markdownLoader,
           // Process JS with Babel.
@@ -173,7 +174,7 @@ module.exports = {
               // @remove-on-eject-begin
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
-              // customize js
+              /** yhtml5 **/
               plugins: [
                 'transform-runtime',
                 ["import", {
@@ -294,9 +295,10 @@ module.exports = {
     // It is absolutely essential that NODE_ENV was set to production here.
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
-    // Minify the code.
+    /** yhtml5 **/
     webpackCommonsChunkPlugin[1],
     webpackCommonsChunkPlugin[2],
+    // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,

@@ -24,7 +24,7 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
-console.log('\nwebpack.config.dev.js\n', {
+paths.isPublish || console.log('\nwebpack.config.dev.js\n', {
   env
 })
 
@@ -159,6 +159,7 @@ module.exports = {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          /** yhtml5 **/
           // antdCssLoader,
           pcssLoader,
           markdownLoader,
@@ -171,7 +172,7 @@ module.exports = {
               // @remove-on-eject-begin
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
-              // customize js
+              /** yhtml5 **/
               plugins: [
                 'transform-runtime',
                 ["import", {
@@ -240,7 +241,7 @@ module.exports = {
     ],
   },
   plugins: [
-    webpackExtractPcssPlugin,
+    // webpackExtractPcssPlugin,
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

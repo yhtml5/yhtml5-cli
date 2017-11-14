@@ -53,6 +53,7 @@ const webpackUglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
   comments: false
 })
 
+// extrct common chunks
 const webpackCommonsChunkPlugin = {
   1: new webpack.optimize.CommonsChunkPlugin({
     children: true,
@@ -60,13 +61,6 @@ const webpackCommonsChunkPlugin = {
     minChunks: 2,
   }),
   2: new webpack.optimize.CommonsChunkPlugin({
-    names: ["vendorReact", ["index", "vendorReact"]],
-    // children: true,
-    // async: true,
-    // chunks: ['vendorReact'],
-    // filename: "vendor.js",
-  }),
-  3: new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest'
   })
   // new webpack.optimize.CommonsChunkPlugin({

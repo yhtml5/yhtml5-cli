@@ -10,7 +10,6 @@ const ownPackageJson = require('../package.json');
 
 const demoDirectory =
   'demo/react-dashboard'
-// 'demo/react-dashboard'
 // 'demo/spa'
 
 

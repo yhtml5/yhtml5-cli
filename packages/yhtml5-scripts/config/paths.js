@@ -44,6 +44,7 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/config/
 module.exports = {
+  isPublish: true,
   appPath: resolveApp('.'),
   appBuild: resolveApp('dist'),
   appPublic: resolveApp('public'),
