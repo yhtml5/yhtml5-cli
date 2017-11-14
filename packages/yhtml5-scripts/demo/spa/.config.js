@@ -6,7 +6,7 @@
 const config = {
   devHost: '0.0.0.0',
   devPort: 9991,
-  host: './',
+  // host: './',
 
   entry: 'src/index.js',
   analyzerPort: 9992,

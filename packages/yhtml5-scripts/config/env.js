@@ -3,9 +3,13 @@
 const fs = require('fs');
 const path = require('path');
 
+/** yhtml5 **/
 // set build files in html PUBLIC_URL
 const config = require('./config')
-process.env.PUBLIC_URL = config.host || '/'
+if (config.host) {
+  process.env.PUBLIC_URL = config.host
+}
+/** yhtml5 **/
 
 const paths = require('./paths');
 
