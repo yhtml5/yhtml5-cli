@@ -1,0 +1,17 @@
+## Todo List
+- [ ] Must
+  - [ ] check publish paths `config/paths.js`
+  - [ ] multi-pages
+- [ ] Expand
+  - [ ] hot replace
+  - [ ] webpack.NoEmitOnErrorsPlugin
+  - [ ] webpackBundleAnalyzerPlugin
+  - [ ] dist directory version
+  - [ ] new webpack.optimize.CommonsChunkPlugin
+  - [ ] update scripts console information
+  - [ ] add log middleware, process.env.NODE_ENV !== 'production'
+  - [ ] extract function isPublish appDirectory to yhtml5-dev-util
+  - [ ] extract eslint
+  - [ ] extract loader and plugins
+  - [ ] output directory and version control
+  - [ ] beautify-lint `webpack`
