@@ -15,3 +15,4 @@
   - [ ] extract loader and plugins
   - [ ] output directory and version control
   - [ ] beautify-lint `webpack`
+  - [ ] console The process.env.NODE_ENV is:  production

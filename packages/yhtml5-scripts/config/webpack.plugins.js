@@ -59,9 +59,16 @@ const webpackCommonsChunkPlugin = {
     children: true,
     async: true,
     minChunks: 2,
+    // 在传入  公共chunk(commons chunk) 之前所需要包含的最少数量的 chunks 。
+    // 数量必须大于等于2，或者少于等于 chunks的数量
+    // 传入 `Infinity` 会马上生成 公共chunk，但里面没有模块。
+    // 你可以传入一个 `function` ，以添加定制的逻辑（默认是 chunk 的数量）
+    // 数值越大, 公共包越小, 首次加载的量也越小, 对应其它模块包越大, 所有的包总和也越大
   }),
   2: new webpack.optimize.CommonsChunkPlugin({
-    name: 'manifest'
+    name: 'manifest',
+    // minChunks: Infinity,
+    // filename: 'manifest.js',
   })
   // new webpack.optimize.CommonsChunkPlugin({
   //   name: 'vendor',

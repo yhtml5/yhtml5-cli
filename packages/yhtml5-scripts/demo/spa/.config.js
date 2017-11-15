@@ -6,10 +6,11 @@
 const config = {
   devHost: '0.0.0.0',
   devPort: 9991,
+  isAnalyze: true,
+  analyzerPort: 9992,
   // host: './',
 
   entry: 'src/index.js',
-  analyzerPort: 9992,
   distributePort: 9993,
   pages: [{
     title: '测试1',

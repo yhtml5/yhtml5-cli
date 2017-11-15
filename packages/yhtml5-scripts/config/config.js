@@ -8,10 +8,8 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-const demoDirectory =
-  'demo/react-dashboard'
-  // 'demo/spa'
-
+// const demoDirectory = 'demo/spa'
+const demoDirectory = 'demo/react-dashboard'
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
@@ -27,7 +25,6 @@ const hasConfigJs = fs.existsSync(path.resolve(
   isPublish ? '' : demoDirectory,
   '.config.js'
 ))
-
 
 // isPublish || console.log('\n.config.js\n', {
 //   reactScriptsPath,
@@ -51,8 +48,9 @@ const config = isPublish
 const {
   devPort = 9991,          // develop server port
   devHost = '0.0.0.0',     // develop server host, ['10.0.1.32', '0.0.0.0', null]
-  host = '',               // deploy server host, domain  ['', '.', 'yhtml5.com', null]
+  isAnalyze = false,        // is turn on analyze module
   analyzerPort = 9992,     // analyze module report port
+  host = '',               // deploy server host, domain  ['', '.', 'yhtml5.com', null]
   // distributePort = 9993,
 } = config
 
@@ -77,8 +75,7 @@ const {
 
 isPublish || console.log('\n.config.js\n', {
   isPublish,
-  devHost,
-  host,
+  config,
   hasConfigJs
 })
 
@@ -86,6 +83,7 @@ module.exports = {
   devHost,
   devPort,
   analyzerPort,
+  isAnalyze,
   host,
   demoDirectory
 }
