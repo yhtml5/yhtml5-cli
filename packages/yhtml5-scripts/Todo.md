@@ -15,4 +15,5 @@
   - [ ] extract loader and plugins
   - [ ] output directory and version control
   - [ ] beautify-lint `webpack`
-  - [ ] console The process.env.NODE_ENV is:  production
+  - [ ] console The process.env.NODE_ENV is:  production 
+  - [ ] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`

@@ -4,5 +4,10 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+import { cube } from './treeShake';
+import { square } from './treeShake';
+
+cube(5)
+
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();

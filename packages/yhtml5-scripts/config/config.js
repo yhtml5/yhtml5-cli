@@ -8,8 +8,8 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-// const demoDirectory = 'demo/spa'
-const demoDirectory = 'demo/react-dashboard'
+const demoDirectory = 'demo/spa'
+// const demoDirectory = 'demo/react-dashboard'
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
