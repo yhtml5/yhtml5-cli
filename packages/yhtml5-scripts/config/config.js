@@ -8,8 +8,8 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-const demoDirectory = 'demo/spa'
-// const demoDirectory = 'demo/react-dashboard'
+// const demoDirectory = 'demo/spa'
+const demoDirectory = 'demo/react-dashboard'
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
@@ -39,18 +39,45 @@ const hasConfigJs = fs.existsSync(path.resolve(
 // return
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/
-const config = isPublish
-  ? hasConfigJs
-    ? require('../../../.config.js')
-    : {}
-  : require('../demo/spa/.config.js')
+function getConfig() {
+  if (isPublish && hasConfigJs) {
+    return require('../../../.config.js')
+  } else {
+    switch (demoDirectory) {
+      case 'demo/react-dashboard':
+        return require('../demo/react-dashboard/.config.js')
+        break;
+      case 'demo/spa':
+        return require('../demo/spa/.config.js')
+        break;
+      default:
+        return {}
+        break;
+    }
+  }
+}
 
+// const config = isPublish
+//   ? hasConfigJs
+//     ? require('../../../.config.js')
+//     : {}
+//   : require('../demo/spa/.config.js')
+
+const config = getConfig()
 const {
-  devPort = 9991,          // develop server port
-  devHost = '0.0.0.0',     // develop server host, ['10.0.1.32', '0.0.0.0', null]
-  isAnalyze = false,        // is turn on analyze module
-  analyzerPort = 9992,     // analyze module report port
-  host = '',               // deploy server host, domain  ['', '.', 'yhtml5.com', null]
+  devPort = 9991,             // develop server port
+  devHost = '0.0.0.0',        // develop server host, ['10.0.1.32', '0.0.0.0', null]
+  isAnalyze = false,          // is turn on analyze module
+  analyzerPort = 9992,        // analyze module report port
+  host = '',                  // deploy server host, domain  ['', '.', 'yhtml5.com', null]
+  isCustomNodeEnv = false,    // whether to customize the node environment
+  // Makes some environment variables available to the JS code, for example:
+  // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
+  envVar = {},
+  // set app process.env.NODE_ENV to production when node running in custom node enviroment
+  // only when isCustomNodeEnv === true, customAppEnvProds to work
+  customAppEnvProds = [],
+  // publicUrl  PUBLIC_URL
   // distributePort = 9993,
 } = config
 
@@ -85,5 +112,8 @@ module.exports = {
   analyzerPort,
   isAnalyze,
   host,
+  envVar,
+  customAppEnvProds,
+  isCustomNodeEnv,
   demoDirectory
 }

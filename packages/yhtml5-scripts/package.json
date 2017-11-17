@@ -12,6 +12,7 @@
   "scripts": {
     "start": "yhtml5-scripts start",
     "build": "clear && yhtml5-scripts build",
+    "build:pre": "clear && NODE_ENV=pre yhtml5-scripts build",
     "pm2": "pm2 start pm2.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.jsx ./app/Containers",

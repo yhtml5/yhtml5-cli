@@ -11,3 +11,9 @@ cube(5)
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+
+console.log('\nindex.js\n',{
+  process: process,
+  'process.env': process.env,
+})

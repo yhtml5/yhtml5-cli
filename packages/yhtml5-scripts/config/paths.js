@@ -3,8 +3,8 @@
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
-const config = require('./config')
-const { demoDirectory } = config
+const projectConfig = require('./config')
+const { demoDirectory } = projectConfig
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebookincubator/create-react-app/issues/637

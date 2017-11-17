@@ -2,26 +2,35 @@
 
 const fs = require('fs');
 const path = require('path');
+const paths = require('./paths');
 
 /** yhtml5 **/
 // set build files in html PUBLIC_URL
-const config = require('./config')
-if (config.host) {
-  process.env.PUBLIC_URL = config.host
+const projectConfig = require('./config')
+if (projectConfig.host) {
+  process.env.PUBLIC_URL = projectConfig.host
 }
 /** yhtml5 **/
-
-const paths = require('./paths');
 
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
 
 const NODE_ENV = process.env.NODE_ENV;
+
 if (!NODE_ENV) {
   throw new Error(
     'The NODE_ENV environment variable is required but was not specified.'
   );
 }
+
+/** yhtml5 **/
+const appEnvVar = projectConfig.envVar[NODE_ENV] || {}
+const getAppEnv = () =>
+  (projectConfig.isCustomNodeEnv
+    && projectConfig.customAppEnvProds.length
+    && projectConfig.customAppEnvProds.some((value) => value === process.env.NODE_ENV)) ? 'production'
+    : process.env.NODE_ENV || 'development'
+/** yhtml5 **/
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 var dotenvFiles = [
@@ -77,12 +86,13 @@ function getClientEnvironment(publicUrl) {
     {
       // Useful for determining whether we’re running in production mode.
       // Most importantly, it switches React into the correct mode.
-      NODE_ENV: process.env.NODE_ENV || 'development',
+      NODE_ENV: getAppEnv(),
       // Useful for resolving the correct path to static assets in `public`.
       // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
       // This should only be used as an escape hatch. Normally you would put
       // images into the `src` and `import` them in code to get their paths.
       PUBLIC_URL: publicUrl,
+      ...appEnvVar
     }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin

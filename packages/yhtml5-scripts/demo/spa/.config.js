@@ -1,13 +1,62 @@
 /**
  * Author: yhtml5
  * Description: The configuration file for the yhtml5-scripts should not be packaged into the app
- *
+ * Notice: when this file changes, you should rerunning scripts
  */
+
+const envVar = {
+  development: {
+    customNodeEnv: 'development',
+    fileBaseUrl: '../../file',
+    shareApiBaeUrl: 'http://api.l.whereask.com',
+    gatewayApiBase: '//gateway.2dfire-daily.com',
+    gatewayApiEnv: '13cccf8b7b58467da82163d3cf540ef7'
+  },
+  production: {
+    customNodeEnv: 'production',
+    fileBaseUrl: '../../file',
+    shareApiBaeUrl: 'http://api.l.whereask.com',
+    gatewayApiBase: '//gateway.2dfire-daily.com',
+    gatewayApiEnv: '13cccf8b7b58467da82163d3cf540ef7'
+  },
+  dev: {
+    customNodeEnv: 'dev',
+    fileBaseUrl: '../../file',
+    shareApiBaeUrl: 'http://api.l.whereask.com',
+    gatewayApiBase: '//gateway.2dfire-daily.com',
+    gatewayApiEnv: '13cccf8b7b58467da82163d3cf540ef7'
+  },
+  daily: {
+    customNodeEnv: 'daily',
+    fileBaseUrl: '../../file',
+    shareApiBaeUrl: 'http://api.l.whereask.com',
+    gatewayApiBase: '//gateway.2dfire-daily.com',
+    gatewayApiEnv: 'daily'
+  },
+  pre: {
+    customNodeEnv: 'pre',
+    fileBaseUrl: 'https://d.2dfire-pre.com/file',
+    shareApiBaeUrl: 'https://meal.2dfire-pre.com',
+    gatewayApiBase: '//gateway.2dfire-pre.com/',
+    gatewayApiEnv: 'pre'
+  },
+  publish: {
+    customNodeEnv: 'publish',
+    fileBaseUrl: 'https://jscdn.2dfire.com/file',
+    shareApiBaeUrl: 'https://meal.2dfire.com',
+    gatewayApiBase: '//gateway.2dfire.com/',
+    gatewayApiEnv: 'publish'
+  },
+};
+
 const config = {
   devHost: '0.0.0.0',
   devPort: 9991,
   isAnalyze: true,
   analyzerPort: 9992,
+  envVar: envVar,
+  isCustomNodeEnv: true,
+  customAppEnvProds: ['dev', 'daily', 'pre', 'publish'],
   // host: './',
 
   entry: 'src/index.js',

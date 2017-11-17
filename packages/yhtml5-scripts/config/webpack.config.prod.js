@@ -12,7 +12,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const { pcssLoader, markdownLoader } = require('./webpack.loaders')
 const { webpackCommonsChunkPlugin, webpackAnalyzerPlugin } = require('./webpack.plugins')
-const config = require('./config');
+const projectConfig = require('./config');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -50,6 +50,12 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+paths.isPublish || console.log('\nwebpack.config.dev.js\n', {
+  env,
+  'process.env.NODE_ENV':process.env.NODE_ENV,
+  "env.stringified['process.env']":env.stringified['process.env']
+})
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -68,7 +74,7 @@ module.exports = {
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    chunkFilename: 'static/js/[name].[chunkhash:8].async.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
@@ -363,7 +369,7 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    config.isAnalyze ? webpackAnalyzerPlugin : () => { }
+    projectConfig.isAnalyze ? webpackAnalyzerPlugin : () => { }
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
