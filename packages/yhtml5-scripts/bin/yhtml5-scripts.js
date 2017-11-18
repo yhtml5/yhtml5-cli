@@ -16,9 +16,9 @@ const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 switch (script) {
   case 'build':
-  case 'eject':
-  case 'start':
-  case 'test': {
+  // case 'eject':
+  // case 'test':
+  case 'start':{
     const result = spawn.sync(
       'node',
       nodeArgs

@@ -47,7 +47,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
 
-paths.isPublish && console.log('\nbuild.js\n', {
+paths.isPublish || console.log('\nbuild.js\n', {
   'process.env.NODE_ENV': process.env.NODE_ENV
 })
 

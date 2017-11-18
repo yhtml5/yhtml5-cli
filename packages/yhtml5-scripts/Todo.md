@@ -5,15 +5,14 @@
 - [ ] Expand
   - [ ] hot replace
   - [ ] webpack.NoEmitOnErrorsPlugin
-  - [ ] webpackBundleAnalyzerPlugin
-  - [ ] dist directory version
-  - [ ] new webpack.optimize.CommonsChunkPlugin
+  - [x] webpackBundleAnalyzerPlugin
+  - [x] new webpack.optimize.CommonsChunkPlugin
   - [ ] update scripts console information
   - [ ] add log middleware, process.env.NODE_ENV !== 'production'
   - [ ] extract function isPublish appDirectory to yhtml5-dev-util
   - [ ] extract eslint
   - [ ] extract loader and plugins
-  - [ ] output directory and version control
+  - [x] output directory with version control
   - [ ] beautify-lint `webpack`
-  - [ ] console The process.env.NODE_ENV is:  production 
-  - [ ] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
+  - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
+  - [ ] add unit test
