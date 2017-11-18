@@ -46,7 +46,7 @@ const resolveOwn = relativePath => path.resolve(__dirname, '..', relativePath);
 module.exports = {
   isPublish: true,
   appPath: resolveApp('.'),
-  appBuild: resolveApp('dist'),
+  appBuild: resolveApp(projectConfig.outputPath),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
@@ -84,7 +84,7 @@ isPublish || console.log('\npaths.js\n', {
 if (!isPublish) {
   module.exports = {
     isPublish,
-    appBuild: resolveOwn(`${demoDirectory}/dist`),                   // dist directory
+    appBuild: resolveOwn(`${demoDirectory}/${projectConfig.outputPath}`),                   // dist directory
     appHtml: resolveOwn(`${demoDirectory}/public/index.html`),       // HtmlWebpackPlugin html template
     appIndexJs: resolveOwn(`${demoDirectory}/src/index.js`),         // the entry files of app
     appNodeModules: resolveOwn('node_modules'),                      // node_modules directory

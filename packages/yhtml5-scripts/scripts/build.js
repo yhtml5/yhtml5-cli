@@ -8,9 +8,6 @@ const projectConfig = require('../config/config')
 if (!projectConfig.isCustomNodeEnv) {
   process.env.NODE_ENV = 'production'
 }
-console.log('\nbuild.js\n', {
-  'process.env.NODE_ENV': process.env.NODE_ENV
-})
 /** yhtml5 **/
 
 // Makes the script crash on unhandled rejections instead of silently
@@ -49,6 +46,10 @@ const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
+
+paths.isPublish && console.log('\nbuild.js\n', {
+  'process.env.NODE_ENV': process.env.NODE_ENV
+})
 
 // First, read the current file sizes in build directory.
 // This lets us display how much they changed later.

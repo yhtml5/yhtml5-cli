@@ -10,9 +10,11 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+/** yhtml5 **/
 const { pcssLoader, markdownLoader } = require('./webpack.loaders')
 const { webpackCommonsChunkPlugin, webpackAnalyzerPlugin } = require('./webpack.plugins')
 const projectConfig = require('./config');
+/** yhtml5 **/
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
@@ -23,8 +25,12 @@ const publicPath = paths.servedPath;
 // For these, "homepage" can be set to "." to enable relative asset paths.
 const shouldUseRelativeAssetPaths = publicPath === './';
 // Source maps are resource heavy and can cause out of memory issue for large source files.
+
+/** yhtml5 **/
 const shouldUseSourceMap = false;
 // const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+/** yhtml5 **/
+
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
 // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
@@ -50,11 +56,13 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+/** yhtml5 **/
 paths.isPublish || console.log('\nwebpack.config.dev.js\n', {
   env,
   'process.env.NODE_ENV':process.env.NODE_ENV,
   "env.stringified['process.env']":env.stringified['process.env']
 })
+/** yhtml5 **/
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -74,7 +82,9 @@ module.exports = {
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: 'static/js/[name].[chunkhash:8].js',
+    /** yhtml5 **/
     chunkFilename: 'static/js/[name].[chunkhash:8].async.js',
+    /** yhtml5 **/
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
@@ -98,7 +108,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       // @remove-on-eject-begin
       // Resolve Babel runtime relative to react-scripts.
@@ -132,9 +142,10 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
         use: [
+          /** yhtml5 **/
           // {
           //   options: {
           //     formatter: eslintFormatter,
@@ -151,6 +162,7 @@ module.exports = {
           //   },
           //   loader: require.resolve('eslint-loader'),
           // },
+          /** yhtml5 **/
         ],
         include: paths.appSrc,
       },
@@ -172,9 +184,10 @@ module.exports = {
           /** yhtml5 **/
           pcssLoader,
           markdownLoader,
+          /** yhtml5 **/
           // Process JS with Babel.
           {
-            test: /\.(js|jsx)$/,
+            test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
@@ -189,6 +202,7 @@ module.exports = {
                   "style": "css" //`style: true` 会加载 less 文件
                 }]
               ],
+              /** yhtml5 **/
               // @remove-on-eject-end
               compact: true,
             },
@@ -305,6 +319,7 @@ module.exports = {
     /** yhtml5 **/
     webpackCommonsChunkPlugin[1],
     webpackCommonsChunkPlugin[2],
+    /** yhtml5 **/
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -314,6 +329,9 @@ module.exports = {
         // Pending further investigation:
         // https://github.com/mishoo/UglifyJS2/issues/2011
         comparisons: false,
+      },
+      mangle: {
+        safari10: true,
       },
       output: {
         comments: false,
@@ -369,7 +387,9 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    /** yhtml5 **/
     projectConfig.isAnalyze ? webpackAnalyzerPlugin : () => { }
+    /** yhtml5 **/
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

@@ -70,7 +70,15 @@ const {
   isAnalyze = false,          // is turn on analyze module
   analyzerPort = 9992,        // analyze module report port
   host = '',                  // deploy server host, domain  ['', '.', 'yhtml5.com', null]
-  isCustomNodeEnv = false,    // whether to customize the node environment
+  // output path, receive a string type path, relative to the project root directory
+  // you can customize your dynamic output directory, like:
+  // const { getVersion } = require('yhtml5-dev-utils')
+  // const outputPath = `dist/${getVersion(packageJson.version)}`
+  outputPath = 'dist',
+  // whether to customize the node environment
+  // If this option is set to true, the node environment must be set
+  // "build": "NODE_ENV=pre yhtml5-scripts build"
+  isCustomNodeEnv = false,
   // Makes some environment variables available to the JS code, for example:
   // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
   envVar = {},
@@ -80,6 +88,28 @@ const {
   // publicUrl  PUBLIC_URL
   // distributePort = 9993,
 } = config
+
+const roadhog = {
+  "entry": "src/index.js",
+  "disableCSSModules": false,
+  "cssModulesExclude": [],
+  "publicPath": "/",
+  "outputPath": "./dist",
+  "extraBabelPlugins": [],
+  "extraPostCSSPlugins": [],
+  "sass": false,
+  "hash": false,
+  "autoprefixer": null,
+  "proxy": null,
+  "externals": null,
+  "library": null,
+  "libraryTarget": "var",
+  "multipage": false,
+  "define": null,
+  "env": null,
+  "theme": null,
+}
+
 
 // hostname,
 // port,
@@ -112,6 +142,7 @@ module.exports = {
   analyzerPort,
   isAnalyze,
   host,
+  outputPath,
   envVar,
   customAppEnvProds,
   isCustomNodeEnv,

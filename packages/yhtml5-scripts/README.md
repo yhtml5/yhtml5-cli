@@ -21,6 +21,10 @@ Welcome to NEW front-end world and enjoy yourself
 **[Document][YHTML5-Seed-document]**
 **[Issue][YHTML5-Seed-issue]**
 
+**参考**
+
+[roadhog](https://github.com/sorrycc/roadhog)
+
 ### Target
 
 * 构建丨解决前端开发中自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题
