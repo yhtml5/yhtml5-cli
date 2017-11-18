@@ -3,6 +3,9 @@
  * Description: The configuration file for the yhtml5-scripts should not be packaged into the app
  * Notice: when this file changes, you should rerunning scripts
  */
+const packageJson = require('./package.json')
+const { getVersion } = require('yhtml5-dev-utils')
+const outputPath = `dist/${getVersion(packageJson.version)}`
 
 const envVar = {
   development: {
@@ -55,8 +58,9 @@ const config = {
   isAnalyze: true,
   analyzerPort: 9992,
   envVar: envVar,
-  isCustomNodeEnv: true,
+  isCustomNodeEnv: false,
   customAppEnvProds: ['dev', 'daily', 'pre', 'publish'],
+  outputPath: outputPath,
   // host: './',
 
   entry: 'src/index.js',
