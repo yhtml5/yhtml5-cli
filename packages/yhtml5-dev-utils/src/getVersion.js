@@ -10,8 +10,8 @@ const year = new Date().getFullYear(),
 
 const time = `${formatMoment(year)}${formatMoment(month)}${formatMoment(day)}${formatMoment(hour)}${formatMoment(minute)}${formatMoment(second)}`
 
-const getVersion = ({ packageVersion = '' }) =>
-  'v' + packageVersion + (/[a-zA-Z]/.test(packageVersion)) ? '' : ('-' + time)
-
+const getVersion = (packageVersion = '') => packageVersion
+  ? 'v' + packageVersion + ((/[a-zA-Z]/.test(packageVersion)) ? '' : ('-' + time))
+  : ''
 
 module.exports = getVersion
