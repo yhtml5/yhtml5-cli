@@ -8,8 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-// const demoDirectory = 'demo/spa'
-const demoDirectory = 'demo/react-dashboard'
+const demoDirectory = 'demo/spa'
+// const demoDirectory = 'demo/react-dashboard'
+// const demoDirectory = 'demo/2dfire-dashboard'
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
@@ -115,7 +116,6 @@ const roadhog = {
 // port,
 // version,
 // title: '后台管理系统',
-// origin: 'http://' + hostname + ':' + port,
 // analyzerPort: 9992,
 // distributePort: 9993,
 // webpackContext: '',
