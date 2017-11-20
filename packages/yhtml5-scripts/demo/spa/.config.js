@@ -76,9 +76,7 @@ const config = {
     filename: 'luyan.html',
     path: 'src/pages/luyan.js'
   }],
-  output: '/',
   type: '',
-  templateHtml: 'src/pages/template.js',
   test: {
     // testMatch: ['demo/__test__/**/*.js?(x)'],
     // transformIgnorePatterns: ["node_modules/(?!(yhtml5-test|react-redux|react-native-button)/)"],
