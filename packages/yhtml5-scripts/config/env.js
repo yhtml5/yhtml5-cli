@@ -24,7 +24,7 @@ if (!NODE_ENV) {
 }
 
 /** yhtml5 **/
-const appEnvVar = projectConfig.envVar[NODE_ENV] || {}
+const appEnvVar = projectConfig.envVar[NODE_ENV] || projectConfig.envVar['development'] || {}
 const getAppEnv = () =>
   (projectConfig.isCustomNodeEnv
     && projectConfig.customAppEnvProds.length

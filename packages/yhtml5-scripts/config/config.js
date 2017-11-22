@@ -83,7 +83,10 @@ const {
   // If this option is set to true, the node environment must be set
   // "build": "NODE_ENV=pre yhtml5-scripts build"
   isCustomNodeEnv = false,
-  // Makes some environment variables available to the JS code, for example:
+  // Makes some environment variables available to the JS code,
+  // the default process.env value is envVar.development,
+  // projectConfig.envVar[NODE_ENV] || projectConfig.envVar['development'] || {}
+  // for example:
   // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
   envVar = {},
   // set app process.env.NODE_ENV to production when node running in custom node enviroment
