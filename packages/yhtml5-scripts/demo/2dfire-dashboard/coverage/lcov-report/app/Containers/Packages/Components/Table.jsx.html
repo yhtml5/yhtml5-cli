@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Containers/Packages/Components/Table.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">app/Containers/Packages/Components</a> Table.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/14</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import { Tab<span class="cstat-no" title="statement not covered" >le, Card, Popcon</span>firm } from 'antd'
+import { isString<span class="cstat-no" title="statement not covered" >Empty } from '../../../util/validat</span>or'
+import { rend<span class="cstat-no" title="statement not covered" >erColumns, renderStatus, renderLiveType, render</span>Recommend<span class="fstat-no" title="function not covered" >ation } from '../../../</span>Compon<span class="cstat-no" title="statement not covered" >ents/Table/index.jsx'</span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >NewTable(</span>{ loading, dataSource, toggleRecommendation, toggleStatus, onEdit, onPreview }) {
+  const columns = <span class="cstat-no" title="statement not covered" >[{</span>
+    key: 'sort_order',
+    title: '套餐排序',
+    dataIndex: 'sort_order',
+    render: renderColumns
+  }, {
+    key: 'name',
+    title: '套餐名称',
+    dataIndex: 'name',
+    render: renderColumns
+  }, {
+    key: 'is_reco',
+    title: '是否推荐到首页',
+    dataIndex: 'is_reco',
+    render: renderRecommendation
+  }, {
+    key: 'status',
+    title: '状态',
+    dataIndex: 'status',
+    render: <span class="fstat-no" title="function not covered" >(t</span>ext, record) =&gt; <span class="cstat-no" title="statement not covered" >(isStringEmpty(text)) ? '--' : (Number(record.status) === 1) ? '上线' : '下线'</span>
+  }, {
+    key: 'option',
+    title: '操作',
+    dataIndex: 'option',
+    render: <span class="fstat-no" title="function not covered" >(t</span>ext, record) =&gt;
+<span class="cstat-no" title="statement not covered" >      &lt;span&gt;</span>
+        &lt;a onClick={() =&gt; onPreview(record.id)} clas<span class="fstat-no" title="function not covered" >sN</span>ame=<span class="cstat-no" title="statement not covered" >"table-operating"&gt;预览&lt;</span>/a&gt;
+        &lt;a onClick={() =&gt; onEdit(record.id)} classNa<span class="fstat-no" title="function not covered" >me</span>="ta<span class="cstat-no" title="statement not covered" >ble-operating"&gt;编辑&lt;</span>/a&gt;
+        &lt;Popconfirm title={`确定要${(Number(record.status) === 1) ? '下线' : '上线'}吗?`}
+          onConfirm={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >toggleStatus(record.id, (Number(record.status) === 1) ? 2 : 1</span>)}
+          onCancel={false}
+          okText="确定"
+          cancelText="取消"&gt;
+          &lt;a className="table-operating"&gt;{(Number(record.status) === 1) ? '下线' : '上线'}&lt;/a&gt;
+        &lt;/Popconfirm&gt;
+        &lt;Popconfirm title={`确定要${(Number(record.is_reco) === 1) ? '取消推荐' : '推荐首页'}吗?`}
+          onConfirm={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >toggleRecommendation(record.id, (Number(record.is_reco) === 1) ? 2 : 1</span>)}
+          onCancel={false}
+          okText="确定"
+          cancelText="取消"&gt;
+          &lt;a className="table-operating"&gt;{(Number(record.is_reco) === 1) ? '取消推荐' : '推荐首页'}&lt;/a&gt;
+        &lt;/Popconfirm&gt;
+      &lt;/span&gt;
+  }]
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;Table
+      className='y-table'
+      rowKey={<span class="fstat-no" title="function not covered" >re</span>cord =&gt; <span class="cstat-no" title="statement not covered" >record.id}</span>
+      columns={columns}
+      bordered={true}
+      loading={loading}
+      dataSource={dataSource}
+      pagination={false}
+    /&gt;
+  )
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export default NewTable
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 18 2017 17:44:25 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

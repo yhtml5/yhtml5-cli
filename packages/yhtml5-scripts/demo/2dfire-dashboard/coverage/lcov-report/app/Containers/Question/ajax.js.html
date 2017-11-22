@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Containers/Question/ajax.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">app/Containers/Question</a> ajax.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/65</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/25</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/53</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import ajax f<span class="cstat-no" title="statement not covered" >rom  '../../util/ajax'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import reqwest <span class="cstat-no" title="statement not covered" >from 'reqwest'<span class="cstat-no" title="statement not covered" ></span></span>
+import {upda<span class="cstat-no" title="statement not covered" >teState} from './t</span>ask'
+import {chang<span class="cstat-no" title="statement not covered" >eSelectChannels} from '</span>../App/task'
+import {mess<span class="cstat-no" title="statement not covered" >age} from 'antd'</span>
+import {config<span class="cstat-no" title="statement not covered" >} from '../../config.js'</span>
+import {getCoo<span class="cstat-no" title="statement not covered" >kie} from '../../util/cookie.js'<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+let {cookie} = co<span class="cstat-no" title="statement not covered" >nfig()</span>
+&nbsp;
+/**
+ * Todo Mapping Parameters
+ *
+ * @param {object} params
+ * @param {function} dispatch
+ */
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxAdList(</span>dispatch, params) {
+<span class="cstat-no" title="statement not covered" >  console.log(params)</span>
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/list',
+      {
+        page: params.tableCurrent,
+        rows: 10,
+        channel_id: params.channel_id,
+        column_id: params.column_id,
+        serial_no: params.serial_no,
+        is_reply: params.is_reply
+      },
+      resolve,
+      resolve,
+<span class="fstat-no" title="function not covered" ></span>      (response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        resolve</span>()
+<span class="cstat-no" title="statement not covered" >        return dispatch(updateState({</span>
+          tableData: response.data.list,
+          tableTotals: (response.data.totals) ? Number(response.data.totals) : 0
+        }))
+      }
+    )
+  )
+}
+//获取广告位类型
+async function <span class="fstat-no" title="function not covered" >positionType(</span>dispatch) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/ad/position-type',
+      {},
+      resolve,
+      resolve,
+<span class="fstat-no" title="function not covered" ></span>      (response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        resolve</span>()
+<span class="cstat-no" title="statement not covered" >        return dispatch(updateState({</span>
+          positionType: response.data,
+        }))
+      }
+    )
+  )
+}
+//图片上传token
+async function <span class="fstat-no" title="function not covered" >getUploadToken(</span>dispatch) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    reqwest({</span>
+      url: "http://112.17.251.92:8080/apiserver/api/qiNiuUpToken",
+      type: 'json',
+      method: 'get',
+      data: {
+        'username': "yaoping",
+        'password': "123456",
+        'token': getCookie(cookie.token)
+      },
+      contentType: 'application/json',
+      error<span class="fstat-no" title="function not covered" >: </span>function (error) {
+        // message.destroy()
+<span class="cstat-no" title="statement not covered" >        message.error('网络异常, http状态码：' + error.status, 3);</span>
+&nbsp;
+      },
+      success<span class="fstat-no" title="function not covered" >: </span>function (response) {
+        // message.destroy()
+<span class="cstat-no" title="statement not covered" >        if (response.errorcode == "0") {</span>
+<span class="cstat-no" title="statement not covered" >          return dispatch(updateState({</span>
+            uploadToken: response.data,
+          }))
+        } els<span class="cstat-no" title="statement not covered" >e if (Number(response.code) === 50002) {</span>
+<span class="cstat-no" title="statement not covered" >          message.info('当前登录状态已失效，2秒后自动将跳转到登录页...', 3)</span>
+<span class="cstat-no" title="statement not covered" >          setTimeou<span class="fstat-no" title="function not covered" >t(</span>() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            history.push("/")</span>
+          }, 2000)
+        } else {
+<span class="cstat-no" title="statement not covered" >          message.error((response.message) ? response.message : '网络异常')</span>
+&nbsp;
+        }
+      }
+    })
+  )
+}
+async function <span class="fstat-no" title="function not covered" >ajaxDeleteNav(</span>id) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/remove', {id: id}, resolve, resolve, resolve
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxEditStatus(</span>id, status) {
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/toggle', {id: id, status: status}, resolve, resolve, resolve
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxAddNav(</span>values) {
+<span class="cstat-no" title="statement not covered" >  if (process.env.NODE_ENV !== 'production') {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('\n', values)</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/create',
+      values,
+      reject, reject, resolve
+    )
+  )
+}
+async function <span class="fstat-no" title="function not covered" >ajaxReply(</span>values) {
+<span class="cstat-no" title="statement not covered" >  if (process.env.NODE_ENV !== 'production') {</span>
+<span class="cstat-no" title="statement not covered" >    console.log('\n', values)</span>
+  }
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/reply',
+      values,
+      reject, reject, resolve
+    )
+  )
+}
+async function <span class="fstat-no" title="function not covered" >ajaxNavEditInfo(</span>dispatch, id) {
+<span class="cstat-no" title="statement not covered" >  console.log('\n', id)</span>
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/view',
+      {
+        id: id
+      },
+      resolve, resolve,
+<span class="fstat-no" title="function not covered" ></span>      (response) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (response.data.user_img != "") {</span>
+<span class="cstat-no" title="statement not covered" >          response.data.user_img = [{</span>
+            uid: -1,
+            name: 'logo.png',
+            status: 'done',
+            url: response.data.user_img,
+          }];
+<span class="cstat-no" title="statement not covered" >          dispatch(updateState({</span>
+            isUpload: false
+          }))
+        }
+<span class="cstat-no" title="statement not covered" >        dispatch(changeSelectChannels(response.data.channel_id))</span>
+<span class="cstat-no" title="statement not covered" >        dispatch(updateState({</span>
+          id: id,
+          channel_id: response.data.channel_id,
+          column_id: response.data.column_id == "0" ? "" : response.data.column_id,
+          user_img: response.data.user_img,
+          question_author: response.data.question_author,
+          title: response.data.title,
+          intro: response.data.intro,
+          answer: response.data.answer,
+          is_reco: response.data.is_reco,
+          sort_order: response.data.sort_order,
+        },))
+<span class="cstat-no" title="statement not covered" >        resolve</span>()
+      }
+    )
+  )
+}
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >ajaxEditNav(</span>values) {
+<span class="cstat-no" title="statement not covered" >  console.log('ajaxEditNav', values)</span>
+<span class="cstat-no" title="statement not covered" >  await new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >    ajax(</span>
+      'website/qa/edit',
+      values,
+      reject, reject, resolve
+    )
+  )
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export {ajaxAdList, ajax<span class="cstat-no" title="statement not covered" >DeleteNav, ajaxEditStatus, ajaxAddNav,<span class="cstat-no" title="statement not covered" > </span>ajaxNavEditInfo, ajaxEditNav, getUpload<span class="cstat-no" title="statement not covered" >T</span>oken, positionType, ajaxReply}<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span></span></span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 18 2017 17:44:25 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

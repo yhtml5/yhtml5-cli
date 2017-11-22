@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Containers/Live/indexEdit.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">app/Containers/Live</a> indexEdit.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/19</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import {Card<span class="cstat-no" title="statement not covered" >, Pagination} fr</span>om 'antd'
+import connect <span class="cstat-no" title="statement not covered" >from 'react-redux/es/connect/connect'<span class="cstat-no" title="statement not covered" ></span></span>
+import {notR<span class="cstat-no" title="statement not covered" >epeating}from '../../util/u</span>til'
+import Breadc<span class="cstat-no" title="statement not covered" >rumb from '../../Components/Breadcrumb/index.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import From <span class="cstat-no" title="statement not covered" >from './Components/Form.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import {conf<span class="cstat-no" title="statement not covered" >irmDelete, addLive</span>, editNav, editLive, resetEdit, changeFormEditType, changeFormStepEdit, changeChannel} from  './task'
+import {selec<span class="cstat-no" title="statement not covered" >tChannels, selectColumn</span>s} from '<span class="fstat-no" title="function not covered" >../App/task'<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >LiveEdit(</span>{dispatch, live, app}) {
+<span class="cstat-no" title="statement not covered" >  console.log('LiveProps: ', live)</span>
+&nbsp;
+  const breadcrumbProps = <span class="cstat-no" title="statement not covered" >{</span>
+    breadcrumbs: [{
+      name: '页面管理',
+    }, {
+      name: '直播管理',
+    }, {
+      name: '编辑',
+    }]
+  }
+  const formProps = <span class="cstat-no" title="statement not covered" >{</span>
+    uploadToken: app.uploadToken,
+    selectChannels: app.selectChannels,
+    selectColumns: app.selectColumns,
+    selectLabels: app.selectLabels,
+    formId: live.formId,
+    formChannel: live.formChannel,
+    formColumn: live.formColumn,
+    formLabel: live.formLabel,
+    formAreas: live.formAreas,
+    formHomes: live.formHomes,
+    formTypes: live.formTypes,
+    formSteps: live.formSteps,
+    formTitle: live.formEditTitle,
+    formMainImage: live.formEditMainImage,
+    formCommunityName: live.formEditCommunityName,
+    formAnnouncer: live.formEditAnnouncer,
+    formDesignImage: live.formEditDesignImage,
+    formImages: live.formEditImages,
+    formSort: live.formEditSort,
+    formStep: live.formEditStep,
+    formArea: live.formEditArea,
+    formHome: live.formEditHome,
+    formType: live.formEditType,
+    formIsDone: live.formEditIsDone,
+    formIsHomepage: live.formEditIsHomepage,
+    formVideoView: live.formEditVideoView,
+    formVideoIntroduction: live.formEditVideoIntroduction,
+    formVideoUrl: live.formEditVideoUrl,
+    buttonOkLoading: live.formEditButtonSubmitLoading,
+    buttonCancelLoading: live.buttonResetLoading,
+    onOk(value){
+<span class="cstat-no" title="statement not covered" >      notRepeating(() =&gt; dispa<span class="fstat-no" title="function not covered" >tc</span>h(ed<span class="cstat-no" title="statement not covered" >itLive(value)))</span></span>
+    },
+    onCancel(values){
+<span class="cstat-no" title="statement not covered" >      notRepeating(() =&gt; dispa<span class="fstat-no" title="function not covered" >tc</span>h(re<span class="cstat-no" title="statement not covered" >setEdit(values)))</span></span>
+    },
+    changeSelectChannels(id){
+<span class="cstat-no" title="statement not covered" >      dispatch(changeChannel(id))</span>
+    },
+    changeSelectColumns(value){
+<span class="cstat-no" title="statement not covered" >      dispatch(selectColumns(value))</span>
+    },
+    changeFormType(value){
+      // dispatch(changeFormAddType(value))
+    },
+    changeFormStep(value){
+<span class="cstat-no" title="statement not covered" >      dispatch(changeFormStepEdit(value))</span>
+    }
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div&gt;
+      &lt;Breadcrumb {...breadcrumbProps}/&gt;
+      &lt;Card className="y-m-b-40"&gt;
+        &lt;From {...formProps}/&gt;
+      &lt;/Card&gt;
+    &lt;/div&gt;
+  )
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export default connect(<span class="fstat-no" title="function not covered" >st</span>ate =&gt; {
+<span class="cstat-no" title="statement not covered" >  return {</span>
+    app: state.app,
+    live: state.live,
+  }
+})(LiveEdit)
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 18 2017 17:44:25 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

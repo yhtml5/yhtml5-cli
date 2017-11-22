@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/Containers/Packages/Components/FormStyles.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">app/Containers/Packages/Components</a> FormStyles.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
+import { Rad<span class="cstat-no" title="statement not covered" >io, Form, Button</span>, Input, Icon, Select, Row, Col, Slider, Upload, Checkbox, Modal } from 'antd'
+import PicturesWall <span class="cstat-no" title="statement not covered" >from '../../../Components/Upload/PicturesWall.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import style<span class="cstat-no" title="statement not covered" >s from './Form.pcss'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle1<span class="cstat-no" title="statement not covered" > from './FormStyle1.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle2 <span class="cstat-no" title="statement not covered" >from './FormStyle2.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle3 <span class="cstat-no" title="statement not covered" >from './FormStyle3.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle4 <span class="cstat-no" title="statement not covered" >from './FormStyle4.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle5 <span class="cstat-no" title="statement not covered" >from './FormStyle5.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle6 f<span class="cstat-no" title="statement not covered" >rom './FormStyle6.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle7 f<span class="cstat-no" title="statement not covered" >rom './FormStyle7.jsx'<span class="cstat-no" title="statement not covered" ></span></span>
+import FormStyle8 f<span class="cstat-no" title="statement not covered" >rom './FormStyle8.jsx'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >Component(</span>{ columnsStyles, formType, onOk, onCancel }) {
+<span class="cstat-no" title="statement not covered" >  console.log('FormStyles', columnsStyles)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;div&gt;
+      {
+        columnsStyles.ma<span class="fstat-no" title="function not covered" >p(</span>(value, index) =&gt; {
+          const formStyleProps <span class="cstat-no" title="statement not covered" >= {</span>
+            key: (value.id) ? value.id : value.type_id,
+            formType: formType,
+            value: value,
+            onOk(value) {
+<span class="cstat-no" title="statement not covered" >              onOk(value)</span>
+            },
+            onCancel(value) {
+<span class="cstat-no" title="statement not covered" >              onCancel(value)</span>
+            },
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (value.type_id == 1) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle1 title='样式一' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 2) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle2 title='样式二' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 3) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle3 title='样式三' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 4) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle4 title='样式四' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 5) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle5 title='样式五' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 6) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle6 title='样式六' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 7) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle7 title='样式七' {...formStyleProps} /&gt;</span>
+          } els<span class="cstat-no" title="statement not covered" >e if (value.type_id == 8) {</span>
+<span class="cstat-no" title="statement not covered" >            return &lt;FormStyle8 title='样式八' {...formStyleProps} /&gt;</span>
+          }
+        })
+      }
+    &lt;/div&gt;
+  )
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+export default Component
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Sep 18 2017 17:44:25 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
