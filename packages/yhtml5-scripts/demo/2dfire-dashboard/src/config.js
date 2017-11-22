@@ -24,7 +24,7 @@ function config() {
       api: '//116.62.92.115:71'
     }],
     root: {
-      name: 'yhtml5',
+      name: '2dfire',
       password: '123456'
     },
     cookie: {

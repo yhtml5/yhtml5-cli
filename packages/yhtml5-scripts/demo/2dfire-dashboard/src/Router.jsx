@@ -17,16 +17,13 @@ import Layout from './Containers/Layout/index.jsx'
 
 // ==== lazy load route components ====
 
-// const Layout = () => LazilyLoadComponent(require.ensure([], require => require('./Containers/Layout/index.jsx').default, 'container-Layout'))
 const Login = () => LazilyLoadComponent(require.ensure([], require => require('./Containers/Login/index.jsx').default, 'route-Login'))
 const Demo = () => LazilyLoadComponent(require.ensure([], require => require('./Containers/Demo/index.jsx').default, 'route-Demo'))
 const Document = () => LazilyLoadComponent(require.ensure([], require => require('./Containers/Document/index.jsx').default, 'route-Document'))
 const Form = () => LazilyLoadComponent(require.ensure([], require => require('./Containers/Form/index.jsx').default, 'route-Form'))
 
 const NoMatch = () => (
-  <div>
-    <h3>404</h3>
-  </div>
+  <h3>404</h3>
 )
 
 function newRouter() {
@@ -36,18 +33,14 @@ function newRouter() {
       <ConnectedRouter history={history}>
         <Switch>
           <Route path="/login" component={Login} />
-          <Route path="/" component={Login} exact />
           <Layout>
-            <Route path="/form" component={Form} />
-            {/* </Layout> */}
-            {/* <Layout> */}
-            <Route path="/demo" component={Demo} />
-            {/* </Layout> */}
-            {/* <Layout> */}
-            <Route path="/document" component={Document} />
-            {/* </Layout> */}
-            {/* <Layout> */}
-            <Route component={NoMatch} exact />
+            <Switch>
+              <Route exact path="/" component={Document} />
+              <Route path="/form" component={Form} />
+              <Route path="/demo" component={Demo} />
+              <Route path="/document" component={Document} />
+              <Route component={NoMatch} />
+            </Switch>
           </Layout>
         </Switch>
       </ConnectedRouter>

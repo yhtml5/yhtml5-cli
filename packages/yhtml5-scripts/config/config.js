@@ -8,9 +8,9 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-const demoDirectory = 'demo/spa'
+// const demoDirectory = 'demo/spa'
 // const demoDirectory = 'demo/react-dashboard'
-// const demoDirectory = 'demo/2dfire-dashboard'
+const demoDirectory = 'demo/2dfire-dashboard'
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
@@ -47,6 +47,9 @@ function getConfig() {
     switch (demoDirectory) {
       case 'demo/react-dashboard':
         return require('../demo/react-dashboard/.config.js')
+        break;
+      case 'demo/2dfire-dashboard':
+        return require('../demo/2dfire-dashboard/.config.js')
         break;
       case 'demo/spa':
         return require('../demo/spa/.config.js')
