@@ -16,3 +16,4 @@
   - [ ] beautify-lint `webpack`
   - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
   - [ ] add unit test
+  - [ ] webpack alias

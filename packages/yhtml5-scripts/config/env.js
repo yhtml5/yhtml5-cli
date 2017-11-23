@@ -25,6 +25,10 @@ if (!NODE_ENV) {
 
 /** yhtml5 **/
 const appEnvVar = projectConfig.envVar[NODE_ENV] || projectConfig.envVar['development'] || {}
+const appEnvVarBase = projectConfig.envVar['base'] || {}
+const appTitle = (projectConfig.envVar['base'] && projectConfig.envVar['base'].APP_TITLE)
+  ? projectConfig.envVar['base'].APP_TITLE
+  : 'React App'
 const getAppEnv = () =>
   (projectConfig.isCustomNodeEnv
     && projectConfig.customAppEnvProds.length
@@ -92,6 +96,8 @@ function getClientEnvironment(publicUrl) {
       // This should only be used as an escape hatch. Normally you would put
       // images into the `src` and `import` them in code to get their paths.
       PUBLIC_URL: publicUrl,
+      APP_TITLE: appTitle,
+      ...appEnvVarBase,
       ...appEnvVar
     }
     );

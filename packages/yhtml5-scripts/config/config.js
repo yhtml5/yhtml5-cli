@@ -2,6 +2,7 @@
  * Author: yhtml5
  * Description: The config of yhtml5-scripts
  * TODO:
+ *
  */
 
 const fs = require('fs');
@@ -83,8 +84,10 @@ const {
   // If this option is set to true, the node environment must be set
   // "build": "NODE_ENV=pre yhtml5-scripts build"
   isCustomNodeEnv = false,
+  // The environment variables are embedded during the build time
   // Makes some environment variables available to the JS code,
   // the default process.env value is envVar.development,
+  // the envVar['base'] environment variables will be merged by others
   // projectConfig.envVar[NODE_ENV] || projectConfig.envVar['development'] || {}
   // for example:
   // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
