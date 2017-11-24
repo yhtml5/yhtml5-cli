@@ -2,27 +2,10 @@ function config() {
   let isMock = false
   return {
     entryUrl: '/login',
-    version: process.env.version ? process.env.version : '开发测试版',
-    title: process.env.title ? process.env.title : 'Title',
+    version: process.env.version || '开发测试版',
+    title: process.env.APP_TITLE || 'Title',
     subTitle: '管',
     copyright: '2dfire.com',
-    environment: [{
-      name: 'development',
-      host: 'localhost:9999',
-      api: (isMock) ? '//192.168.1.89:8077/mockjsdata/33' : '//192.168.1.105:1111'
-    }, {
-      name: 'test',
-      host: 'httest.ejz99.com',
-      api: '//192.168.1.105:1111'
-    }, {
-      name: 'test2',
-      host: '192.168.1.105:1113',
-      api: '//192.168.1.105:1111'
-    }, {
-      name: 'production',
-      host: 'houtai.ejz99.com',
-      api: '//116.62.92.115:71'
-    }],
     root: {
       name: '2dfire',
       password: '123456'
@@ -148,17 +131,15 @@ function searchKeyWithPathname() {
     return config().siteMap[index].key
   }
 }
+console.log('\nconfig.js\n', {
+  process,
+  'process.env': process.env
+})
 
-function getApiUrl() {
-  let env = config().environment.find((value, index) => value.host === window.location.host)
-  return (env) ?
-    env.api :
-    config().environment[0].api
-}
+window.appProcess = process
 
 export {
   config,
-  getApiUrl,
   searchMenuWithKey,
   searchKeyWithPathname
 }

@@ -3,7 +3,7 @@ import { getCookie } from '../../util/cookie'
 import { isObject, isArrayEmpty, isStringEmpty } from '../../util/validator'
 import { updateState as updateLoginState } from '../Login/task'
 import { UpdateState } from './action'
-import { ajaxPermissions, ajaxChannelColumnsList, ajaxLabels, ajaxUploadToken } from './ajax'
+import { ajaxPermissions } from './ajax'
 import { history } from '../../redux/store'
 
 const { title, root, cookie } = config()

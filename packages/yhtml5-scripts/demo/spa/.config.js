@@ -8,6 +8,9 @@ const { getVersion } = require('yhtml5-dev-utils')
 const outputPath = `dist/${getVersion(packageJson.version)}`
 
 const envVar = {
+  base:{
+    APP_TITLE: 'SPA'
+  },
   development: {
     customNodeEnv: 'development',
     fileBaseUrl: '../../file',
@@ -58,8 +61,6 @@ const config = {
   isAnalyze: true,
   analyzerPort: 9992,
   envVar: envVar,
-  isCustomNodeEnv: false,
-  customAppEnvProds: ['dev', 'daily', 'pre', 'publish'],
   outputPath: outputPath,
   // host: './',
 

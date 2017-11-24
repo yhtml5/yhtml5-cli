@@ -1,6 +1,6 @@
 import reqwest from 'reqwest'
 import { message } from 'antd'
-import { config, getApiUrl } from '../config.js'
+import { config } from '../config.js'
 import { history } from '../redux/store'
 import { getCookie } from './cookie.js'
 import { isString, isObject, isFunction } from './validator'
@@ -21,7 +21,7 @@ function ajax(url, param, fail, error, success) {
   }
   console.warn('ajaxParam-' + url + ': ', newParam)
   reqwest({
-    url: getApiUrl() + '/' + url,
+    url: `${process.env.APP_BASE_URL}/${url}`,
     type: 'json',
     method: 'get',
     data: newParam,

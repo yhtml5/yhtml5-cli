@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "2dfire-dashboard",
+  "name": "二维火前端管理后台",
   "icons": [
     {
       "src": "favicon.ico",
