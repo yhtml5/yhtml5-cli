@@ -2,12 +2,13 @@
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
+process.env.NODE_ENV = 'production'
 
 /** yhtml5 **/
-const projectConfig = require('../config/config')
-if (!projectConfig.isCustomNodeEnv) {
-  process.env.NODE_ENV = 'production'
-}
+// const projectConfig = require('../config/config')
+// if (!projectConfig.isCustomNodeEnv) {
+//   process.env.NODE_ENV = 'production'
+// }
 /** yhtml5 **/
 
 // Makes the script crash on unhandled rejections instead of silently
@@ -47,9 +48,13 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
 
+/** yhtml5 **/
+const customEnvVarKey = process.argv.slice(2)[0] || ''
 paths.isPublish || console.log('\nbuild.js\n', {
-  'process.env.NODE_ENV': process.env.NODE_ENV
+  'process.env.NODE_ENV': process.env.NODE_ENV,
+  customEnvVarKey
 })
+/** yhtml5 **/
 
 // First, read the current file sizes in build directory.
 // This lets us display how much they changed later.
@@ -113,7 +118,9 @@ measureFileSizesBeforeBuild(paths.appBuild)
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
+
   console.log('\n\nThe process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV))
+  customEnvVarKey && console.log('The custom environment variable is: ', chalk.cyan.bold(customEnvVarKey))
   const spinner = ora('Creating an optimized production build...')
   spinner.color = 'blue'
   spinner.start()

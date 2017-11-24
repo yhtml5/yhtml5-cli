@@ -83,7 +83,7 @@ const {
   // whether to customize the node environment
   // If this option is set to true, the node environment must be set
   // "build": "NODE_ENV=pre yhtml5-scripts build"
-  isCustomNodeEnv = false,
+  // isCustomNodeEnv = false,
   // The environment variables are embedded during the build time
   // Makes some environment variables available to the JS code,
   // the default process.env value is envVar.development,
@@ -94,7 +94,7 @@ const {
   envVar = {},
   // set app process.env.NODE_ENV to production when node running in custom node enviroment
   // only when isCustomNodeEnv === true, customAppEnvProds to work
-  customAppEnvProds = [],
+  // customAppEnvProds = [],
   // publicUrl  PUBLIC_URL
   // distributePort = 9993,
 } = config
@@ -119,7 +119,6 @@ const roadhog = {
   "env": null,
   "theme": null,
 }
-
 
 // hostname,
 // port,
@@ -153,7 +152,5 @@ module.exports = {
   host,
   outputPath,
   envVar,
-  customAppEnvProds,
-  isCustomNodeEnv,
   demoDirectory
 }

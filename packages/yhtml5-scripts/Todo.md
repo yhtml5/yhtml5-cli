@@ -1,19 +1,21 @@
 ## Todo List
 - [ ] Must
-  - [ ] check publish paths `config/paths.js`
+  - [x] check publish paths `config/paths.js`
   - [ ] multi-pages
+- [ ] custom config
+  - [x] webpackBundleAnalyzerPlugin
+  - [x] custom output directory with version control
+  - [ ] webpack alias
+  - [ ] add process.env.version
 - [ ] Expand
+  - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
   - [ ] hot replace
   - [ ] webpack.NoEmitOnErrorsPlugin
-  - [x] webpackBundleAnalyzerPlugin
   - [x] new webpack.optimize.CommonsChunkPlugin
   - [ ] update scripts console information
   - [ ] add log middleware, process.env.NODE_ENV !== 'production'
   - [ ] extract function isPublish appDirectory to yhtml5-dev-util
   - [ ] extract eslint
   - [ ] extract loader and plugins
-  - [x] output directory with version control
   - [ ] beautify-lint `webpack`
-  - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
   - [ ] add unit test
-  - [ ] webpack alias

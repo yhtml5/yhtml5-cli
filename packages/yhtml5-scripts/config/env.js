@@ -10,6 +10,12 @@ const projectConfig = require('./config')
 if (projectConfig.host) {
   process.env.PUBLIC_URL = projectConfig.host
 }
+
+paths.isPublish || console.log('\nenv.js\n', {
+  args: process.argv,
+  args1: process.argv.slice(1),
+  args2: process.argv.slice(2),
+})
 /** yhtml5 **/
 
 // Make sure that including paths.js after env.js will read .env variables.
@@ -24,16 +30,17 @@ if (!NODE_ENV) {
 }
 
 /** yhtml5 **/
-const appEnvVar = projectConfig.envVar[NODE_ENV] || projectConfig.envVar['development'] || {}
+const customEnvVarKey = process.argv.slice(2)[0] || ''
+const appEnvVar = projectConfig.envVar[customEnvVarKey] || projectConfig.envVar['development'] || {}
 const appEnvVarBase = projectConfig.envVar['base'] || {}
 const appTitle = (projectConfig.envVar['base'] && projectConfig.envVar['base'].APP_TITLE)
   ? projectConfig.envVar['base'].APP_TITLE
   : 'React App'
-const getAppEnv = () =>
-  (projectConfig.isCustomNodeEnv
-    && projectConfig.customAppEnvProds.length
-    && projectConfig.customAppEnvProds.some((value) => value === process.env.NODE_ENV)) ? 'production'
-    : process.env.NODE_ENV || 'development'
+// const getAppEnv = () =>
+//   (projectConfig.isCustomNodeEnv
+//     && projectConfig.customAppEnvProds.length
+//     && projectConfig.customAppEnvProds.some((value) => value === process.env.NODE_ENV)) ? 'production'
+//     : process.env.NODE_ENV || 'development'
 /** yhtml5 **/
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
@@ -90,7 +97,7 @@ function getClientEnvironment(publicUrl) {
     {
       // Useful for determining whether we’re running in production mode.
       // Most importantly, it switches React into the correct mode.
-      NODE_ENV: getAppEnv(),
+      NODE_ENV: process.env.NODE_ENV || 'development',
       // Useful for resolving the correct path to static assets in `public`.
       // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
       // This should only be used as an escape hatch. Normally you would put
