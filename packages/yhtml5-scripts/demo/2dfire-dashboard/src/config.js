@@ -136,7 +136,7 @@ console.log('\nconfig.js\n', {
   'process.env': process.env
 })
 
-window.appProcess = process
+window.appEnvVar = process.env
 
 export {
   config,
