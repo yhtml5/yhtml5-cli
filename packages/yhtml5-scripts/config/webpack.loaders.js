@@ -12,6 +12,9 @@ const paths = require('./paths');
  * style-loader:
  * https://doc.webpack-china.org/loaders/style-loader
  *
+ * css-loader:
+ * https://doc.webpack-china.org/loaders/css-loader/#camelcase
+ *
  */
 
 /************ html loader  ***********/
@@ -49,48 +52,64 @@ const markdownLoader = {
 
 
 /******* css loader  ******/
+const styleLoadersOptions = {
+  loader: require.resolve('style-loader'),
+  options: {
+    hmr: process.env.NODE_ENV === 'development',
+  }
+}
+
+const cssLoaderOptions = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    // 类名将被骆驼化
+    camelCase: true,
+    // generate source map
+    sourceMap: false,
+    importLoaders: 1,
+    minimize: process.env.NODE_ENV === 'production',
+    localIdentName: (process.env.NODE_ENV === 'production') ? '[local]-[hash:base64:6]' : '[path][name]-[local]',
+  }
+}
+
+const pcssLoaderOptions = {
+  loader: 'postcss-loader',
+  options: {
+    // Necessary for external CSS imports to work
+    // https://github.com/facebookincubator/create-react-app/issues/2677
+    ident: 'postcss',
+    plugins: () => [
+      require('postcss-smart-import')({/* ...options */ }),
+      require('precss')({/* ...options */ }),
+      require('postcss-flexbugs-fixes'),
+      autoprefixer({
+        browsers: [
+          '>1%',
+          'last 4 versions',
+          'Firefox ESR',
+          'not ie < 9', // React doesn't support IE8 anyway
+        ],
+        flexbox: 'no-2009',
+      }),
+    ],
+  },
+}
+
 const pcssLoader = {
   test: /\.pcss$/,
+  include: /\.pcss$/,
   exclude: /\.css$/,
-  // exclude: /node_modules/,
-  use: webpackExtractPcssPlugin.extract(
-    {
-      fallback: {
-        loader: require.resolve('style-loader'),
-        options: {
-          hmr: false,
-        }
-      },
-      use: [{
-        loader: 'css-loader',
-        options: {
-          modules: true,
-          minimize: process.env.NODE_ENV === 'production',
-          localIdentName: (process.env.NODE_ENV === 'production') ? '[local]-[hash:base64:6]' : '[path][name]-[local]',
-          camelCase: true,
-          sourceMap: false,
-          importLoaders: 1,
-        }
-      }, {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => [
-            require('postcss-smart-import')({/* ...options */ }),
-            require('precss')({/* ...options */ }),
-            require('postcss-flexbugs-fixes'),
-            autoprefixer({
-              browsers: [
-                '>1%',
-                'last 4 versions',
-                'Firefox ESR',
-                'not ie < 9', // React doesn't support IE8 anyway
-              ],
-              flexbox: 'no-2009',
-            }),
-          ],
-        },
-      }]
+  use: process.env.NODE_ENV === 'production'
+    ? webpackExtractPcssPlugin.extract({
+      fallback: styleLoadersOptions,
+      use: [cssLoaderOptions, pcssLoaderOptions]
     })
+    : [
+      styleLoadersOptions,
+      cssLoaderOptions,
+      pcssLoaderOptions,
+    ]
 }
 
 const cssInternalLoader = {

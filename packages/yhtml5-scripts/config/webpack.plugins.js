@@ -25,10 +25,15 @@ const { basename, sep } = path
  *
  */
 
-const webpackExtractPcssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.pcss.css`)
-const webpackExtractAntdCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.antd.css`)
-const webpackExtractInInternalCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.internal.css`)
-const webpackExtractExternalCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[chunkhash:6]' : ''}.css`)
+
+// const cssFilename = 'static/css/[name].[contenthash:8].pcss.css';
+// ExtractCssPlugin = webpackExtractCssPlugin({ filename: cssFilename })
+
+const webpackExtractCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[contenthash:6]' : ''}.css`)
+const webpackExtractPcssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[contenthash:6]' : ''}.pcss.css`)
+const webpackExtractAntdCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[contenthash:6]' : ''}.antd.css`)
+const webpackExtractInInternalCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[contenthash:6]' : ''}.internal.css`)
+const webpackExtractExternalCssPlugin = new ExtractTextPlugin(`static/css/[name]${(process.env.NODE_ENV === 'production') ? '.[contenthash:6]' : ''}.css`)
 
 // const webpackDefinePlugin = new webpack.DefinePlugin({
 //   'process.env': {
@@ -173,6 +178,7 @@ module.exports = {
   webpackAnalyzerPlugin,
   webpackCommonsChunkPlugin,
   // webpackDefinePlugin,
+  webpackExtractCssPlugin,
   webpackExtractPcssPlugin,
   webpackExtractAntdCssPlugin,
   webpackExtractInInternalCssPlugin,
