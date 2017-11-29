@@ -1,7 +1,7 @@
 ## Todo List
 - [ ] Must
   - [x] check publish paths `config/paths.js`
-  - [ ] multi-pages
+  - [x] multi-pages
 - [ ] custom config
   - [x] webpackBundleAnalyzerPlugin
   - [x] custom output directory with version control
@@ -19,3 +19,5 @@
   - [ ] extract loader and plugins
   - [ ] beautify-lint `webpack`
   - [ ] add unit test
+- [ ] bugs
+  - [ ] pcss loader can't work  

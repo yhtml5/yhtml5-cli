@@ -4,6 +4,16 @@ const autoprefixer = require('autoprefixer');
 const { webpackExtractPcssPlugin, webpackExtractInInternalCssPlugin, webpackExtractExternalCssPlugin, webpackExtractAntdCssPlugin } = require('./webpack.plugins')
 const paths = require('./paths');
 
+/**
+ *
+ * html-loder:
+ * https://github.com/webpack-contrib/html-loader
+ *
+ * style-loader:
+ * https://doc.webpack-china.org/loaders/style-loader
+ *
+ */
+
 /************ html loader  ***********/
 const htmlLoader = {
   test: /\.(yhtml|html)$/,
@@ -41,68 +51,103 @@ const markdownLoader = {
 /******* css loader  ******/
 const pcssLoader = {
   test: /\.pcss$/,
-  exclude: /node_modules/,
-  use: webpackExtractPcssPlugin.extract({
-    fallback: 'style-loader',
-    use: [{
-      loader: 'css-loader',
-      options: {
-        modules: true,
-        minimize: process.env.NODE_ENV === 'production',
-        localIdentName: (process.env.NODE_ENV === 'production') ? '[local]-[hash:base64:6]' : '[path][name]-[local]',
-        camelCase: true,
-        sourceMap: false,
-        // importLoaders: 1,
-      }
-    }, {
-      loader: 'postcss-loader',
-      options: {
-        plugins: () => [
-          require('postcss-smart-import')({/* ...options */ }),
-          require('precss')({/* ...options */ }),
-          require('autoprefixer')({/* ...options */ })
-        ]
-      }
-    }]
-  })
+  exclude: /\.css$/,
+  // exclude: /node_modules/,
+  use: webpackExtractPcssPlugin.extract(
+    {
+      fallback: {
+        loader: require.resolve('style-loader'),
+        options: {
+          hmr: false,
+        }
+      },
+      use: [{
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          minimize: process.env.NODE_ENV === 'production',
+          localIdentName: (process.env.NODE_ENV === 'production') ? '[local]-[hash:base64:6]' : '[path][name]-[local]',
+          camelCase: true,
+          sourceMap: false,
+          importLoaders: 1,
+        }
+      }, {
+        loader: 'postcss-loader',
+        options: {
+          plugins: () => [
+            require('postcss-smart-import')({/* ...options */ }),
+            require('precss')({/* ...options */ }),
+            require('postcss-flexbugs-fixes'),
+            autoprefixer({
+              browsers: [
+                '>1%',
+                'last 4 versions',
+                'Firefox ESR',
+                'not ie < 9', // React doesn't support IE8 anyway
+              ],
+              flexbox: 'no-2009',
+            }),
+          ],
+        },
+      }]
+    })
 }
 
 const cssInternalLoader = {
-  test: /\.css$/,
-  exclude: /\.internal.css$/,
-  use: webpackExtractExternalCssPlugin.extract({
-    fallback: "style-loader",
-    use: [{
-      loader: 'css-loader',
-      options: {
-        modules: false,
-        minimize: process.env.NODE_ENV === 'production',
-        sourceMap: false,
-        plugins: function () {
-          require('autoprefixer')({/* ...options */ })
-        }
-      }
-    }]
-  })
+  test: /\.internal.css$/,
+  use: [{
+    loader: "style-loader",
+    options: {
+      // hmr: false
+      // attrs: { id: 'id' }
+      // insertAt: 'top'
+      singleton: true,
+      sourceMap: false
+    }
+  }, {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+      minimize: process.env.NODE_ENV === 'production',
+    }
+  }, {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [
+        require('postcss-smart-import')({/* ...options */ }),
+        require('precss')({/* ...options */ }),
+        require('postcss-flexbugs-fixes'),
+        autoprefixer({
+          browsers: [
+            '>1%',
+            'last 4 versions',
+            'Firefox ESR',
+            'not ie < 9', // React doesn't support IE8 anyway
+          ],
+          flexbox: 'no-2009',
+        }),
+      ],
+    },
+  }],
 }
 
-const cssExternalLoader = {
-  test: /\.internal.css$/,
-  use: webpackExtractInInternalCssPlugin.extract({
-    fallback: "style-loader",
-    use: [{
-      loader: 'css-loader',
-      options: {
-        modules: false,
-        minimize: process.env.NODE_ENV === 'production',
-        sourceMap: false,
-        plugins: function () {
-          require('autoprefixer')({/* ...options */ })
-        }
-      }
-    }]
-  })
-}
+// const cssExternalLoader = {
+//   test: /\.external.css$/,
+//   use: webpackExtractInInternalCssPlugin.extract({
+//     fallback: "style-loader",
+//     use: [{
+//       loader: 'css-loader',
+//       options: {
+//         modules: false,
+//         minimize: process.env.NODE_ENV === 'production',
+//         sourceMap: false,
+//         plugins: function () {
+//           require('autoprefixer')({/* ...options */ })
+//         }
+//       }
+//     }]
+//   })
+// }
 
 const antdCssLoader = {
   test: /\.css$/,
@@ -189,5 +234,5 @@ module.exports = {
   antdCssLoader,
   pcssLoader,
   cssInternalLoader,
-  cssExternalLoader
+  // cssExternalLoader
 }

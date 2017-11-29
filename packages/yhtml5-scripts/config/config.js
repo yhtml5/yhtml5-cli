@@ -12,7 +12,31 @@ const ownPackageJson = require('../package.json');
 // const demoDirectory = 'demo/spa'
 // const demoDirectory = 'demo/react-dashboard'
 const demoDirectory = 'demo/2dfire-dashboard'
+// const demoDirectory = '../../../resume'
 
+function getConfig() {
+  if (isPublish && hasConfigJs) {
+    return require('../../../.config.js')
+  } else {
+    switch (demoDirectory) {
+      case 'demo/react-dashboard':
+        return require('../demo/react-dashboard/.config.js')
+        break;
+      case 'demo/2dfire-dashboard':
+        return require('../demo/2dfire-dashboard/.config.js')
+        break;
+      case 'demo/spa':
+        return require('../demo/spa/.config.js')
+        break;
+      case '../../../resume':
+        return require('../../../../resume/.config.js')
+        break;
+      default:
+        return {}
+        break;
+    }
+  }
+}
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
@@ -41,40 +65,29 @@ const hasConfigJs = fs.existsSync(path.resolve(
 // return
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/
-function getConfig() {
-  if (isPublish && hasConfigJs) {
-    return require('../../../.config.js')
-  } else {
-    switch (demoDirectory) {
-      case 'demo/react-dashboard':
-        return require('../demo/react-dashboard/.config.js')
-        break;
-      case 'demo/2dfire-dashboard':
-        return require('../demo/2dfire-dashboard/.config.js')
-        break;
-      case 'demo/spa':
-        return require('../demo/spa/.config.js')
-        break;
-      default:
-        return {}
-        break;
-    }
-  }
-}
+
+
+// const config = (isPublish && hasConfigJs)
+//   ? require('../../../.config.js')
+//   : require.resolve(`../${demoDirectory}/.config`)
 
 // const config = isPublish
 //   ? hasConfigJs
 //     ? require('../../../.config.js')
 //     : {}
 //   : require('../demo/spa/.config.js')
-
 const config = getConfig()
+
 const {
   devPort = 9991,             // develop server port
   devHost = '0.0.0.0',        // develop server host, ['10.0.1.32', '0.0.0.0', null]
   isAnalyze = false,          // is turn on analyze module
   analyzerPort = 9992,        // analyze module report port
   host = '',                  // deploy server host, domain  ['', '.', 'yhtml5.com', null]
+  type = 'SPA',               // [SPA, MSPA, MPA], The default is spa
+  pages = [],
+  // entry = "src/index.js",     // string | [string]
+  // isMultipage = false,        // is turn on Multi-page mode
   // output path, receive a string type path, relative to the project root directory
   // you can customize your dynamic output directory, like:
   // const { getVersion } = require('yhtml5-dev-utils')
@@ -150,6 +163,9 @@ module.exports = {
   analyzerPort,
   isAnalyze,
   host,
+  // entry,
+  type,
+  pages,
   outputPath,
   envVar,
   demoDirectory

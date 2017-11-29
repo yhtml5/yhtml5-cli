@@ -10,13 +10,21 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-/** yhtml5 **/
-const { pcssLoader, markdownLoader } = require('./webpack.loaders')
-const { webpackCommonsChunkPlugin, webpackAnalyzerPlugin } = require('./webpack.plugins')
-const projectConfig = require('./config');
-/** yhtml5 **/
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+
+/** yhtml5 **/
+const projectConfig = require('./config');
+const { pcssLoader, cssInternalLoader, markdownLoader, htmlLoader } = require('./webpack.loaders')
+const {
+  webpackCommonsChunkPlugin,
+  webpackHtmlInlineSourcePlugin,
+  webpackHtmlPlugins,
+  webpackAnalyzerPlugin,
+  webpackExtractPcssPlugin,
+   } = require('./webpack.plugins')
+const getEntry = require('../utils/getEntry')
+/** yhtml5 **/
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -57,10 +65,16 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   : {};
 
 /** yhtml5 **/
-paths.isPublish || console.log('\nwebpack.config.dev.js\n', {
+const webpackHtmlPluginsLog = webpackHtmlPlugins({ config: projectConfig })
+paths.isPublish || console.log('\nwebpack.config.prod.js\n', {
+  getEntry: getEntry({
+    config: projectConfig,
+    appDirectory: paths.appPath,
+    isBuild: true
+  }),
   env,
-  'process.env.NODE_ENV':process.env.NODE_ENV,
-  "env.stringified['process.env']":env.stringified['process.env']
+  webpackHtmlPlugins: JSON.stringify(webpackHtmlPluginsLog),
+  "env.stringified['process.env']": env.stringified['process.env']
 })
 /** yhtml5 **/
 
@@ -74,7 +88,14 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  // entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  /** yhtml5 **/
+  entry: getEntry({
+    config: projectConfig,
+    appDirectory: paths.appPath,
+    isBuild: true
+  }),
+  /** yhtml5 **/
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -182,8 +203,10 @@ module.exports = {
             },
           },
           /** yhtml5 **/
+          htmlLoader,
           pcssLoader,
           markdownLoader,
+          // cssInternalLoader,
           /** yhtml5 **/
           // Process JS with Babel.
           {
@@ -294,32 +317,36 @@ module.exports = {
     // In production, it will be an empty string unless you specify "homepage"
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
+    /** yhtml5 **/
     // Generates an `index.html` file with the <script> injected.
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: paths.appHtml,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
+    projectConfig.type === 'MPA'
+      ? () => { }
+      : new HtmlWebpackPlugin({
+        inject: true,
+        template: paths.appHtml,
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeRedundantAttributes: true,
+          useShortDoctype: true,
+          removeEmptyAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          keepClosingSlash: true,
+          minifyJS: true,
+          minifyCSS: true,
+          minifyURLs: true,
+        },
+      }),
+    webpackHtmlInlineSourcePlugin,
+    ...webpackHtmlPlugins({ config: projectConfig }),
+    webpackCommonsChunkPlugin[1],
+    webpackCommonsChunkPlugin[2],
+    /** yhtml5 **/
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
     // Otherwise React will be compiled in the very slow development mode.
     new webpack.DefinePlugin(env.stringified),
-    /** yhtml5 **/
-    webpackCommonsChunkPlugin[1],
-    webpackCommonsChunkPlugin[2],
-    /** yhtml5 **/
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -345,6 +372,9 @@ module.exports = {
     new ExtractTextPlugin({
       filename: cssFilename,
     }),
+    /** yhtml5 **/
+    // webpackExtractPcssPlugin,
+    /** yhtml5 **/
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
