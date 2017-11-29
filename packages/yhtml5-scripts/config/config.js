@@ -9,9 +9,9 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-// const demoDirectory = 'demo/spa'
+const demoDirectory = 'demo/spa'
 // const demoDirectory = 'demo/react-dashboard'
-const demoDirectory = 'demo/2dfire-dashboard'
+// const demoDirectory = 'demo/2dfire-dashboard'
 // const demoDirectory = '../../../resume'
 
 function getConfig() {
@@ -84,7 +84,15 @@ const {
   isAnalyze = false,          // is turn on analyze module
   analyzerPort = 9992,        // analyze module report port
   host = '',                  // deploy server host, domain  ['', '.', 'yhtml5.com', null]
-  type = 'SPA',               // [SPA, MSPA, MPA], The default is spa
+  // [SPA, MSPA, MPA], The default is spa
+  // MPA don't support pcss
+  // MPA don't support lazily load
+  type = 'SPA',
+  // [{
+  //   title: '前端开发丨张大漾',
+  //   entry: 'src/index.js',
+  //   template: 'src/pages/index.js'
+  // }],
   pages = [],
   // entry = "src/index.js",     // string | [string]
   // isMultipage = false,        // is turn on Multi-page mode
@@ -132,22 +140,6 @@ const roadhog = {
   "env": null,
   "theme": null,
 }
-
-// hostname,
-// port,
-// version,
-// title: '后台管理系统',
-// analyzerPort: 9992,
-// distributePort: 9993,
-// webpackContext: '',
-// domain: '',
-// pages: [{
-//   key: 'app',
-//   name: 'app.html'
-// }, {
-//   key: 'login',
-//   name: 'login.html'
-// }]
 
 // const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 
