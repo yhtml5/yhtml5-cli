@@ -2,7 +2,8 @@
 
 A test framework for front-end projects
 
-## Table of contents (目录)
+## Table of contents 
+目录
 
 * [Target](#target)
 * [Command Line](#command-line )
@@ -12,16 +13,28 @@ A test framework for front-end projects
 * [Problems ](#problems )
 
 ### Target 
+目的
 
 * running the code with no error `运行代码没有错误`
 * find the code which never used `找到并删除无用的历史代码`
 * find hidden bugs `寻找隐藏的bug`
+* Simulate a variety of input and output operation to see whether the error `模拟各种输入, 运行查看输出是否错误`
 
 why unit testing 
 
 <img src="https://github.com/yhtml5/YHTML5-CLI/blob/master/packages/yhtml5-test/doc/why-unit-testing.png?raw=true">
 
-### Command Line (命令行)
+测试框架解决的问题: 
+
+* 集中测试需要的第三方依赖, 统一管理版本号与升级
+* 规定单元测试规范, 内置默认的测试配置, 
+* 引入polyfill, 模拟浏览器环境
+* 引入transform, 用于转义文件
+* 提供测试用例, 方便学习书写
+* 提供简单的测试脚本, 不需要学习额外的babel, node, jest等知识, 快速编写测试用例
+
+### Command Line 
+命令行
 
 scripts|description
 :---|:---
@@ -36,25 +49,44 @@ npm run test:u | update test framework
 * [Code Coverage Analysis][code-coverage-analysis]
 * [代码覆盖率分析][code-coverage-analysis-cn]
 
+### Concept
+
+* matcher `匹配器`
+* enzyme `断言库`
+* coverage report `覆盖率报告`
+* snapshot testing `快照`
+* view => event => action => reduce => store `组合测试`
+
 ### Get Started
+
+#### Add test scripts to package.json
+
+```
+ "test": "2dfire-scripts test --env=jsdom",
+ "test:c": "npm test -- --coverage",
+ "test:u": "npm i @2dfire/2dfire-scripts@latest -D",
+```
 
 #### Install 2dfire-scripts using npm:
 
-> npm install @2dfire/2dfire-scripts@latest --D 
-
-#### add npm test script 
-
-> "test": "clear && 2dfire-scripts test --env=jsdom",
-> "test:c": "npm test -- --coverage",
-> "test:u": "npm i @2dfire/2dfire-scripts@latest -D",
+run 
+> npm i @2dfire/2dfire-scripts@latest -D `// npm run test:u`
+> npm i react-test-renderer@15.6.x enzyme@2.9.x jest-enzyme@3.8.x -D
 
 #### add .config.js to root directory 
 
 ```#.config.js 
+const path = require('path')
+const webpackConfigAlias = {
+  '^src(.*)$': path.resolve(__dirname, 'src$1'),
+}
+
 const config = {
   test: {
-    testMatch: ['app/**/__tests__/**/*.js?(x)', 'app/**/?(*.)(spec|test).js?(x)'],
-    transformIgnorePatterns: ["node_modules/(?!(yhtml5-test|my-project|react-native-button)/)"]
+    testMatch: ['demo/__test__/**/*.js?(x)'],
+    transformIgnorePatterns: ["node_modules/(?!(yhtml5-test|react-redux|react-native-button)/)"],
+    moduleNameMapper: webpackConfigAlias,
+    collectCoverageFrom: ['src/**/*.{js,jsx}'],
   }
 }
 
@@ -166,6 +198,11 @@ for more information, you can read :
 * line coverage
 * function coverage
 
+#### How to view the test report
+
+> npm i serve -g
+> serve -p 10001 ./coverage/lcov-report
+
 ### Problems 
 
 #### webpack alias
@@ -194,11 +231,11 @@ By default jest doesn't transform ES6 js code from node_modules
 
 #### react-addons-test-utils is an implicit dependency in order to support react@0.13-14.
 
-
+[enzyme]:http://airbnb.io/enzyme/docs/api/shallow.html
 [code-coverage-analysis]:http://www.bullseye.com/coverage.html
 [code-coverage-analysis-cn]:http://blog.csdn.net/ffeiffei/article/details/6579280
-[jest]:[http://facebook.github.io/jest/]
-[jest-matchers]:[http://facebook.github.io/jest/docs/en/using-matchers.html#content]
+[jest]:http://facebook.github.io/jest/
+[jest-matchers]:http://facebook.github.io/jest/docs/en/using-matchers.html#content
 [coverage]:http://www.bullseye.com/coverage.html
 [transformignorepatterns-customization]:http://facebook.github.io/jest/docs/en/tutorial-react-native.html#transformignorepatterns-customization
 [documrnt-create-react-app-test]:https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests
