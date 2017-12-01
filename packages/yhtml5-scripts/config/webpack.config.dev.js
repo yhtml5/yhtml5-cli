@@ -16,6 +16,7 @@ const paths = require('./paths');
 const projectConfig = require('./config');
 const { antdCssLoader, pcssLoader, markdownLoader, htmlLoader } = require('./webpack.loaders')
 const { webpackHtmlPlugins, webpackHtmlInlineSourcePlugin } = require('./webpack.plugins')
+const dealAntd = require('../utils/dealAntd')
 const getEntry = require('../utils/getEntry')
 /** yhtml5 **/
 
@@ -36,7 +37,7 @@ paths.isPublish || console.log('\nwebpack.config.dev.js\n', {
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
-module.exports = {
+const configuration = {
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map', // 'inline-source-map'
@@ -188,12 +189,9 @@ module.exports = {
               presets: [require.resolve('babel-preset-react-app')],
               /** yhtml5 **/
               plugins: [
-                'transform-runtime',
-                ["import", {
-                  "libraryName": "antd",
-                  "style": "css" //`style: true` 会加载 less 文件
-                }]
+                // 'transform-runtime',
               ],
+              /** yhtml5 **/
               // @remove-on-eject-end
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -311,3 +309,9 @@ module.exports = {
     hints: false,
   },
 };
+
+/** yhtml5 **/
+dealAntd({ position: configuration.module.rules[1].oneOf[4].options.plugins })
+/** yhtml5 **/
+
+module.exports = configuration

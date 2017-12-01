@@ -9,24 +9,24 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-const demoDirectory = 'demo/spa'
-// const demoDirectory = 'demo/react-dashboard'
-// const demoDirectory = 'demo/2dfire-dashboard'
+// const demoDirectory = 'demo/spa'
+const demoDirectory = 'demo/2dfire-dashboard'
 // const demoDirectory = '../../../resume'
+// const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
 
 function getConfig() {
   if (isPublish && hasConfigJs) {
     return require('../../../.config.js')
   } else {
     switch (demoDirectory) {
-      case 'demo/react-dashboard':
-        return require('../demo/react-dashboard/.config.js')
-        break;
       case 'demo/2dfire-dashboard':
         return require('../demo/2dfire-dashboard/.config.js')
         break;
       case 'demo/spa':
         return require('../demo/spa/.config.js')
+        break;
+      case '../../../yhtml5-seed/apps/react-dashboard':
+        return require('../../../../yhtml5-seed/apps/react-dashboard/.config.js')
         break;
       case '../../../resume':
         return require('../../../../resume/.config.js')

@@ -23,6 +23,7 @@ const {
   webpackExtractCssPlugin,
   webpackExtractPcssPlugin,
    } = require('./webpack.plugins')
+const dealAntd = require('../utils/dealAntd')
 const getEntry = require('../utils/getEntry')
 /** yhtml5 **/
 
@@ -76,12 +77,13 @@ paths.isPublish || console.log('\nwebpack.config.prod.js\n', {
   webpackHtmlPlugins: JSON.stringify(webpackHtmlPluginsLog),
   "env.stringified['process.env']": env.stringified['process.env']
 })
+
 /** yhtml5 **/
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
-module.exports = {
+const configuration = {
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -219,11 +221,7 @@ module.exports = {
               presets: [require.resolve('babel-preset-react-app')],
               /** yhtml5 **/
               plugins: [
-                'transform-runtime',
-                ["import", {
-                  "libraryName": "antd",
-                  "style": "css" //`style: true` 会加载 less 文件
-                }]
+                // 'transform-runtime',
               ],
               /** yhtml5 **/
               // @remove-on-eject-end
@@ -429,3 +427,15 @@ module.exports = {
     child_process: 'empty',
   },
 };
+
+/** yhtml5 **/
+dealAntd({ position: configuration.module.rules[1].oneOf[4].options.plugins })
+/** yhtml5 **/
+
+module.exports = configuration
+
+
+
+
+
+

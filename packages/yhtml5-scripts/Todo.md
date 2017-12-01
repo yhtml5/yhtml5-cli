@@ -7,6 +7,8 @@
   - [x] custom output directory with version control
   - [ ] webpack alias
   - [ ] add process.env.version
+  - [ ] isEslint
+  - [ ] is antd, add babel-import-plugin
 - [ ] Expand
   - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
   - [ ] hot replace
@@ -20,4 +22,5 @@
   - [ ] beautify-lint `webpack`
   - [ ] add unit test
 - [ ] bugs
-  - [ ] pcss loader can't work  
+  - [x] pcss loader can't work  
+  - [ ] pcss loader global can't work  
