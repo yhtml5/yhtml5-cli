@@ -1,12 +1,23 @@
-import { formatNumber, isArrayNotEmpty, circular } from '../src/utils/index';
+import { formatNumber, isArrayNotEmpty, circular, sum } from '../src/utils/index';
 
 describe('function.test', function () {
   it('util.validator.isArrayNotEmpty', () => {
-    const values1 = [null, NaN, 1, '1', {}, [], () => { }]
-    const values2 = [[1], [{}, []]]
+    const cases = [{
+      input: [null, NaN, 1, '1', {}, [], () => { }],
+      output: false
+    }, {
+      input: [[1], [{}, []]],
+      output: true
+    }]
 
-    values1.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(false))
-    values2.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(true))
+    cases.forEach((value, index) =>
+      value.input.forEach((v, i) =>
+        expect(isArrayNotEmpty(v)).toEqual(value.output)
+      )
+    )
+
+    // values1.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(false))
+    // values2.forEach((value) => expect(isArrayNotEmpty(value)).toEqual(true))
   })
 
   it('util.validator.formatNumber', () => {
@@ -65,9 +76,11 @@ describe('function.test', function () {
       output: 'beforeTransform'
     }]
 
-    cases.forEach((value, index) => expect((value.input)).toEqual(value.output))
+    cases.forEach((value, index) =>
+      expect((value.input)).toEqual(value.output))
 
-    errorCases.forEach((value, index) => expect(value.input).toThrow(value.output))
+    errorCases.forEach((value, index) =>
+      expect(value.input).toThrow(value.output))
   })
 
 })
