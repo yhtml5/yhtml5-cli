@@ -42,7 +42,7 @@ function dealAntd({ position = null }) {
   }
 }
 
-console.log('\ncheckAntd\n', {
+paths.isPublish || console.log('\ncheckAntd\n', {
   antdPath,
   babelPluginImport,
   checkAntd,
