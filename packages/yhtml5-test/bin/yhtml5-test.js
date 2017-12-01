@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 /**
  * Author: yhtml5
- * 
+ *
  */
 
 'use strict';
 
 const spawn = require('cross-spawn');
+const { clearConsole } = require('yhtml5-dev-utils')
 const args = process.argv.slice(2);
 const paths = require('../utils/paths');
+
+clearConsole()
 
 const scriptIndex = args.findIndex(x =>
   x === 'build' || x === 'eject' || x === 'start' || x === 'test');

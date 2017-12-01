@@ -41,7 +41,7 @@ paths.isBeforePublish && console.log('\ntest.js\n', {
   paths,
   argv,
   jestConfig,
-})
+},'\n\n')
 
 argv.push(
   '--config',
