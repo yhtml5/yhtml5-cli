@@ -6,6 +6,9 @@ const paths = require('./paths');
 
 /**
  *
+ * css module:
+ * https://github.com/css-modules/css-modules
+ *
  * html-loder:
  * https://github.com/webpack-contrib/html-loader
  *
@@ -53,7 +56,8 @@ const markdownLoader = {
 
 /******* css loader  ******/
 const styleLoadersOptions = {
-  loader: require.resolve('style-loader'),
+  // loader: require.resolve('style-loader'),
+  loader: 'style-loader',
   options: {
     hmr: process.env.NODE_ENV === 'development',
   }
@@ -62,11 +66,13 @@ const styleLoadersOptions = {
 const cssLoaderOptions = {
   loader: 'css-loader',
   options: {
+    // 启用/禁用 CSS 模块, 默认 false
     modules: true,
     // 类名将被骆驼化
     camelCase: true,
     // generate source map
     sourceMap: false,
+    // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
     importLoaders: 1,
     minimize: process.env.NODE_ENV === 'production',
     localIdentName: (process.env.NODE_ENV === 'production') ? '[local]-[hash:base64:6]' : '[path][name]-[local]',
@@ -98,6 +104,7 @@ const pcssLoaderOptions = {
 
 const pcssLoader = {
   test: /\.pcss$/,
+  exclude: /node_modules/,
   include: /\.pcss$/,
   exclude: /\.css$/,
   use: process.env.NODE_ENV === 'production'
