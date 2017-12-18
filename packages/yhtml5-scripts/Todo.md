@@ -2,13 +2,15 @@
 - [ ] Must
   - [x] check publish paths `config/paths.js`
   - [x] multi-pages
+  - [ ] fastclick
+  - [ ] rem
 - [ ] custom config
   - [x] webpackBundleAnalyzerPlugin
   - [x] custom output directory with version control
   - [ ] webpack alias
   - [ ] add process.env.version
   - [ ] isEslint
-  - [ ] is antd, add babel-import-plugin
+  - [ ] is antd/antd-mobile, add babel-import-plugin
 - [ ] Expand
   - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
   - [ ] hot replace

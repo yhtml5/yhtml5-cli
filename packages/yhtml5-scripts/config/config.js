@@ -10,9 +10,10 @@ const path = require('path');
 const ownPackageJson = require('../package.json');
 
 // const demoDirectory = 'demo/spa'
-const demoDirectory = 'demo/2dfire-dashboard'
+// const demoDirectory = 'demo/2dfire-dashboard'
 // const demoDirectory = '../../../resume'
 // const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
+const demoDirectory = '../../../yhtml5-app/apps/test-tools'
 
 function getConfig() {
   if (isPublish && hasConfigJs) {
@@ -27,6 +28,9 @@ function getConfig() {
         break;
       case '../../../yhtml5-seed/apps/react-dashboard':
         return require('../../../../yhtml5-seed/apps/react-dashboard/.config.js')
+        break;
+      case '../../../yhtml5-app/apps/test-tools':
+        return require('../../../../yhtml5-app/apps/test-tools/.config.js')
         break;
       case '../../../resume':
         return require('../../../../resume/.config.js')
@@ -88,12 +92,14 @@ const {
   // MPA don't support pcss
   // MPA don't support lazily load
   type = 'SPA',
-  // [{
-  //   title: '前端开发丨张大漾',
-  //   entry: 'src/index.js',
-  //   template: 'src/pages/index.js'
-  // }],
-  pages = [],
+  pages = [
+    // {
+    // title: '前端开发丨张大漾',
+    // entry: 'src/index.js',
+    // template: 'src/pages/index.js'
+    // }
+  ],
+  //,
   // entry = "src/index.js",     // string | [string]
   // isMultipage = false,        // is turn on Multi-page mode
   // output path, receive a string type path, relative to the project root directory
