@@ -1,7 +1,7 @@
 let awaitStatus = true
 const timer = (time) => new Promise((resolve) => setTimeout(resolve, time))
 
-const notRepeating = (time = 1000) =>
+const notRepeat = (time = 1000) =>
   new Promise((resolve, reject) => {
     if (awaitStatus) {
       awaitStatus = false
@@ -13,7 +13,7 @@ const notRepeating = (time = 1000) =>
     }
   })
 
-// async function notRepeating({
+// async function notRepeat({
 //     callback = () => { },
 //   time = 1000
 //   }) {
@@ -25,4 +25,4 @@ const notRepeating = (time = 1000) =>
 //   }
 // }
 
-export default notRepeating
+export default notRepeat

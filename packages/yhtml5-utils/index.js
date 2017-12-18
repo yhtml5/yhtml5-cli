@@ -1,7 +1,7 @@
 import isType from './src/isType';
 import cookie from './src/cookie';
 import downLoad from './src/download';
-import notRepeating from './src/notRepeating';
+import notRepeat from './src/notRepeat';
 import parseUrl from './src/parseUrl';
 import formatNumber from './src/formatNumber';
 import author from './src/author';
@@ -11,7 +11,7 @@ const utils = {
   ...cookie,
   ...parseUrl,
   downLoad,
-  notRepeating,
+  notRepeat,
   formatNumber,
   author
 }
