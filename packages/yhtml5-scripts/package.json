@@ -57,6 +57,7 @@
     "postcss-smart-import": "^0.7.5",
     "precss": "^2.0.0",
     "promise": "8.0.1",
+    "rc-form": "^2.1.5",
     "react-dev-utils": "^4.1.0",
     "react-hot-loader": "^3.1.1",
     "style-loader": "0.19.0",
