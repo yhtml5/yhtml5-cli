@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-test",
-  "version": "0.1.11",
+  "version": "1.0.12",
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects",
@@ -10,9 +10,9 @@
     "url": ""
   },
   "scripts": {
-    "test": "clear && yhtml5-test --env=jsdom",
+    "test": "yhtml5-test --env=jsdom",
     "test:c": "npm test -- --coverage",
-    "test:u": "npm i yhtml5-test@latest -D",
+    "test:u": "npm i @2dfire/2dfire-scripts@latest -D",
     "git": "clear && git add . && git commit -m",
     "postgit": "git merge origin/master && git pull && git push && git status",
     "presync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gits/yhtml5-cli/packages/",
@@ -28,7 +28,8 @@
     "object-assign": "^4.1.1",
     "promise": "^8.0.1",
     "regenerator-runtime": "^0.11.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "yhtml5-dev-utils": "^1.0.1"
   },
   "devDependencies": {},
   "bin": {
