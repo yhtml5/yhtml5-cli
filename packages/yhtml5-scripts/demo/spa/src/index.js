@@ -5,6 +5,7 @@ import './index.css'
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { square, cube } from './features/treeShake';
+// const { square, cube } = require('./features/treeShake');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
