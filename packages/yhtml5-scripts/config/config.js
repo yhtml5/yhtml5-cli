@@ -13,7 +13,8 @@ const ownPackageJson = require('../package.json');
 // const demoDirectory = 'demo/2dfire-dashboard'
 // const demoDirectory = '../../../resume'
 // const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
-const demoDirectory = '../../../yhtml5-app/apps/test-tools'
+// const demoDirectory = '../../../yhtml5-app/apps/test-tools'
+const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
 
 function getConfig() {
   if (isPublish && hasConfigJs) {
@@ -34,6 +35,9 @@ function getConfig() {
         break;
       case '../../../resume':
         return require('../../../../resume/.config.js')
+        break;
+      case '/Users/yhtml5/projects/gitlab/static-file/projects/libraries':
+        return require('/Users/yhtml5/projects/gitlab/static-file/projects/libraries/.config.js')
         break;
       default:
         return {}
@@ -100,7 +104,7 @@ const {
     // }
   ],
   //,
-  // entry = "src/index.js",     // string | [string]
+  entry = "src/index.js",     // webpack entry
   // isMultipage = false,        // is turn on Multi-page mode
   // output path, receive a string type path, relative to the project root directory
   // you can customize your dynamic output directory, like:
@@ -161,7 +165,7 @@ module.exports = {
   analyzerPort,
   isAnalyze,
   host,
-  // entry,
+  entry,
   type,
   pages,
   outputPath,

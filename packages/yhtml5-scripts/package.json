@@ -13,6 +13,7 @@
     "start": "yhtml5-scripts start",
     "dev": "yhtml5-scripts start",
     "build": "clear && yhtml5-scripts build",
+    "build:lib": "clear && yhtml5-scripts lib",
     "build:pre": "clear && yhtml5-scripts build pre",
     "update": "npm i yhtml5-dev-utils@latest -P",
     "pm2": "pm2 start pm2.config.js",
@@ -96,6 +97,7 @@
     "reqwest": "^2.0.5",
     "wangeditor": "^2.1.23"
   },
+  "peerDependency": {},
   "engines": {
     "node": ">= 5.0.0",
     "npm": ">= 3.0.0"
