@@ -7,6 +7,16 @@
     "name": "yhtml5"
   },
   "description": "CLI for scaffolding front-end projects based on the create-react-app project.",
+  "scripts": {
+    "git": "clear && git status && git add . && git commit -m",
+    "postgit": "git pull && git push && git push origin dev:master",
+    "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages",
+    "postsync": "npm run git 'sync: yhtml5-test and 2dfire-scripts'",
+    "prepublish:yhtml5-test": "echo copy... && npm run sync && ls && cd ~/projects/gits/yhtml5-cli/packages/yhtml5-test && pwd",
+    "publish:yhtml5-test": "npm version patch && npm publish",
+    "postpublish:yhtml5-test": "cd ~/projects/gits/yhtml5-cli/",
+    "prepublishOnly": "echo will publish"
+  },
   "bugs": {
     "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
   },
@@ -23,14 +33,7 @@
     "node": ">=4.0.0"
   },
   "preferGlobal": true,
-  "scripts": {
-    "git": "clear && git status && git add . && git commit -m",
-    "postgit": "git pull && git push && git push origin dev:master",
-    "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages",
-    "postsync": "npm run git 'sync: yhtml5-test and 2dfire-scripts'",
-    "prepublish:yhtml5-test": "echo copy... && npm run sync && ls && cd ~/projects/gits/yhtml5-cli/packages/yhtml5-test && pwd",
-    "publish:yhtml5-test": "npm version patch && npm publish",
-    "postpublish:yhtml5-test": "cd ~/projects/gits/yhtml5-cli/",
-    "prepublishOnly": "echo will publish"
+  "dependencies": {
+    "yhtml5-utils": "0.0.4"
   }
 }
