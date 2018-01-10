@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-utils",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "javascript utilities used by front-end application",
   "main": "index.js",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "prepublishOnly": "npm version patch && echo npm login https://registry.npmjs.org && npm login"
   },
   "dependencies": {},
+  "devDependencies": {},
   "engines": {
     "node": ">=6"
   }
