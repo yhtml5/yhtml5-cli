@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "react-scripts": "1.0.13",
-    "yhtml5-test": "0.x"
+    "yhtml5-test": "0.x",
+    "yhtml5-utils": "0.0.4"
   },
   "scripts": {
     "build": "react-scripts build"

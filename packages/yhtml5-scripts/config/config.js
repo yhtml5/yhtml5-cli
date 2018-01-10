@@ -9,12 +9,12 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
-// const demoDirectory = 'demo/spa'
+const demoDirectory = 'demo/spa'
 // const demoDirectory = 'demo/2dfire-dashboard'
 // const demoDirectory = '../../../resume'
 // const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
 // const demoDirectory = '../../../yhtml5-app/apps/test-tools'
-const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
+// const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
 
 function getConfig() {
   if (isPublish && hasConfigJs) {

@@ -106,7 +106,7 @@ const pcssLoader = {
   test: /\.pcss$/,
   exclude: /node_modules/,
   include: /\.pcss$/,
-  exclude: /\.css$/,
+  // exclude: /\.css$/,
   use: process.env.NODE_ENV === 'production'
     ? webpackExtractPcssPlugin.extract({
       fallback: styleLoadersOptions,
