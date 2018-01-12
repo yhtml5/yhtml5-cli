@@ -14,8 +14,8 @@ const lazilyLoad = (module) => module
   .then((result) => result.default)
   .catch(error => `An error occurred while loading the component.\n${error}`)
 
-const loadPrint = () => lazilyLoad(import(/* webpackChunkName: "print" */ './features/lazyload.js'))
-const loadPrint2 = () => lazilyLoad(import(/* webpackChunkName: "print2" */ './features/lazyload2.js'))
+const loadPrint = () => lazilyLoad(import(/* webpackChunkName: "print" */ '../../features/lazyload.js'))
+const loadPrint2 = () => lazilyLoad(import(/* webpackChunkName: "print2" */ '../../features/lazyload2.js'))
 
 const timer = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
