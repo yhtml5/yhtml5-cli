@@ -64,7 +64,6 @@
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
-    "vconsole": "^3.0.0",
     "webpack": "^3.8.1",
     "webpack-bundle-analyzer": "^2.9.1",
     "webpack-dev-server": "^2.9.4",
@@ -78,6 +77,7 @@
     "github-markdown-css": "^2.6.0",
     "history": "^4.6.1",
     "lodash": "^4.17.4",
+    "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
     "preact": "^8.2.1",
@@ -95,6 +95,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "reqwest": "^2.0.5",
+    "vconsole": "^3.1.0",
     "wangeditor": "^2.1.23",
     "yhtml5-utils": "0.0.5"
   },
