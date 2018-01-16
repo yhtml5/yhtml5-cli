@@ -15,3 +15,8 @@ export {
   cube,
   square
 }
+
+export default {
+  cube,
+  square
+}

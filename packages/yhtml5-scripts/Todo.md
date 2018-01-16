@@ -11,6 +11,7 @@
   - [ ] add process.env.version
   - [ ] isEslint
   - [ ] is antd/antd-mobile, add babel-import-plugin
+  - [ ] proxy
 - [ ] Expand
   - [x] `console.log('\n  The process.env.NODE_ENV is: ', chalk.cyan.bold(process.env.NODE_ENV), '\n')`
   - [ ] hot replace
