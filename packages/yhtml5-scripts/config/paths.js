@@ -75,6 +75,7 @@ const isPublish = reactScriptsLinked ||
 
 isPublish || console.log('\npaths.js\n', {
   isPublish,
+  appPath: resolveApp(demoDirectory),
   appBuild: resolveOwn(`${demoDirectory}/dist`),
   servedPath: getServedPath(resolveOwn('package.json')),
   'process.env.PUBLIC_URL': process.env.PUBLIC_URL

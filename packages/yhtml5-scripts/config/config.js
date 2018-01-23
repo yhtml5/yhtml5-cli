@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
 
+// get .conifg.js file
 const demoDirectory = 'demo/spa'
 // const demoDirectory = 'demo/2dfire-dashboard'
 // const demoDirectory = '../../../resume'
@@ -16,6 +17,7 @@ const demoDirectory = 'demo/spa'
 // const demoDirectory = '../../../yhtml5-app/apps/test-tools'
 // const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
 
+// require.resolve(demoDirectory)
 function getConfig() {
   if (isPublish && hasConfigJs) {
     return require('../../../.config.js')
@@ -73,25 +75,15 @@ const hasConfigJs = fs.existsSync(path.resolve(
 // return
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/
-
-
-// const config = (isPublish && hasConfigJs)
-//   ? require('../../../.config.js')
-//   : require.resolve(`../${demoDirectory}/.config`)
-
-// const config = isPublish
-//   ? hasConfigJs
-//     ? require('../../../.config.js')
-//     : {}
-//   : require('../demo/spa/.config.js')
 const config = getConfig()
-
 const {
-  devPort = 9991,             // develop server port
-  devHost = '0.0.0.0',        // develop server host, ['10.0.1.32', '0.0.0.0', null]
-  isAnalyze = false,          // is turn on analyze module
-  analyzerPort = 9992,        // analyze module report port
-  host = '',                  // deploy server host, domain  ['', '.', 'yhtml5.com', null]
+  entry = "src/index.js",      // webpack entry
+  output = {},                 // webpack output
+  devPort = 9991,              // develop server port
+  devHost = '0.0.0.0',         // develop server host, ['10.0.1.32', '0.0.0.0', null]
+  isAnalyze = false,           // is turn on analyze module
+  analyzerPort = 9992,         // analyze module report port
+  host = '',                   // deploy server host, domain  ['', '.', 'yhtml5.com', null]
   // [SPA, MSPA, MPA], The default is spa
   // MPA don't support pcss
   // MPA don't support lazily load
@@ -103,8 +95,6 @@ const {
     // template: 'src/pages/index.js'
     // }
   ],
-  //,
-  entry = "src/index.js",     // webpack entry
   // isMultipage = false,        // is turn on Multi-page mode
   // output path, receive a string type path, relative to the project root directory
   // you can customize your dynamic output directory, like:
@@ -130,26 +120,26 @@ const {
   // distributePort = 9993,
 } = config
 
-const roadhog = {
-  "entry": "src/index.js",
-  "disableCSSModules": false,
-  "cssModulesExclude": [],
-  "publicPath": "/",
-  "outputPath": "./dist",
-  "extraBabelPlugins": [],
-  "extraPostCSSPlugins": [],
-  "sass": false,
-  "hash": false,
-  "autoprefixer": null,
-  "proxy": null,
-  "externals": null,
-  "library": null,
-  "libraryTarget": "var",
-  "multipage": false,
-  "define": null,
-  "env": null,
-  "theme": null,
-}
+// const roadhog = {
+//   "entry": "src/index.js",
+//   "disableCSSModules": false,
+//   "cssModulesExclude": [],
+//   "publicPath": "/",
+//   "outputPath": "./dist",
+//   "extraBabelPlugins": [],
+//   "extraPostCSSPlugins": [],
+//   "sass": false,
+//   "hash": false,
+//   "autoprefixer": null,
+//   "proxy": null,
+//   "externals": null,
+//   "library": null,
+//   "libraryTarget": "var",
+//   "multipage": false,
+//   "define": null,
+//   "env": null,
+//   "theme": null,
+// }
 
 // const _testMatch = testMatch.map((value, index) => path.resolve(appPath, value))
 
@@ -157,7 +147,14 @@ isPublish || console.log('\n.config.js\n', {
   isPublish,
   config,
   hasConfigJs
-})
+});
+
+// 判断config文件的是否正确
+if (Object.prototype.toString.call(output) !== '[object Object]') {
+  throw new Error(
+    '\nThe top-level output key must be a object, \nhttps://webpack.js.org/configuration/output/\n'
+  );
+}
 
 module.exports = {
   devHost,
@@ -168,6 +165,7 @@ module.exports = {
   entry,
   type,
   pages,
+  output,
   outputPath,
   envVar,
   demoDirectory
