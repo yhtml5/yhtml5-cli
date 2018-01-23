@@ -1,37 +1,7 @@
-import { isNull, isFalse, isUndefined, isNumber, isFunction, isArray, isArrayEmpty, isArrayNotEmpty, isString, isStringEmpty, isStringNotEmpty, isObject, isObjectEmpty } from './src/isType';
-import { setCookie, getCookie, clearCookie } from './src/cookie';
-import downLoad from './src/download';
-import notRepeat from './src/notRepeat';
-import { parseUrlToObject, parseObjectToUrl } from './src/parseUrl';
-import formatNumber from './src/formatNumber';
-import author from './src/author';
-import { createScript, createScriptAsync } from './src/createScript';
+'use strict';
 
-export default {
-  // isType
-  isNull,
-  isFalse,
-  isUndefined,
-  isNumber,
-  isFunction,
-  isArray,
-  isArrayEmpty,
-  isArrayNotEmpty,
-  isString,
-  isStringEmpty,
-  isStringNotEmpty,
-  isObject,
-  isObjectEmpty,
-  // cookie
-  setCookie,
-  getCookie,
-  clearCookie,
-  parseUrlToObject,
-  parseObjectToUrl,
-  downLoad,
-  notRepeat,
-  formatNumber,
-  author,
-  createScript,
-  createScriptAsync
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./cmd/index.min.js');
+} else {
+  module.exports = require('./cmd/index.js');
 }
