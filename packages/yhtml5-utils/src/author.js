@@ -32,6 +32,6 @@ function author(options) {
     "color:#333;font-size:16px;margin:4px;");
 }
 
-global.yhtml5 = author
+window.yhtml5 = author
 
 export default author

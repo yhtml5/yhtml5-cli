@@ -1,6 +1,13 @@
-function parseUrlToObject() {
+// 存在url 有俩个相同的key 会取第一个
+function queryUrlParam(key, url) {
+  var value = location.search.match(new RegExp("[\?\&]" + key + "=([^\&]*)(\&?)", "i"));
+  return value ? value[1] : ""
+}
+
+function parseUrlToObject(url) {
+  if (!url) { return '' }
   const reg = /([^#?&]*)=([^&#]*)/g;
-  const args = window.location.href;
+  const args = url
   const query = {};
   let re = reg.exec(args);
   while (re) {
@@ -10,11 +17,17 @@ function parseUrlToObject() {
   return query;
 }
 
-function parseObjectToUrl() {
-
+function parseObjectToUrl(obj) {
+  if (Object.prototype.toString.call(obj) !== '[object Object]') { return '' }
+  return Object.entries(obj).map(([key, val]) => {
+    const type = Object.prototype.toString.call(val)
+    return (type === '[object String]' || type === '[object Number]' || type === '[object Boolean]')
+      ? `${key}=${val}` : ''
+  }).join('&')
 }
 
 export {
+  queryUrlParam,
   parseUrlToObject,
   parseObjectToUrl
 }
