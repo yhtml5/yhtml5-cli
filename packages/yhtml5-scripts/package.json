@@ -80,8 +80,6 @@
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",
     "normalize.css": "^7.0.0",
-    "preact": "^8.2.1",
-    "preact-compat": "^3.16.0",
     "prop-types": "^15.5.6",
     "qr-image": "^3.2.0",
     "react": "~15.4.x",
@@ -96,7 +94,6 @@
     "redux-thunk": "^2.2.0",
     "reqwest": "^2.0.5",
     "vconsole": "^3.1.0",
-    "wangeditor": "^2.1.23",
     "yhtml5-utils": "0.0.5"
   },
   "peerDependency": {},
