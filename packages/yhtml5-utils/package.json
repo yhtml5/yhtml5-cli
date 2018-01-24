@@ -1,9 +1,8 @@
 {
   "name": "yhtml5-utils",
-  "version": "0.0.5",
+  "version": "0.1.5",
   "description": "javascript utilities used by front-end application",
   "main": "index.js",
-  "module": "dist/es6/index.js",
   "license": "MIT",
   "repository": "yhtml5/yhtml5-cli/issues",
   "bugs": {
@@ -19,11 +18,7 @@
     "index.js",
     "dist/"
   ],
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-weui": "^1.1.3",
-    "weui": "^1.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
