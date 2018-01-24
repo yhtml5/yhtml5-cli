@@ -69,7 +69,8 @@
     "webpack-dev-server": "^2.9.4",
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3",
-    "yhtml5-dev-utils": "^1.0.3"
+    "yhtml5-dev-utils": "^1.0.3",
+    "yhtml5-utils": "^0.1.5"
   },
   "devDependencies": {
     "antd": "^2.13.10",
@@ -89,12 +90,13 @@
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
     "react-router-redux": "^5.0.0-alpha.4",
+    "react-scripts": "1.0.13",
     "react-transition-group": "^1.1.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "reqwest": "^2.0.5",
     "vconsole": "^3.1.0",
-    "yhtml5-utils": "0.0.5"
+    "yhtml5-test": "0.x"
   },
   "peerDependency": {},
   "engines": {

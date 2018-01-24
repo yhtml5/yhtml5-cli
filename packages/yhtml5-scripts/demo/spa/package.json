@@ -2,15 +2,8 @@
   "name": "yhtml5-scripts-demo-spa",
   "version": "1.0.1",
   "private": true,
-  "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.13",
-    "yhtml5-test": "0.x",
-    "yhtml5-utils": "0.0.4"
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "scripts": {
     "build": "react-scripts build"
   }
