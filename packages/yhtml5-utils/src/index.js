@@ -22,7 +22,7 @@ import {
   isObjectEmpty,
 } from './isType';
 
-export {
+export default {
   author,
   console,
   notRepeat,
