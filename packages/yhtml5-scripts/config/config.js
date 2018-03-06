@@ -10,9 +10,9 @@ const path = require('path');
 const ownPackageJson = require('../package.json');
 
 // get .conifg.js file
-const demoDirectory = 'demo/spa'
+// const demoDirectory = 'demo/spa'
 // const demoDirectory = 'demo/2dfire-dashboard'
-// const demoDirectory = '../../../resume'
+const demoDirectory = '../../../resume'
 // const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
 // const demoDirectory = '../../../yhtml5-app/apps/test-tools'
 // const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
@@ -93,6 +93,7 @@ const {
     // title: '前端开发丨张大漾',
     // entry: 'src/index.js',
     // template: 'src/pages/index.js'
+    // inlineSource: '.(js|css)$' regex string
     // }
   ],
   // isMultipage = false,        // is turn on Multi-page mode
