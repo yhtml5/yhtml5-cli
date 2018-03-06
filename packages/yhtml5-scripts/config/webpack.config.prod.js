@@ -335,7 +335,7 @@ const configuration = {
           minifyURLs: true,
         },
       }),
-    webpackHtmlInlineSourcePlugin,
+    new webpackHtmlInlineSourcePlugin (),
     ...webpackHtmlPlugins({ config: projectConfig }),
     webpackCommonsChunkPlugin[1],
     webpackCommonsChunkPlugin[2],
