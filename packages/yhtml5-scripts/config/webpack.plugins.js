@@ -104,20 +104,21 @@ const webpackHtmlPlugins = ({ config = {} }) => {
   if (type !== 'MPA') { return [] }
 
   paths.isPublish || console.log('\nwebpack.plugins.js\n', {
-    config,
+    pages,
   })
-
-  return pages.map((value) => {
-    const chunk = basename(value.template, '.js')
+  // return;
+  return pages.map((value = {}) => {
+    // basename returns the last portion of a path
+    // const chunk = basename(value.template, '.js')
+    const key = value.key || 'noKey'
     const template = path.resolve(paths.appPath, value.template)
-
-    return new HtmlWebpackPlugin({
-      filename: chunk + '.html',
+    const inlineSource = value.inlineSource
+    const options = {
+      filename: key + '.html',
       title: value.title,
       template,
-      chunks: [chunk, 'manifest'],
+      chunks: [key, 'manifest'],
       chunksSortMode: 'dependency',
-      inlineSource: '.(js|css)$', // embed all javascript and css inline
       // inject: true,
       // content: pages.content,
       // key: pages.key,
@@ -142,7 +143,13 @@ const webpackHtmlPlugins = ({ config = {} }) => {
           minifyURLs: true,
         }
         : {}
-    })
+    }
+    if (inlineSource) {
+      // embed all javascript or css inline, like '.(js|css)$',
+      options.inlineSource = inlineSource
+    }
+
+    return new HtmlWebpackPlugin(options)
   })
 }
 

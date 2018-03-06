@@ -53,7 +53,8 @@ module.exports = function ({
   if (config.type === 'MPA') {
     let entries = {};
     config.pages.forEach(function (value) {
-      const chunk = basename(value.template, '.js')
+      // const chunk = basename(value.template, '.js')
+      const chunk = value.key || 'noKey'
       const entry = path.resolve(paths.appPath, value.entry)
       entries[chunk] = isBuild ? entry : [entry, webpackHotDevClient];
     });
