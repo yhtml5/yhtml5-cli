@@ -3,7 +3,14 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const paths = require('./paths');
-const { testMatch, transformIgnorePatterns, collectCoverageFrom,moduleNameMapper } = require('../.config.js');
+const {
+  testMatch,
+  testPathIgnorePatterns,
+  collectCoverageFrom,
+  coveragePathIgnorePatterns,
+  transformIgnorePatterns,
+  moduleNameMapper
+} = require('../.config.js');
 const packageJson = require('../package.json');
 
 const customTestMatch = 1
@@ -18,15 +25,15 @@ module.exports = (resolve, rootDir, isEjecting) => {
   // TODO: I don't know if it's safe or not to just use / as path separator
   // in Jest configs. We need help from somebody with Windows to determine this.
   const config = {
-    collectCoverageFrom: collectCoverageFrom.length
-      ? collectCoverageFrom
-      : ['src/**/*.{js,jsx}'],
+    collectCoverageFrom: ['src/**/*.{js,jsx}'].concat(collectCoverageFrom),
+    coveragePathIgnorePatterns: ['/node_modules/'].concat(coveragePathIgnorePatterns),
     setupFiles: [resolve('polyfills/index.js')],
     setupTestFrameworkScriptFile: setupTestsFile,
     testMatch: [
       `${rootDir}/src/**/__tests__/**/*.js?(x)`,
       `${rootDir}/src/**/?(*.)(spec|test).js?(x)`,
     ].concat(testMatch),
+    testPathIgnorePatterns: ['/node_modules/'].concat(testPathIgnorePatterns),
     testEnvironment: 'node',
     testURL: 'http://localhost',
     transform: {
@@ -34,9 +41,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '^.+\\.css$': resolve('utils/cssTransform.js'),
       '^(?!.*\\.(js|jsx|css|json)$)': resolve('utils/fileTransform.js'),
     },
-    transformIgnorePatterns: transformIgnorePatterns.length
-      ? transformIgnorePatterns
-      : ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+    transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'].concat(transformIgnorePatterns),
     moduleNameMapper: Object.assign({
       '^react-native$': 'react-native-web',
     }, moduleNameMapper),

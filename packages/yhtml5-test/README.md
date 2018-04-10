@@ -69,9 +69,11 @@ npm run test:u | update test framework
 
 #### Install 2dfire-scripts using npm:
 
+```
 run 
-> npm i @2dfire/2dfire-scripts@latest -D `// npm run test:u`
-> npm i react-test-renderer@15.6.x enzyme@2.9.x jest-enzyme@3.8.x -D
+npm i @2dfire/2dfire-scripts@latest -D
+npm i react-test-renderer@15.6.x enzyme@2.9.x jest-enzyme@3.8.x -D
+```
 
 #### add .config.js to root directory 
 
@@ -201,6 +203,7 @@ for more information, you can read :
 #### How to view the test report
 
 > npm i serve -g
+
 > serve -p 10001 ./coverage/lcov-report
 
 ### Problems 
@@ -230,6 +233,9 @@ By default jest doesn't transform ES6 js code from node_modules
 **solution:** Try importing React in the Components file.
 
 #### react-addons-test-utils is an implicit dependency in order to support react@0.13-14.
+
+If you are using a React below version 15.5.0, you will also need to install react-addons-test-utils.
+if you use react@^15.4.2, pleasr run **npm i react-addons-test-utils@^15.4.2**
 
 [enzyme]:http://airbnb.io/enzyme/docs/api/shallow.html
 [code-coverage-analysis]:http://www.bullseye.com/coverage.html

@@ -10,10 +10,11 @@
   "scripts": {
     "git": "clear && git status && git add . && git commit -m",
     "postgit": "git pull && git push && git push origin dev:master",
-    "sync": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts ~/projects/gitlab/2dfire-scripts/packages/yhtml5-test ~/projects/gits/yhtml5-cli/packages",
+    "sync:test": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-test/ ~/projects/gits/yhtml5-cli/packages/yhtml5-test/",
+    "sync:scripts": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts/ ~/projects/gits/yhtml5-cli/packages/2dfire-scripts/",
     "postsync": "npm run git 'sync: yhtml5-test and 2dfire-scripts'",
-    "prepublish:yhtml5-test": "echo copy... && npm run sync && ls && cd ~/projects/gits/yhtml5-cli/packages/yhtml5-test && pwd",
-    "publish:yhtml5-test": "npm version patch && npm publish",
+    "prepublish:yhtml5-test": "echo copy... && npm run sync:test && npm run sync:scripts && ls && cd ~/projects/gits/yhtml5-cli/packages/yhtml5-test && pwd",
+    "publish:yhtml5-test": "npm version patch && echo npm login https://registry.npmjs.org && npm login && npm publish",
     "postpublish:yhtml5-test": "cd ~/projects/gits/yhtml5-cli/",
     "prepublishOnly": "echo will publish"
   },
@@ -34,6 +35,7 @@
   },
   "preferGlobal": true,
   "dependencies": {
+    "react": "^16.2.0",
     "yhtml5-utils": "0.0.4"
   }
 }
