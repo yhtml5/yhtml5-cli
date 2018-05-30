@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {*} moment
+ */
+
 const formatMoment = (moment) => (moment < 10) ? "0" + "" + moment : moment
 
 const year = new Date().getFullYear(),

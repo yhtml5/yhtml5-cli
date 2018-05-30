@@ -8,6 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
+const  getVersion  = require('yhtml5-dev-utils/src/getVersion')
 
 // get .conifg.js file
 // const demoDirectory = 'demo/spa'

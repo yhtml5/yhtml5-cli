@@ -9,3 +9,4 @@ react-app
 roadhog
 coverage
 .vscode
+lerna-debug.log
