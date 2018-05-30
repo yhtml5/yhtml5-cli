@@ -37,5 +37,8 @@
   "dependencies": {
     "react": "^16.2.0",
     "yhtml5-utils": "0.0.4"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0"
   }
 }
