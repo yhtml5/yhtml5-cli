@@ -1,15 +1,3 @@
-/**
- * Author: yhtml5
- * Description:
- * Reference:
- * Notice:
- * TODO:
- */
-/**
- * Copyright (c) 2015-present, yhtml5.com, Inc.
- * All rights reserved.
- */
-
 function author(options) {
   const value = options || {}
   const name = value.name || 'YHTML5'

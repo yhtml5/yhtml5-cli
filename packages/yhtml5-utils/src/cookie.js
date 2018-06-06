@@ -1,13 +1,3 @@
-/**
- * author: yhtml5
- * desicription: set cookie.
- *
- *
- * @param {String} name
- * @param {String} value
- * @param {number} hour
- */
-
 function setCookie(name, value, hour) {
   let currentTime = new Date()
   currentTime.setTime(currentTime.getTime() + (hour * 60 * 60 * 1000))

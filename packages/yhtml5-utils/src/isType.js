@@ -1,7 +1,5 @@
 /**
- *  author: yhtml5
  *  reference: https://github.com/lodash/lodash
- *
  */
 
 const isUndefined = (value) => typeof value === 'undefined'
