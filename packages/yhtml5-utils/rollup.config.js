@@ -3,6 +3,7 @@ import jsonPlugin from 'rollup-plugin-json';
 // import commonjsPlugin from 'rollup-plugin-commonjs';
 import babelPlugin from 'rollup-plugin-babel';
 import uglifyPlugin from 'rollup-plugin-uglify';
+const replace = require('rollup-plugin-replace')
 // import buble from 'rollup-plugin-buble';
 const fs = require('fs')
 const path = require('path')
@@ -23,14 +24,20 @@ const getEntries = () => {
   })
   return dirs
 }
+
 const Entry = getEntries() || {}
 const input = Object.entries(Entry) || []
-const normalConfig = input.map((value, index) => {
+const config = input.map((value, index) => {
   const name = value[0]
   const path = value[1]
   return {
     input: path,
-    plugins: [jsonPlugin()],
+    plugins: [
+      jsonPlugin(),
+      // babelPlugin({
+      //   exclude: 'node_modules/**', // only transpile our source code
+      // }),
+    ],
     // external: ['lodash'],
     output: [{
       file: `dist/es6/${name}.js`,
@@ -65,9 +72,12 @@ const minConfig = input.map((value, index) => {
     plugins: [
       jsonPlugin(),
       babelPlugin({
-        exclude: 'node_modules/**', // only transpile our source code
+        exclude: 'node_modules/**',
       }),
-      uglifyPlugin()
+      uglifyPlugin(),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify( 'production' )
+      })
     ],
     output: [{
       banner: banner,
@@ -80,7 +90,8 @@ const minConfig = input.map((value, index) => {
     }],
   }
 })
-const rollupConfig = normalConfig.concat(minConfig)
+
+const rollupConfig = config.concat(minConfig)
 
 export default rollupConfig
 
