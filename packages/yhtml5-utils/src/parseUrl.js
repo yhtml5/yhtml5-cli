@@ -1,6 +1,6 @@
 // 存在url 有俩个相同的key 会取第一个
 function queryUrlParam(key, url) {
-  var value = location.search.match(new RegExp("[\?\&]" + key + "=([^\&]*)(\&?)", "i"));
+  var value = url.match(new RegExp("[\?\&]" + key + "=([^\&]*)(\&?)", "i"));
   return value ? value[1] : ""
 }
 

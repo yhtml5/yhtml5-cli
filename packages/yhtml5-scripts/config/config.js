@@ -2,53 +2,16 @@
  * Author: yhtml5
  * Description: The config of yhtml5-scripts
  * TODO:
- *
  */
 
 const fs = require('fs');
 const path = require('path');
 const ownPackageJson = require('../package.json');
-const  getVersion  = require('yhtml5-dev-utils/src/getVersion')
-
-// get .conifg.js file
-// const demoDirectory = 'demo/spa'
-// const demoDirectory = 'demo/2dfire-dashboard'
-const demoDirectory = '../../../resume'
-// const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
-// const demoDirectory = '../../../yhtml5-app/apps/test-tools'
-// const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
-
-// require.resolve(demoDirectory)
-function getConfig() {
-  if (isPublish && hasConfigJs) {
-    return require('../../../.config.js')
-  } else {
-    switch (demoDirectory) {
-      case 'demo/2dfire-dashboard':
-        return require('../demo/2dfire-dashboard/.config.js')
-        break;
-      case 'demo/spa':
-        return require('../demo/spa/.config.js')
-        break;
-      case '../../../yhtml5-seed/apps/react-dashboard':
-        return require('../../../../yhtml5-seed/apps/react-dashboard/.config.js')
-        break;
-      case '../../../yhtml5-app/apps/test-tools':
-        return require('../../../../yhtml5-app/apps/test-tools/.config.js')
-        break;
-      case '../../../resume':
-        return require('../../../../resume/.config.js')
-        break;
-      case '/Users/yhtml5/projects/gitlab/static-file/projects/libraries':
-        return require('/Users/yhtml5/projects/gitlab/static-file/projects/libraries/.config.js')
-        break;
-      default:
-        return {}
-        break;
-    }
-  }
-}
+const getVersion = require('yhtml5-dev-utils/src/getVersion')
 const appDirectory = fs.realpathSync(process.cwd());
+const demoDirectory = appDirectory;
+const configDirectory =  path.resolve(appDirectory, '.config.js');
+const config = require(configDirectory)
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const reactScriptsPath = resolveApp(`node_modules/${ownPackageJson.name}`);
 const reactScriptsLinked =
@@ -56,12 +19,58 @@ const reactScriptsLinked =
   fs.lstatSync(reactScriptsPath).isSymbolicLink();
 const isPublish = reactScriptsLinked ||
   __dirname.indexOf(path.join('packages', ownPackageJson.name, 'config')) === -1
-
 const hasConfigJs = fs.existsSync(path.resolve(
   appDirectory,
   isPublish ? '' : demoDirectory,
   '.config.js'
 ))
+
+console.log({
+  __dirname,
+  isPublish,
+  appDirectory,
+  configDirectory,
+  config
+})
+console.log('\n')
+// get .conifg.js file
+// const demoDirectory = 'demo/spa'
+// const demoDirectory = 'demo/2dfire-dashboard'
+// const demoDirectory = '../../../resume'
+// const demoDirectory = '../../../yhtml5-seed/apps/react-dashboard'
+// const demoDirectory = '../../../yhtml5-app/apps/test-tools'
+// const demoDirectory = '/Users/yhtml5/projects/gitlab/static-file/projects/libraries'
+
+// require.resolve(demoDirectory)
+// function getConfig() {
+  // if (isPublish && hasConfigJs) {
+  //   return require('../../../.config.js')
+  // } else {
+  //   switch (demoDirectory) {
+  //     case 'demo/2dfire-dashboard':
+  //       return require('../demo/2dfire-dashboard/.config.js')
+  //       break;
+  //     case 'demo/spa':
+  //       return require('../demo/spa/.config.js')
+  //       break;
+  //     case '../../../yhtml5-seed/apps/react-dashboard':
+  //       return require('../../../../yhtml5-seed/apps/react-dashboard/.config.js')
+  //       break;
+  //     case '../../../yhtml5-app/apps/test-tools':
+  //       return require('../../../../yhtml5-app/apps/test-tools/.config.js')
+  //       break;
+  //     case '../../../resume':
+  //       return require('../../../../resume/.config.js')
+  //       break;
+  //     case '/Users/yhtml5/projects/gitlab/static-file/projects/libraries':
+  //       return require('/Users/yhtml5/projects/gitlab/static-file/projects/libraries/.config.js')
+  //       break;
+  //     default:
+  //       return {}
+  //       break;
+  //   }
+  // }
+// }
 
 // isPublish || console.log('\n.config.js\n', {
 //   reactScriptsPath,
@@ -76,7 +85,7 @@ const hasConfigJs = fs.existsSync(path.resolve(
 // return
 
 // config after publish: we're in ./node_modules/yhtml5-scripts/
-const config = getConfig()
+// const config = getConfig()
 const {
   entry = "src/index.js",      // webpack entry
   output = {},                 // webpack output

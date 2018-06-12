@@ -5,7 +5,9 @@ import { createScript, createScriptAsync } from './createScript';
 import download from './download';
 import formatNumber from './formatNumber';
 import notRepeat from './notRepeat';
+import version from './version';
 import { queryUrlParam, parseUrlToObject, parseObjectToUrl } from './parseUrl';
+
 import {
   isNull,
   isFalse,
@@ -25,6 +27,7 @@ import {
 export default {
   author,
   console,
+  version,
   notRepeat,
   // create script
   createScript,
@@ -42,6 +45,7 @@ export default {
   isFalse,
   isUndefined,
   isNumber,
+  formatNumber,
   isFunction,
   isArray,
   isArrayEmpty,
