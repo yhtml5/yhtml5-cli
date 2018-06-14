@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Author: yhtml5
- * 
+ *
  */
 
 'use strict';
