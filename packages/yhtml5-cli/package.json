@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-cli",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "license": "MIT",
   "main": "lib/index.js",
   "author": {
