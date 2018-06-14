@@ -5,7 +5,6 @@
   "main": "case/index.js",
   "description": "A test framework for front-end projects",
   "author": "yhtml5",
-  "npmAddress": "http://npm.2dfire.net",
   "scripts": {
     "test": "2dfire-scripts test --env=jsdom",
     "test:c": "2dfire-scripts test -- --coverage",

@@ -9,7 +9,7 @@
   "description": "CLI for scaffolding front-end projects based on the create-react-app project.",
   "scripts": {
     "git": "clear && git status && git add . && git commit -m",
-    "postgit": "git pull && git push && git push origin dev:master",
+    "postgit": "git pull && git merge origin/master && git push && git push origin dev:master && git status",
     "sync:test": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-test/ ~/projects/gits/yhtml5-cli/packages/yhtml5-test/",
     "sync:scripts": "cp -rf ~/projects/gitlab/2dfire-scripts/packages/2dfire-scripts/ ~/projects/gits/yhtml5-cli/packages/2dfire-scripts/",
     "postsync": "npm run git 'sync: yhtml5-test and 2dfire-scripts'",
