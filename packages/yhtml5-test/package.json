@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-test",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects",
@@ -24,7 +24,7 @@
     "promise": "^8.0.1",
     "regenerator-runtime": "^0.11.0",
     "whatwg-fetch": "^2.0.3",
-    "yhtml5-dev-utils": "^1.1.5"
+    "yhtml5-dev-utils": "^1.1.7"
   },
   "bin": {
     "yhtml5-test": "./bin/yhtml5-test.js"
