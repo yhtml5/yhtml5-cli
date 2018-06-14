@@ -69,7 +69,8 @@
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3",
     "yhtml5-dev-utils": "^1.1.0",
-    "yhtml5-utils": "^0.2.1"
+    "yhtml5-utils": "^0.2.1",
+    "yhtml5-test": "^1.1.6"
   },
   "devDependencies": {
     "antd": "^2.13.10",
@@ -94,8 +95,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "reqwest": "^2.0.5",
-    "vconsole": "^3.1.0",
-    "yhtml5-test": "0.x"
+    "vconsole": "^3.1.0"
   },
   "peerDependency": {},
   "engines": {
