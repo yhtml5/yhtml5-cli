@@ -69,5 +69,5 @@
   "scripts": {
     "prepublishOnly": "npm version patch && echo npm login https://registry.npmjs.org && npm login"
   },
-  "version": "1.0.2"
+  "version": "1.0.3"
 }
