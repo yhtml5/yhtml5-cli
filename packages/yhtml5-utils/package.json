@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-utils",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "javascript utilities used by front-end application",
   "main": "index.js",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^3.0.0",
-    "yhtml5-scripts": "^0.2.14"
+    "yhtml5-scripts": "^0.2.15"
   },
   "engines": {
     "node": ">=6"

@@ -1,20 +1,36 @@
 {
-  "name": "yhtml5-dev-utils",
-  "version": "1.0.6",
-  "description": "a set of development utilities for scaffolding front-end projects",
-  "repository": "yhtml5/yhtml5-cli/issues",
-  "license": "MIT",
-  "main": "index.js",
-  "scripts": {},
+  "_from": "yhtml5-dev-utils@latest",
+  "_id": "yhtml5-dev-utils@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-NGaavNINxPuJF6shUJgpM5dOTFw+BAuUExNTFJ9vBdMiDyHU3T280o5l5dvg3ZirUPuiQTVz8yWz6YdA2BWdAw==",
+  "_location": "/yhtml5-dev-utils",
+  "_phantomChildren": {
+    "chalk": "1.1.3",
+    "esutils": "2.0.2",
+    "js-tokens": "3.0.2"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "yhtml5-dev-utils@latest",
+    "name": "yhtml5-dev-utils",
+    "escapedName": "yhtml5-dev-utils",
+    "rawSpec": "latest",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/yhtml5-dev-utils/-/yhtml5-dev-utils-1.0.1.tgz",
+  "_shasum": "e02753fe2ec16a2c94ca7594e13b31dd09206320",
+  "_spec": "yhtml5-dev-utils@latest",
+  "_where": "/Users/yhtml5/projects/gitlab/2dfire-scripts/packages/2dfire-test",
   "bugs": {
     "url": "https://github.com/yhtml5/yhtml5-cli/issues"
   },
-  "engines": {
-    "node": ">=6"
-  },
-  "files": [
-    "src"
-  ],
+  "bundleDependencies": false,
   "dependencies": {
     "address": "1.0.2",
     "babel-code-frame": "6.22.0",
@@ -34,5 +50,24 @@
     "sockjs-client": "1.1.4",
     "strip-ansi": "3.0.1",
     "text-table": "0.2.0"
-  }
+  },
+  "deprecated": false,
+  "description": "a set of development utilities for scaffolding front-end projects",
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "src"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "yhtml5-dev-utils",
+  "repository": {
+    "type": "git",
+    "url": "yhtml5/yhtml5-cli/issues"
+  },
+  "scripts": {
+    "prepublishOnly": "npm version patch && echo npm login https://registry.npmjs.org && npm login"
+  },
+  "version": "1.0.2"
 }
