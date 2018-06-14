@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-scripts",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "author": "yhtml5 <1417376255@qq.com>",
   "main": "/",
   "license": "MIT",
@@ -19,8 +19,7 @@
     "pm2": "pm2 start pm2.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.jsx ./app/Containers",
-    "precommit": "npm run test",
-    "prepublishOnly": "npm version patch && echo npm login https://registry.npmjs.org && npm login"
+    "precommit": "npm run test"
   },
   "dependencies": {
     "autoprefixer": "^7.1.6",
@@ -69,8 +68,8 @@
     "webpack-dev-server": "^2.9.4",
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3",
-    "yhtml5-dev-utils": "^1.0.4",
-    "yhtml5-utils": "^0.1.6"
+    "yhtml5-dev-utils": "^1.0.6",
+    "yhtml5-utils": "^0.1.8"
   },
   "devDependencies": {
     "antd": "^2.13.10",
