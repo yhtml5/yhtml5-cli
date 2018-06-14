@@ -8,9 +8,10 @@
   "scripts": {
     "test": "2dfire-scripts test --env=jsdom",
     "test:c": "2dfire-scripts test -- --coverage",
-    "test:i": "npm i yhtml5-test@latest -D",
-    "git": "git commit -m",
-    "postgit": "git merge origin/master && git pull && git push && git status"
+    "test:u": "npm i yhtml5-test@latest -D"
+  },
+  "publishConfig": {
+    "registry": "http://10.1.6.28"
   },
   "dependencies": {
     "cross-spawn": "^5.1.0",
@@ -21,8 +22,5 @@
   },
   "engines": {
     "node": ">=4.0.0"
-  },
-  "publishConfig": {
-    "registry": "http://10.1.6.28"
   }
 }
