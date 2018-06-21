@@ -7,8 +7,6 @@
     "name": "yhtml5"
   },
   "scripts": {
-    "git": "git checkout dev && git add -A && git commit -m \"auto commit\" && git merge master && git pull && git push && git checkout master && git merge dev && git pull && git push",
-    "postgit": "clear && git status",
     "release": "npm run git && npm publish"
   },
   "description": "A simple CLI for front-end projects.",
