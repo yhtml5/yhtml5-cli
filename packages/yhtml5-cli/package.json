@@ -6,9 +6,7 @@
   "author": {
     "name": "yhtml5"
   },
-  "scripts": {
-    "release": "npm run git && npm publish"
-  },
+  "scripts": {},
   "description": "A simple CLI for front-end projects.",
   "bugs": {
     "url": "https://github.com/yhtml5/YHTML5-CLI/issues"
