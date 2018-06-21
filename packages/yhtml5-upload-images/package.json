@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-upload-images",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "index.js",
   "description": "An automated tool for compressing uploaded images",
