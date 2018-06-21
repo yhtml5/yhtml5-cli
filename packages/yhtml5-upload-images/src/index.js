@@ -1,10 +1,16 @@
+const fs = require('fs')
 const ora = require('ora');
 const path = require('path')
 const shell = require('shelljs')
 const home = require('user-home')
 const compress = require('./compress')
 const uploadHttp = require('./upload')
-const { upload = {} } = require('../demo/.config');
+
+//get config directory path
+const appDirectory = fs.realpathSync(process.cwd());
+const configDirectory = path.resolve(appDirectory, '.config.js');
+const config = require(configDirectory)
+const { upload = {} } = config || {}
 
 const spinner = ora('start upload...');
 const { entries = [] } = upload
@@ -37,4 +43,4 @@ async function run() {
   return result
 }
 
-run()
+module.exports = run

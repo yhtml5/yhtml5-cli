@@ -18,7 +18,7 @@ function upload(filesPaths) {
     return new Promise((resolve, reject) =>
       request.post({
         url: 'http://upload.2dfire-daily.com/upfileandlist',
-        formData: formData
+        formData,
       }, function (error, response, body) {
         if (!error) {
           if (response.statusCode == 200) {

@@ -1,8 +1,8 @@
 {
   "name": "yhtml5-upload-images",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
-  "main": "index.js",
+  "main": "src/index.js",
   "description": "An automated tool for compressing uploaded images",
   "author": "yhtml5",
   "scripts": {
@@ -23,7 +23,7 @@
     "user-home": "^2.0.0"
   },
   "bin": {
-    "uploadimg": "./index.js"
+    "uploadimg": "./bin/uploadimg"
   },
   "engines": {
     "node": ">=4.0.0"
