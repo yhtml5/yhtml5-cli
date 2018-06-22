@@ -32,8 +32,8 @@ const config = {
 module.exports = config
 ```
 
-> npm i yhtml5-upload-images -O
-> npm run uploadimg
+> npm i yhtml5-upload-images -g
+> npm run uploadimg 
 
 ### notice 
 * 每次只上传一个文件 减轻弱不禁风的 node cdn服务器压力

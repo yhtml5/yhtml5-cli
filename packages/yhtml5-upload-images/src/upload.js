@@ -13,7 +13,7 @@ function upload(filesPaths) {
       projectName: 'FrontEndResource',
       files: [file],
       path: 'frontend',
-      usrName: '小二 node',
+      usrName: '飞鱼籽',
     };
     return new Promise((resolve, reject) =>
       request.post({
