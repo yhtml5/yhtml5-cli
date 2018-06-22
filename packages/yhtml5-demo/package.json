@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-demo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "main": "index.js",
   "description": "test packages",
@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "yhtml5-cli": "^0.2.12",
-    "yhtml5-upload-images": "^0.2.0"
+    "yhtml5-upload-images": "^0.2.1"
   },
   "engines": {
     "node": ">=4.0.0"
