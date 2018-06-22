@@ -9,9 +9,10 @@
     "start": "node ./src/index.js"
   },
   "files": [
+    "bin",
     "src",
-    "README.md",
-    "index.js"
+    "LICENSE",
+    "README.md"
   ],
   "dependencies": {
     "imagemin": "^5.3.1",
