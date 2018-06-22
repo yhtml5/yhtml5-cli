@@ -14,8 +14,29 @@ and then upload to cdn return urls.
 * 复制链接
 
 ### new workflow
-* npm run upload
+* npm run uploadimg
 * return url
+
+### start
+#### create .config.js in the project root directory
+```.config.js
+const path = require('path')
+const entry1 = path.resolve(__dirname, './images/*.{jpg,png}')
+
+const config = {
+  upload: {
+    entries: [entry1],
+  }
+}
+
+module.exports = config
+```
+
+> npm i yhtml5-upload-images -O
+> npm run uploadimg
+
+### notice 
+* 每次只上传一个文件 减轻弱不禁风的 node cdn服务器压力
 
 ### other
 [imagemin](https://github.com/imagemin/imagemin)
