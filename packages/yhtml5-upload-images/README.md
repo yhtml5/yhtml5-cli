@@ -33,7 +33,16 @@ module.exports = config
 ```
 
 > npm i yhtml5-upload-images -g
-> npm run uploadimg 
+
+在 package.json 增加 script
+> upload: uploadimg
+
+执行
+> npm run upload 
+or 
+> uploadimg 
+
+
 
 ### notice 
 * 每次只上传一个文件 减轻弱不禁风的 node cdn服务器压力
