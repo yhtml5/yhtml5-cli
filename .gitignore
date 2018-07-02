@@ -1,11 +1,15 @@
 .idea
-vue-cli
 npm-debug.log
 node_modules
+coverage
+.vscode
+lerna-debug.log
+
+# packages2
 my-app
 create-react-app
 react-app
 roadhog
-coverage
-.vscode
-lerna-debug.log
+vue-cli
+vue-demo
+vue-demo2

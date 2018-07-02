@@ -19,8 +19,13 @@
     "index.js"
   ],
   "dependencies": {
-    "yhtml5-cli": "^0.2.12",
-    "yhtml5-upload-images": "^0.2.2"
+    "yhtml5-upload-images": "^0.2.x"
+  },
+  "devDependencies": {
+    "yhtml5-utils": "0.0.4"
+  },
+  "optionalDependencies": {
+    "yhtml5-beautify": "0.0.4"
   },
   "engines": {
     "node": ">=4.0.0"
