@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-demo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "main": "index.js",
   "description": "test packages",
@@ -19,7 +19,7 @@
     "index.js"
   ],
   "dependencies": {
-    "yhtml5-upload-images": "^0.3.4"
+    "yhtml5-upload-images": "^0.3.6"
   },
   "devDependencies": {
     "yhtml5-utils": "0.0.4"
