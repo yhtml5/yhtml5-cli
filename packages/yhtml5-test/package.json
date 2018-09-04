@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-test",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "license": "MIT",
   "main": "lib/index.js",
   "description": "A test framework for front-end projects",

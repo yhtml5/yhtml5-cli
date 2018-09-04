@@ -1,6 +1,6 @@
 {
   "name": "yhtml5-scripts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "yhtml5 <1417376255@qq.com>",
   "main": "/",
   "license": "MIT",
@@ -69,7 +69,7 @@
     "webpack-manifest-plugin": "1.2.1",
     "whatwg-fetch": "2.0.3",
     "yhtml5-dev-utils": "^1.1.9",
-    "yhtml5-test": "^1.2.0",
+    "yhtml5-test": "^1.2.2",
     "yhtml5-utils": "^0.2.5"
   },
   "devDependencies": {
