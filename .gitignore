@@ -5,11 +5,6 @@ coverage
 .vscode
 lerna-debug.log
 
-# packages2
-my-app
+packages2
 create-react-app
-react-app
-roadhog
 vue-cli
-vue-demo
-vue-demo2
