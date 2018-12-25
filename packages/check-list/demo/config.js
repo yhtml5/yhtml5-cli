@@ -3,45 +3,55 @@ const path = require('path')
 
 const config = {
   checkList: {
-    debug: true,
+    debug: false,
     rules: [{
       type: 'title',
       describe: 'Check List Rules:',
     }, {
       type: 'require',
-      describe: '检查是否存在关键性文件',
+      describe: '检查文件完整性: 关键性文件',
       paths: [path.resolve(__dirname, 'src/check/requiredFiles.js')]
     }, {
       type: 'limit',
-      describe: '检查dist文件大小',
+      describe: '检查文件大小限制: dist',
       paths: [path.resolve(__dirname, 'dist/')],
       min: 10,
       max: 100
     }, {
       type: 'regex',
-      describe: '检查是否存在debug',
+      describe: '检查是否存在: 冲突代码',
       paths: [__dirname],
-      regex: /^debugger/g,
+      regex: /^<<<<<|^>>>>>/gm,
     }, {
       type: 'regex',
-      describe: '检查是否存在冲突代码',
+      describe: '检查是否存在: debug',
       paths: [__dirname],
-      regex: /^<<<<<|^=====|^>>>>>/g,
+      regex: /^\s*debugger/gm,
     }, {
       type: 'regex',
-      describe: '检查是否存在调试信息',
+      describe: '检查是否存在: alert',
+      regex: /alert\(/g,
       paths: [__dirname],
-      regex: /console.error\(|alert\(/g,
     }, {
       type: 'regex',
-      describe: '检查特殊兼容性语法',
+      describe: '检查是否存在: console.error',
+      regex: /console.error\(/g,
       paths: [__dirname],
-      regex: /\.includes\(|Data.now\(/g,
     }, {
       type: 'regex',
-      describe: '检查dist目录中不能有es6语法',
+      describe: '检查特殊兼容性语法: includes',
+      regex: /\.includes\(/g,
+      paths: [__dirname],
+    }, {
+      type: 'regex',
+      describe: '检查特殊兼容性语法: Data.now',
+      regex: /Data.now\(/g,
+      paths: [__dirname,],
+    }, {
+      type: 'regex',
+      describe: '检查是否存在es6语法: dist',
       paths: [path.resolve(__dirname, 'dist')],
-      regex: /^const|^let/g,
+      regex: /^\s*const|^let/gm,
     }],
     questions: [
       '是否已同步git提交?',
