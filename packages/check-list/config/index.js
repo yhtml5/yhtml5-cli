@@ -1,7 +1,7 @@
 'use strict'
 const fs = require('fs')
 const path = require('path')
-
+const checkListVersion = require('../package.json').version
 // get the app runtime directory
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
@@ -10,23 +10,24 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const configPath = resolveApp(process.argv[2])
 const config = require(configPath)
 const {
-    debug = false,
-    questions = [],
-    rules = [],
+  debug = false,
+  questions = [],
+  rules = [],
 } = config.checkList || {}
 
 if (debug) {
-    console.log('Debug Info:')
-    console.log('> appDirectory:', appDirectory)
-    console.log('> configPath:', configPath)
-    console.log('> rules:\n', rules)
-    console.log('> questions:\n', questions)
-    console.log('> process.argv:\n', process.argv)
-    console.log('')
+  console.log('Debug Info:')
+  console.log('> checkListVersion:', checkListVersion)
+  console.log('> appDirectory:', appDirectory)
+  console.log('> configPath:', configPath)
+  console.log('> process.argv:\n', process.argv)
+  console.log('> rules:\n', rules)
+  console.log('> questions:\n', questions)
+  console.log('')
 }
 
 module.exports = {
-    appDirectory,
-    questions,
-    rules,
+  appDirectory,
+  questions,
+  rules,
 }
