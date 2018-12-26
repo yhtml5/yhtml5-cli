@@ -18,8 +18,9 @@ and then upload to cdn return urls.
 * return url
 
 ### start
+
 #### create .config.js in the project root directory
-```.config.js
+```js
 const path = require('path')
 const entry1 = path.resolve(__dirname, './images/*.{jpg,png}')
 
@@ -42,15 +43,8 @@ module.exports = config
 or 
 > uploadimg 
 
-
-
 ### notice 
 * 每次只上传一个文件 减轻弱不禁风的 node cdn服务器压力
 
 ### other
 [imagemin](https://github.com/imagemin/imagemin)
-
-
-
-
-

@@ -1,15 +1,15 @@
 {
-  "name": "yhtml5-upload-images",
-  "version": "0.3.6",
+  "name": "@yhtml5/upload-images",
+  "version": "0.5.6",
   "license": "MIT",
   "main": "src/index.js",
   "description": "An automated tool for compressing uploaded images",
   "author": "yhtml5",
   "scripts": {
-    "start": "node ./src/index.js"
+    "test": "node ./bin/upload.js ./demo/config.js"
   },
   "bin": {
-    "uploadimg": "./bin/uploadimg"
+    "upload": "./bin/upload.js"
   },
   "dependencies": {
     "imagemin": "^5.3.1",
@@ -30,6 +30,6 @@
     "README.md"
   ],
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   }
 }

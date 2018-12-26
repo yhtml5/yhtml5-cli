@@ -1,31 +1,24 @@
 const fs = require('fs')
-const ora = require('ora');
+const ora = require('ora')
 const path = require('path')
 const shell = require('shelljs')
 const home = require('user-home')
 const compress = require('./compress')
 const uploadHttp = require('./upload')
-
-//get config directory path
-const appDirectory = fs.realpathSync(process.cwd());
-const configDirectory = path.resolve(appDirectory, '.config.js');
-const config = require(configDirectory)
-const { upload = {} } = config || {}
-
-const spinner = ora('start upload...');
-const { entries = [] } = upload
+const spinner = ora('start upload...')
 const cachePath = path.resolve(home, 'yhtml5-upload-images')
 // const output = path.resolve(entries[0], '../../imaged')
 
-async function run() {
-  spinner.start();
-  // console.log('cachePath: ', cachePath);
+async function run(config = {}) {
+  const { entries = [] } = config.upload || {}
+  spinner.start()
+  // console.log('cachePath: ', cachePath)
   shell.rm('-rf', cachePath)
   const compressFilesPaths = await compress({ entries, output: cachePath })
-  // console.log('entries', entries);
-  // console.log('compressFilesPaths', compressFilesPaths);
+  // console.log('entries', entries)
+  // console.log('compressFilesPaths', compressFilesPaths)
   const uploadedResult = await uploadHttp(compressFilesPaths)
-  // console.log('result', uploadedResult);
+  // console.log('result', uploadedResult)
   // [{
   //  file: '/Users/yhtml5/projects/gits/yhtml5-cli/packages/yhtml5-upload-images/imaged/1.png',
   //  response: '{"code":1,"data":["frontend/5aab7991d0a7c576737eb326312bf72f.jpg"],"message":""}'}]
@@ -37,8 +30,8 @@ async function run() {
   })
 
   shell.rm('-rf', cachePath)
-  spinner.stop();
-  console.log('result:\n', result);
+  spinner.stop()
+  console.log('result:\n', result)
   console.log('\nupload done!\n')
   return result
 }
