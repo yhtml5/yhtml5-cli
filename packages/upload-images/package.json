@@ -23,6 +23,12 @@
   "devDependencies": {
     "tinify": "^1.5.0"
   },
+  "keywords": [
+    "check list",
+    "javascript",
+    "test",
+    "deploy"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yhtml5/yhtml5-cli.git"
