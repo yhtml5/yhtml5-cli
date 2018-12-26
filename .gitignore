@@ -1,10 +1,12 @@
-.idea
-npm-debug.log
-node_modules
-coverage
-.vscode
-lerna-debug.log
+# files
+yarn.lock
 
+# directories
+coverage
 packages2
-create-react-app
-vue-cli
+
+# other
+.idea
+.vscode
+*.log
+node_modules
