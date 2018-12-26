@@ -23,12 +23,7 @@
   "devDependencies": {
     "tinify": "^1.5.0"
   },
-  "files": [
-    "bin",
-    "src",
-    "LICENSE",
-    "README.md"
-  ],
+
   "engines": {
     "node": ">=6.0.0"
   }
