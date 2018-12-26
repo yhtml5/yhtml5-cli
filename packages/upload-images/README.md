@@ -44,7 +44,7 @@ or
 > uploadimg 
 
 ### notice 
-* 每次只上传一个文件 减轻弱不禁风的 node cdn服务器压力
+* 每次只上传一个文件 减轻的服务器压力
 
 ### other
 [imagemin](https://github.com/imagemin/imagemin)

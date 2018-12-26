@@ -1,6 +1,6 @@
 {
   "name": "@yhtml5/check-list",
-  "version": "0.5.3",
+  "version": "0.6.4",
   "main": "index.js",
   "author": "yhtml5",
   "license": "MIT",
@@ -8,14 +8,6 @@
   "bin": {
     "check": "bin/check.js"
   },
-  "files": [
-    "bin",
-    "config",
-    "demo",
-    "lib",
-    "index.js",
-    "README.md"
-  ],
   "scripts": {
     "test": "node ./bin/check ./demo/config.js"
   },
@@ -27,11 +19,15 @@
     "shelljs": "^0.8.3"
   },
   "devDependencies": {},
-  "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhtml5/yhtml5-cli.git"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
   }
 }
