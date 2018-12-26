@@ -212,7 +212,7 @@ const notRepeat = (time = 1000) =>
     }
   });
 
-var version = "0.3.5";
+var version = "0.4.5";
 
 // 存在url 有俩个相同的key 会取第一个
 function queryUrlParam(key, url) {

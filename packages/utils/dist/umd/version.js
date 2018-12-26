@@ -4,7 +4,7 @@
 	(global.version = factory());
 }(this, (function () { 'use strict';
 
-var version = "0.3.5";
+var version = "0.4.5";
 
 return version;
 
