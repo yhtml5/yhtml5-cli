@@ -2,7 +2,8 @@
 const fs = require('fs')
 const path = require('path')
 const checkListVersion = require('../package.json').version
-// get the app runtime directory
+
+// get the current working directory
 const appDirectory = fs.realpathSync(process.cwd())
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
