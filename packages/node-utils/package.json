@@ -2,11 +2,8 @@
   "version": "1.1.9",
   "license": "MIT",
   "main": "index.js",
-  "name": "yhtml5-dev-utils",
-  "repository": {
-    "type": "git",
-    "url": "yhtml5/yhtml5-cli/issues"
-  },
+  "name": "@yhtml5/node-utils",
+  "description": "a set of development utilities for scaffolding front-end projects",
   "scripts": {},
   "dependencies": {
     "address": "1.0.2",
@@ -28,8 +25,14 @@
     "strip-ansi": "3.0.1",
     "text-table": "0.2.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhtml5/yhtml5-cli.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "deprecated": false,
-  "description": "a set of development utilities for scaffolding front-end projects",
   "engines": {
     "node": ">=6"
   },
