@@ -8,7 +8,7 @@
   },
   "description": "CLI for scaffolding front-end projects based on the create-react-app project.",
   "scripts": {
-    "git": "clear && git status && git add . && git commit -m 'auto update'",
+    "git": "clear && git status && git add --all && git commit -m 'auto'",
     "postgit": "git pull && git merge origin/master && git push && git push origin dev:master && git status",
     "prepublishOnly": "echo will publish"
   },
