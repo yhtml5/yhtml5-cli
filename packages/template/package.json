@@ -1,0 +1,27 @@
+{
+  "name": "@yhtml5/template",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "yhtml5",
+  "license": "MIT",
+  "description": "",
+  "bin": {
+    "command": "bin/command.js"
+  },
+  "scripts": {
+    "test": "node ./bin/command"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhtml5/yhtml5-cli.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  }
+}
