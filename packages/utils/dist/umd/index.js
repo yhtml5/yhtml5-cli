@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.index = factory());
-}(this, (function () { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+	typeof define === 'function' && define.amd ? define(['exports'], factory) :
+	(factory((global.index = {})));
+}(this, (function (exports) { 'use strict';
 
 function author(options) {
   const value = options || {};
@@ -65,74 +65,27 @@ function debug( name ){
   return logger;
 }
 
-function setCookie(name, value, hour) {
-  let currentTime = new Date();
-  currentTime.setTime(currentTime.getTime() + (hour * 60 * 60 * 1000));
-  document.cookie = 'token=null';
-  document.cookie = `${name}=${value};expires=${currentTime.toGMTString()}`;
-}
-
-const getCookie = (name) => {
-  return (new RegExp(name, 'g').test(document.cookie))
-    ? document.cookie.split(name)[1].split("=")[1].split(";")[0]
-    : false
-};
-const clearCookie = (name) => {
-  if (name) {
-    setCookie(name, '', -1);
-  } else {
-    const keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-    if (keys) {
-      keys.forEach((key) => setCookie(key, '', -1));
+const downLoad = ({
+  name = 'download',
+  url = ''
+}) => {
+  if (process.env.NODE_ENV !== 'production') {
+    if (Object.prototype.toString.call(url) !== '[object String]' && !url) {
+      console.error('The function downLoad url should be a not empty string');
+      return
     }
   }
+  let a = document.createElement('a');
+  a.href = encodeURI(url);
+  a.download = name;
+  a.id = name;
+  a.style.display = 'none';
+  // a.click()
+  document.body.appendChild(a);
+  document.getElementById(name).click();
+  document.body.removeChild(document.getElementById(name));
+  a = null;
 };
-
-/**
- * - create script success and callback
- * - promise async/await
- * - ie
- * - jquery: https://github.com/jquery/jquery/blob/2d4f53416e5f74fa98e0c1d66b6f3c285a12f0ce/test/data/jquery-1.9.1.js#L8569
- *
- */
-
-function createScript(src, callback) {
-  if (!src) return;
-  var _callback = callback || function () { };
-  var script = document.createElement('script');
-  script.setAttribute('src', src);
-  // script.setAttribute('charset', sBianMa);
-  // script.setAttribute('type', 'text/javascript');
-  document.getElementsByTagName('head')[0].appendChild(script);
-  // ie browser
-  if (/msie/.test(window.navigator.userAgent.toLowerCase())) {
-    script.onreadystatechange = function () {
-      if (this.readyState == 'loaded' || this.readyState == 'complete') {
-        script.parentNode.removeChild(script);
-        // if (callback) callback();
-        console.log('ie');
-        _callback();
-      }
-    };
-  } else if (/gecko/.test(window.navigator.userAgent.toLowerCase()) ||
-    /opera/.test(window.navigator.userAgent.toLowerCase())) {
-    script.onload = function () {
-      script.parentNode.removeChild(script);
-      console.log('firefox');
-      _callback();
-    };
-  } else {
-    script.parentNode.removeChild(script);
-    console.log('other');
-    _callback();
-  }
-}
-
-function createScriptAsync(url) {
-  return new Promise(function (resolve, reject) {
-    createScript(url, resolve);
-  })
-}
 
 /**
  * formatNumber
@@ -214,6 +167,75 @@ const notRepeat = (time = 1000) =>
 
 var version = "0.4.5";
 
+function setCookie(name, value, hour) {
+  let currentTime = new Date();
+  currentTime.setTime(currentTime.getTime() + (hour * 60 * 60 * 1000));
+  document.cookie = 'token=null';
+  document.cookie = `${name}=${value};expires=${currentTime.toGMTString()}`;
+}
+
+const getCookie = (name) => {
+  return (new RegExp(name, 'g').test(document.cookie))
+    ? document.cookie.split(name)[1].split("=")[1].split(";")[0]
+    : false
+};
+const clearCookie = (name) => {
+  if (name) {
+    setCookie(name, '', -1);
+  } else {
+    const keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    if (keys) {
+      keys.forEach((key) => setCookie(key, '', -1));
+    }
+  }
+};
+
+/**
+ * - create script success and callback
+ * - promise async/await
+ * - ie
+ * - jquery: https://github.com/jquery/jquery/blob/2d4f53416e5f74fa98e0c1d66b6f3c285a12f0ce/test/data/jquery-1.9.1.js#L8569
+ *
+ */
+
+function createScript(src, callback) {
+  if (!src) return;
+  var _callback = callback || function () { };
+  var script = document.createElement('script');
+  script.setAttribute('src', src);
+  // script.setAttribute('charset', sBianMa);
+  // script.setAttribute('type', 'text/javascript');
+  document.getElementsByTagName('head')[0].appendChild(script);
+  // ie browser
+  if (/msie/.test(window.navigator.userAgent.toLowerCase())) {
+    script.onreadystatechange = function () {
+      if (this.readyState == 'loaded' || this.readyState == 'complete') {
+        script.parentNode.removeChild(script);
+        // if (callback) callback();
+        console.log('ie');
+        _callback();
+      }
+    };
+  } else if (/gecko/.test(window.navigator.userAgent.toLowerCase()) ||
+    /opera/.test(window.navigator.userAgent.toLowerCase())) {
+    script.onload = function () {
+      script.parentNode.removeChild(script);
+      console.log('firefox');
+      _callback();
+    };
+  } else {
+    script.parentNode.removeChild(script);
+    console.log('other');
+    _callback();
+  }
+}
+
+function createScriptAsync(url) {
+  return new Promise(function (resolve, reject) {
+    createScript(url, resolve);
+  })
+}
+
 // 存在url 有俩个相同的key 会取第一个
 function queryUrlParam(key, url) {
   var value = url.match(new RegExp("[\?\&]" + key + "=([^\&]*)(\&?)", "i"));
@@ -243,57 +265,49 @@ function parseObjectToUrl(obj) {
 }
 
 /**
- *  reference: https://github.com/lodash/lodash
+*  reference: https://github.com/lodash/lodash
+*  types: ["Array", "Boolean", "Date", "Number", "Object", "RegExp", "String", "Window", "HTMLDocument"]
+*/
+
+const isUndefined = value => typeof value === 'undefined';
+const isNull = value => Object.prototype.toString.call(value) === '[object Null]';
+const isNumber = value => Object.prototype.toString.call(value) === '[object Number]';
+const isString = value => Object.prototype.toString.call(value) === '[object String]';
+const isFunction = value => Object.prototype.toString.call(value) === '[object Function]';
+const isArray = value => Object.prototype.toString.call(value) === '[object Array]';
+const isArrayEmpty = value => isArray(value) && value.length === 0;
+const isObject = value => Object.prototype.toString.call(value) === '[object Object]';
+const isObjectEmpty = value => isObject(value) && Object.keys(value).length === 0;
+
+/**
+ * TODO: 自动生成 index.js
  */
 
-const isUndefined = (value) => typeof value === 'undefined';
-const isFalse = ((value) => Object.prototype.toString.call(value) === '[object Boolean]' && !value) ? false : true;
-const isNull = (value) => Object.prototype.toString.call(value) === '[object Null]';
-const isNumber = (value) => Object.prototype.toString.call(value) === '[object Number]';
-const isString = (value) => Object.prototype.toString.call(value) === '[object String]';
-const isStringEmpty = (value) => Object.prototype.toString.call(value) === '[object String]' && value === '';
-const isStringNotEmpty = (value) => Object.prototype.toString.call(value) === '[object String]' && value !== '';
-const isFunction = (value) => Object.prototype.toString.call(value) === '[object Function]';
-const isArray = (value) => Object.prototype.toString.call(value) === '[object Array]';
-const isArrayEmpty = (value) => Array.isArray(value) && value.length === 0;
-const isArrayNotEmpty = (value) => Array.isArray(value) && value.length > 0;
-const isObject = (value) => Object.prototype.toString.call(value) === '[object Object]';
-const isObjectEmpty = (value) => Object.prototype.isPrototypeOf(value) === '[object Object]' && Object.keys(value).length === 0;
+exports.author = author;
+exports.console = debug;
+exports.download = downLoad;
+exports.formatNumber = formatNumber;
+exports.notRepeat = notRepeat;
+exports.version = version;
+exports.setCookie = setCookie;
+exports.getCookie = getCookie;
+exports.clearCookie = clearCookie;
+exports.createScript = createScript;
+exports.createScriptAsync = createScriptAsync;
+exports.queryUrlParam = queryUrlParam;
+exports.parseUrlToObject = parseUrlToObject;
+exports.parseObjectToUrl = parseObjectToUrl;
+exports.isUndefined = isUndefined;
+exports.isNull = isNull;
+exports.isNumber = isNumber;
+exports.isString = isString;
+exports.isFunction = isFunction;
+exports.isArray = isArray;
+exports.isArrayEmpty = isArrayEmpty;
+exports.isObject = isObject;
+exports.isObjectEmpty = isObjectEmpty;
 
-var index = {
-  author,
-  console: debug,
-  version,
-  notRepeat,
-  // create script
-  createScript,
-  createScriptAsync,
-  // parse url
-  queryUrlParam,
-  parseUrlToObject,
-  parseObjectToUrl,
-  // deal cookie
-  setCookie,
-  getCookie,
-  clearCookie,
-  // isType
-  isNull,
-  isFalse,
-  isUndefined,
-  isNumber,
-  formatNumber,
-  isFunction,
-  isArray,
-  isArrayEmpty,
-  isArrayNotEmpty,
-  isString,
-  isStringEmpty,
-  isStringNotEmpty,
-  isObject,
-  isObjectEmpty,
-}
-
-return index;
+Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
 //# sourceMappingURL=index.js.map

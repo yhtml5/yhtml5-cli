@@ -1,6 +1,6 @@
 # files
 yarn.lock
-packages-lock.json
+package-lock.json
 
 # directories
 coverage

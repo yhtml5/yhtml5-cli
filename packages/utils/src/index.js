@@ -1,7 +1,6 @@
 /**
  * TODO: 自动生成 index.js
  */
-
 import author from './author'
 import console from './console'
 import download from './download'
@@ -9,7 +8,7 @@ import formatNumber from './formatNumber'
 import notRepeat from './notRepeat'
 import version from './version'
 
-export default {
+export {
   author,
   console,
   download,
@@ -46,5 +45,3 @@ export {
   isObject,
   isObjectEmpty,
 } from './isType'
-
-
