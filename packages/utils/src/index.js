@@ -1,58 +1,50 @@
-import author from './author';
-import console from './console';
-import { setCookie, getCookie, clearCookie } from './cookie';
-import { createScript, createScriptAsync } from './createScript';
-import download from './download';
-import formatNumber from './formatNumber';
-import notRepeat from './notRepeat';
-import version from './version';
-import { queryUrlParam, parseUrlToObject, parseObjectToUrl } from './parseUrl';
+/**
+ * TODO: 自动生成 index.js
+ */
 
-import {
-  isNull,
-  isFalse,
-  isUndefined,
-  isNumber,
-  isFunction,
-  isArray,
-  isArrayEmpty,
-  isArrayNotEmpty,
-  isString,
-  isStringEmpty,
-  isStringNotEmpty,
-  isObject,
-  isObjectEmpty,
-} from './isType';
+import author from './author'
+import console from './console'
+import download from './download'
+import formatNumber from './formatNumber'
+import notRepeat from './notRepeat'
+import version from './version'
 
 export default {
   author,
   console,
-  version,
+  download,
+  formatNumber,
   notRepeat,
-  // create script
-  createScript,
-  createScriptAsync,
-  // parse url
-  queryUrlParam,
-  parseUrlToObject,
-  parseObjectToUrl,
-  // deal cookie
+  version,
+}
+
+export {
   setCookie,
   getCookie,
-  clearCookie,
-  // isType
-  isNull,
-  isFalse,
+  clearCookie
+} from './cookie'
+
+export {
+  createScript,
+  createScriptAsync
+} from './createScript'
+
+export {
+  queryUrlParam,
+  parseUrlToObject,
+  parseObjectToUrl
+} from './parseUrl'
+
+export {
   isUndefined,
+  isNull,
   isNumber,
-  formatNumber,
+  isString,
   isFunction,
   isArray,
   isArrayEmpty,
-  isArrayNotEmpty,
-  isString,
-  isStringEmpty,
-  isStringNotEmpty,
   isObject,
   isObjectEmpty,
-}
+} from './isType'
+
+
