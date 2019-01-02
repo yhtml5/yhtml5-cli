@@ -4,6 +4,6 @@
 */
 'use strict';
 
-var version = "0.4.5";
+var version = "0.5.0";
 
 module.exports = version;

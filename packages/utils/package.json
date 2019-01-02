@@ -1,6 +1,6 @@
 {
   "name": "@yhtml5/utils",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "description": "javascript utilities used by front-end application",
   "main": "index.js",
   "license": "MIT",
