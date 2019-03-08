@@ -8,7 +8,7 @@ function checkCode(regular, appDirectory) {
     .filter(stat => stat.isFile())
     .map(stat => path.join(appDirectory, stat.name))
 
-  if (process.env.DEBUG) {
+  if (process.env.DEBUG === 'true') {
     console.log('appDirectory', appDirectory)
     console.log('paths', paths)
   }
