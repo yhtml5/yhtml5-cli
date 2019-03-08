@@ -16,6 +16,8 @@ const {
   rules = [],
 } = config.checkList || {}
 
+process.env.DEBUG = debug
+
 if (debug) {
   console.log('Debug Info:')
   console.log('> checkListVersion:', checkListVersion)

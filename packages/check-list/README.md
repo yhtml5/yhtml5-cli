@@ -13,6 +13,18 @@ check list 是一个自动化代码检测工具, 弥补了 eslint/单元测试 �
 - 调试代码未关闭, 使用了 mock数据, debugger, alert
 - 部署后, 提醒后续操作内容
 
+## 流程图
+
+config => rule => ruleHandler
+
+npm run check 
+=> check()
+=> rule: handler[type] 
+=> handler: title/regex/require/limit
+=> lib: checkCode/getDirSize/checkRequiredFiles
+=> ask
+=> console result
+
 ## 命令行
 
 在项目根目录下增加config.js
