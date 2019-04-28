@@ -9,47 +9,47 @@ const config = {
       describe: 'Check List Rules:',
     }, {
       type: 'require',
-      describe: '检查文件完整性: 关键性文件',
+      describe: '检查文件完整性 关键性文件',
       paths: [path.resolve(__dirname, 'src/check/requiredFiles.js')]
     }, {
       type: 'limit',
-      describe: '检查文件大小限制: dist',
+      describe: '检查文件大小限制 dist',
       paths: [path.resolve(__dirname, 'dist/')],
-      min: 10,
+      min: 0.1,
       max: 100
     }, {
       type: 'regex',
-      describe: '检查是否存在: 冲突代码',
+      describe: '检查是否存在 冲突代码',
       paths: [__dirname],
       regex: /^<<<<<|^>>>>>/gm,
     }, {
       type: 'regex',
-      describe: '检查是否存在: debug',
+      describe: '检查是否存在 debug',
       paths: [__dirname],
       regex: /^\s*debugger/gm,
     }, {
       type: 'regex',
-      describe: '检查是否存在: alert',
+      describe: '检查是否存在 alert',
       regex: /alert\(/g,
       paths: [__dirname],
     }, {
       type: 'regex',
-      describe: '检查是否存在: console.error',
+      describe: '检查是否存在 console.error',
       regex: /console.error\(/g,
       paths: [__dirname],
     }, {
       type: 'regex',
-      describe: '检查特殊兼容性语法: includes',
+      describe: '检查特殊兼容性语法 includes',
       regex: /\.includes\(/g,
       paths: [__dirname],
     }, {
       type: 'regex',
-      describe: '检查特殊兼容性语法: Data.now',
+      describe: '检查特殊兼容性语法 Data.now',
       regex: /Data.now\(/g,
       paths: [__dirname,],
     }, {
       type: 'regex',
-      describe: '检查是否存在es6语法: dist',
+      describe: '检查是否存在es6语法 dist',
       paths: [path.resolve(__dirname, 'dist')],
       regex: /^\s*const|^let/gm,
     }],

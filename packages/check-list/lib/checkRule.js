@@ -17,8 +17,10 @@ function checkRule(rule) {
     max = Infinity,
     index = 0,
   } = rule || {}
-  const consoleSuccess = () => console.log(chalk.green(`  ${index}.${describe}:`), chalk.blue('success!'))
-  const consoleFail = (num = 1) => console.log(chalk.red(`  ${index}.${describe}:`), chalk.red(`${num} failed!`))
+  const consoleSuccess = ({ sizeText = '' } = {}) =>
+    console.log(chalk.green(`  ${index}.${describe}:`), chalk.blue(`success! ${sizeText}`))
+  const consoleFail = (num = 1) =>
+    console.log(chalk.red(`  ${index}.${describe}:`), chalk.red(`${num} failed!`))
 
   const handler = {
     title() {
@@ -45,18 +47,19 @@ function checkRule(rule) {
     },
     limit() {
       const size = paths.reduce((init, current) => init + getDirSize(current), 0)
+      const sizeText = `${size / 1000}kb`
       if (size > max * 1024) {
         consoleFail()
-        console.log(chalk.red('    getDirSize:', `${size / 1000}kb`))
+        console.log(chalk.red('    getDirSize:', sizeText))
         console.log(chalk.red('    limit max:', `${max}kb`))
         return false
       } else if (size < min * 1024) {
         consoleFail()
-        console.log(chalk.red('    getDirSize:', `${size / 1000}kb`))
+        console.log(chalk.red('    getDirSize:', sizeText))
         console.log(chalk.red('    limit min:', `${min}kb`))
         return false
       } else {
-        consoleSuccess()
+        consoleSuccess({ sizeText })
         return true
       }
     },
