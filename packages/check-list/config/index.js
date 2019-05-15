@@ -11,12 +11,12 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const configPath = resolveApp(process.argv[2])
 const config = require(configPath)
 const {
-  debug = false,
+  debug,
   questions = [],
   rules = [],
 } = config.checkList || {}
 
-process.env.DEBUG = debug
+process.env.DEBUG = process.env.DEBUG || debug
 
 if (debug) {
   console.log('Debug Info:')

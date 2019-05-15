@@ -9,7 +9,7 @@
     "check": "bin/check.js"
   },
   "scripts": {
-    "test": "node ./bin/check ./demo/config.js",
+    "test": "DEBUG=true node ./bin/check ./demo/config.js",
     "prepublishOnly": "echo will publish && npm version patch && git add package.json && git commit -m 'auto publish'"
   },
   "dependencies": {

@@ -21,8 +21,7 @@ async function check({
     console.log(chalk.red(`\n  ✖ total ${failedRules.length} rules failed!`))
     process.exit(1)
   }
-
-  const shouldAsk = (!process.env.DEBUG) && questions && questions.length
+  const shouldAsk = (process.env.DEBUG !== 'true') && questions && questions.length
   const ok = shouldAsk ? await ask(questions) : true
 
   if (ok) {

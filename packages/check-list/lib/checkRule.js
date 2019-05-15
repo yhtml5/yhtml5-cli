@@ -2,6 +2,8 @@ const chalk = require('chalk')
 const checkCode = require('./checkCode')
 const getDirSize = require('./getDirSize')
 const checkRequiredFiles = require('./checkRequiredFiles')
+const getFilesPath = require('./getFilesPath')
+const checkVueScoped = require('./checkVueScoped')
 
 /**
  * check rule
@@ -27,6 +29,27 @@ function checkRule(rule) {
       console.log(chalk.green('Check List Rules:'))
       return true
     },
+    vueScoped() {
+      // 扁平化数组
+      const checkFiles = paths.reduce((init, current) => ([...init, ...getFilesPath(current)]), [])
+      const vueFiles = checkFiles.filter((path) => /\.vue/.test(path))
+      const failedPaths = vueFiles.filter((path) => checkVueScoped(path))
+      if (failedPaths.length) {
+        consoleFail(failedPaths.length)
+        console.log(chalk.red('    failedPaths:\n'), failedPaths)
+      } else {
+        consoleSuccess()
+      }
+      // if (process.env.DEBUG === 'true') {
+      console.log({
+        paths,
+        checkFiles,
+        vueFiles,
+        failedPaths,
+      })
+      // }
+      return failedPaths.length === 0
+    },
     regex() {
       const failedPaths = paths.reduce((init, current) =>
         ([...init, ...checkCode(regex, current)]), [])
@@ -38,7 +61,7 @@ function checkRule(rule) {
         consoleSuccess()
       }
       // const customCheckCodeOk = customCheckCodeResults.every(result => result.failPaths.length === 0)
-      return !failedPaths.length
+      return failedPaths.length === 0
     },
     require() {
       const hasRequiredFiles = checkRequiredFiles(paths)

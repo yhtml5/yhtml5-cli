@@ -18,6 +18,10 @@ const config = {
       min: 0.1,
       max: 100
     }, {
+      type: 'vueScoped',
+      describe: '检查是否 正确添加scoped属性',
+      paths: [__dirname],
+    }, {
       type: 'regex',
       describe: '检查是否存在 冲突代码',
       paths: [__dirname],
