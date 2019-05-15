@@ -40,14 +40,14 @@ function checkRule(rule) {
       } else {
         consoleSuccess()
       }
-      // if (process.env.DEBUG === 'true') {
-      console.log({
-        paths,
-        checkFiles,
-        vueFiles,
-        failedPaths,
-      })
-      // }
+      if (process.env.DEBUG === 'true') {
+        console.log({
+          paths,
+          checkFiles,
+          vueFiles,
+          failedPaths,
+        })
+      }
       return failedPaths.length === 0
     },
     regex() {
