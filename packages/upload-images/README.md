@@ -10,6 +10,8 @@ and then upload to cdn return urls.
 ## start
 
 ### Create .config.js under the picture folder
+Read the config in the root directory by default
+
 ```js
 const path = require('path')
 const entry1 = path.resolve(__dirname, './images/*.{jpg,png}')
@@ -35,7 +37,6 @@ module.exports = config
 add script in package.json
 > upload: uploadimg
 
-Read the config in the root directory by default
 > npm run upload
 
 
