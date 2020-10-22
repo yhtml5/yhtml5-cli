@@ -1,25 +1,15 @@
 ## yhtml5-update-images
 
-An automated tool for compressing and optimizing JPEG or PNG images, 
-and then upload to cdn return urls. 
+An automated tool for compressing and optimizing JPEG or PNG images,
+and then upload to cdn return urls.
 
-> 压缩图片 => 上传到cdn => 返回url 
+1. Compress picture
+2. Upload images to cdn
+3. Return url
 
-### old workflow
-* 打开 https://tinypng.com/
-* 上传图片
-* 下载到文件夹
-* 打开 上传图片 cdn 地址
-* 上传图片
-* 复制链接
+## start
 
-### new workflow
-* npm run uploadimg
-* return url
-
-### start
-
-#### create .config.js in the project root directory
+### Create .config.js under the picture folder
 ```js
 const path = require('path')
 const entry1 = path.resolve(__dirname, './images/*.{jpg,png}')
@@ -33,18 +23,36 @@ const config = {
 module.exports = config
 ```
 
-> npm i yhtml5-upload-images -g
+### use in the global
+> npm i @yhtml5/upload-images -g
+> uploadimg /path/to/config.js
 
-在 package.json 增加 script
+
+### use in the project
+
+> npm i @yhtml5/upload-images
+
+add script in package.json
 > upload: uploadimg
 
-执行
-> npm run upload 
-or 
-> uploadimg 
+Read the config in the root directory by default
+> npm run upload
 
-### notice 
+
+## old workflow
+* open https://tinypng.com/
+* upload images
+* download images
+* open upload images tool
+* upload images
+* copy image link
+
+## new workflow
+* npm run uploadimg
+* return url
+
+## notice
 * 每次只上传一个文件 减轻的服务器压力
 
-### other
+## other
 [imagemin](https://github.com/imagemin/imagemin)
