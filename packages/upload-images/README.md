@@ -27,17 +27,7 @@ module.exports = config
 
 ### use in the global
 > npm i @yhtml5/upload-images -g
-> uploadimg /path/to/config.js
-
-
-### use in the project
-
-> npm i @yhtml5/upload-images
-
-add script in package.json
-> upload: uploadimg
-
-> npm run upload
+> upload /path/to/config.js
 
 
 ## old workflow
@@ -49,7 +39,7 @@ add script in package.json
 * copy image link
 
 ## new workflow
-* npm run uploadimg
+* npm run upload
 * return url
 
 ## notice
