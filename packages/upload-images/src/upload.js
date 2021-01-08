@@ -10,10 +10,10 @@ function upload(filesPaths) {
   const promises = filesPaths.map((v, i) => {
     const file = fs.createReadStream(v)
     const formData = {
-      projectName: 'FrontEndResource',
+      projectName: 'FED',
       files: [file],
       path: 'frontend',
-      usrName: '飞鱼籽',
+      usrName: '麝香',
     };
     return new Promise((resolve, reject) =>
       request.post({
