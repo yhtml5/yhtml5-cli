@@ -60,7 +60,7 @@
     "url": "https://github.com/vuejs/vue-cli/issues"
   },
   "dependencies": {
-    "async": "^2.0.0-rc.2",
+    "async": "^3.2.2",
     "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
