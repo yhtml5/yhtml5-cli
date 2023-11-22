@@ -1,0 +1,13 @@
+# files
+yarn.lock
+package-lock.json
+
+# directories
+coverage
+packages2
+
+# other
+.idea
+.vscode
+*.log
+node_modules

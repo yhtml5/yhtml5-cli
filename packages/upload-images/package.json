@@ -1,0 +1,42 @@
+{
+  "name": "@yhtml5/upload-images",
+  "version": "0.6.9-beta.1",
+  "license": "MIT",
+  "main": "src/index.js",
+  "description": "An automated tool for compressing uploaded images",
+  "author": "yhtml5",
+  "bin": {
+    "upload": "./bin/upload.js"
+  },
+  "scripts": {
+    "test": "node ./bin/upload.js ./demo/config.js"
+  },
+  "dependencies": {
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.1.0",
+    "ora": "^2.1.0",
+    "request": "^2.87.0",
+    "shelljs": "^0.8.2",
+    "user-home": "^2.0.0"
+  },
+  "devDependencies": {
+    "tinify": "^1.5.0"
+  },
+  "keywords": [
+    "check list",
+    "javascript",
+    "test",
+    "deploy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhtml5/yhtml5-cli.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}

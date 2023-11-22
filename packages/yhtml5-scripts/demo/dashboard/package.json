@@ -1,0 +1,79 @@
+{
+  "name": "@yhtml5/dashboard",
+  "version": "1.2.1",
+  "author": "yhtml5 <1417376255@qq.com>",
+  "main": "src/",
+  "license": "MIT",
+  "description": "A CURD system frame that build with React, Redux, Webpack and Antd ",
+  "repository": "git@github.com:yhtml5/YHTML5-Seed.git",
+  "keywords": [
+    "ant design",
+    "component",
+    "framework",
+    "frontend",
+    "mobile",
+    "react",
+    "react hot loader",
+    "redux",
+    "scaffold",
+    "web",
+    "webpack",
+    "weui"
+  ],
+  "dependencies": {
+    "antd": "^2.13.10",
+    "axios": "^0.16.2",
+    "github-markdown-css": "^2.6.0",
+    "history": "^4.6.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "normalize.css": "^7.0.0",
+    "preact": "^8.2.1",
+    "preact-compat": "^3.16.0",
+    "prop-types": "^15.5.6",
+    "react": "~15.4.x",
+    "react-dom": "~15.4.x",
+    "react-lazyload": "^2.2.5",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
+    "react-router-redux": "^5.0.0-alpha.4",
+    "react-transition-group": "^1.1.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "reqwest": "^2.0.5",
+    "wangeditor": "^2.1.23"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.1.1",
+    "enzyme": "^2.9.1",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-test-renderer": "^15.4.x",
+    "webpack-dashboard": "^0.4.0",
+    "yhtml5-dev-utils": "^1.0.3",
+    "yhtml5-scripts": "^0.2.3",
+    "yhtml5-test": "^0.1.2"
+  },
+  "peerDependencies": {
+    "react": "^15.4.x",
+    "webpack": "^2.x",
+    "babel-core": "^6.x"
+  },
+  "engines": {
+    "node": ">= 5.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "start": "yhtml5-scripts start",
+    "dev": "yhtml5-scripts start",
+    "scripts:u": "npm i yhtml5-scripts@latest yhtml5-test@latest -D",
+    "build": "clear && yhtml5-scripts build",
+    "test": "clear && yhtml5-test --env=jsdom",
+    "test:c": "npm test -- --coverage",
+    "test:u": "npm i yhtml5-test@latest -D",
+    "lint": "eslint --ext .js,.jsx ./app/Containers",
+    "precommit": "npm run test",
+    "git": "clear && git status && git add . && git commit -m",
+    "postgit": "git pull && git push && git status"
+  }
+}

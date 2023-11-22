@@ -1,0 +1,10 @@
+# files
+.DS_Store
+yarn.lock
+packages-lock.json
+
+# directories
+.vscode
+logs/*
+node_module
+bower_components

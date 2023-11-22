@@ -1,0 +1,10 @@
+{
+  "name": "yhtml5-scripts-demo-spa",
+  "version": "1.0.1",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "build": "react-scripts build"
+  }
+}

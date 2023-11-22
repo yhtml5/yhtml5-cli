@@ -1,0 +1,40 @@
+{
+  "name": "yhtml5-test",
+  "version": "1.2.2",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "description": "A test framework for front-end projects",
+  "author": "yhtml5",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "test": "yhtml5-test --env=jsdom",
+    "test:c": "npm test -- --coverage",
+    "test:u": "npm i @2d/2d-scripts@latest -D"
+  },
+  "dependencies": {
+    "babel-jest": "^21.0.2",
+    "babel-preset-react-app": "^3.0.2",
+    "cross-spawn": "^5.1.0",
+    "jest": "^21.1.0",
+    "leakage": "^0.4.0",
+    "object-assign": "^4.1.1",
+    "promise": "^8.0.1",
+    "regenerator-runtime": "^0.11.0",
+    "whatwg-fetch": "^2.0.3",
+    "yhtml5-dev-utils": "^1.1.9"
+  },
+  "bin": {
+    "yhtml5-test": "./bin/yhtml5-test.js"
+  },
+  "keywords": [
+    "react",
+    "cli",
+    "spa"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}

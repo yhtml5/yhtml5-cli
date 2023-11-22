@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+require('commander')
+  .version(require('../package.json').version)
+  .usage('<command> [options]')
+  .command('init', 'generate a new project from a template')
+  .command('clear', 'clear the cache (No support yet)')
+  .command('dev', 'development (No support yet)')
+  .command('build', 'build app (No support yet)')
+  .parse(process.argv)
+
+// you are not in yhtml5 project
