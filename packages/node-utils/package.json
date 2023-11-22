@@ -20,7 +20,7 @@
     "opn": "5.1.0",
     "react-error-overlay": "^2.0.2",
     "recursive-readdir": "2.2.1",
-    "shell-quote": "1.6.1",
+    "shell-quote": "1.7.3",
     "sockjs-client": "1.1.4",
     "strip-ansi": "3.0.1",
     "text-table": "0.2.0"
